@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
-import { ArrowRight, Clock, Mail, MapPin } from 'lucide-react';
+import { Clock, Mail, MapPin } from 'lucide-react';
 import ContactForm from './contact-form';
 
 export const metadata: Metadata = {
@@ -47,7 +46,38 @@ export default function ContactPage() {
         </div>
 
         <div className="mt-14 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-          <ContactForm />
+          <div className="grid gap-6">
+            <div className="industrial-shell overflow-hidden rounded-2xl">
+              <div className="grid gap-5 p-5 md:p-6">
+                <div>
+                  <h2 className="font-heading text-2xl font-bold leading-tight md:text-3xl">
+                    First we understand the route
+                  </h2>
+                  <p className="mt-3 text-sm leading-6 text-muted md:text-base">
+                    Share the movement problem below. The useful details are simple: payload,
+                    distance, floor condition, handoff points, and what currently slows the team.
+                  </p>
+                </div>
+                <div className="media-chrome aspect-video bg-background">
+                  <video
+                    aria-hidden="true"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    preload="metadata"
+                    width={1280}
+                    height={720}
+                    className="h-full w-full object-cover"
+                  >
+                    <source src="/Assets/connect.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            </div>
+
+            <ContactForm />
+          </div>
 
           <aside className="grid content-start gap-4">
             {contactCards.map((card) => {
@@ -71,43 +101,6 @@ export default function ContactPage() {
               );
             })}
           </aside>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-6 pb-24">
-        <div className="industrial-shell overflow-hidden rounded-2xl">
-          <div className="grid gap-8 p-6 md:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div>
-              <h2 className="font-heading text-3xl font-bold leading-tight md:text-4xl">
-                The right conversation comes before the right robot
-              </h2>
-              <p className="mt-4 text-sm leading-6 text-muted md:text-base">
-                Use this page for demos, pilot planning, product questions, partnerships, and early deployment discussions.
-              </p>
-              <Link
-                href="mailto:hello@momentumrobotics.in"
-                className="mt-7 inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground transition hover:brightness-110"
-              >
-                Email the team
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </Link>
-            </div>
-            <div className="media-chrome aspect-video bg-background">
-              <video
-                aria-hidden="true"
-                autoPlay
-                loop
-                muted
-                playsInline
-                preload="metadata"
-                width={1280}
-                height={720}
-                className="h-full w-full object-cover"
-              >
-                <source src="/Assets/connect.mp4" type="video/mp4" />
-              </video>
-            </div>
-          </div>
         </div>
       </section>
     </div>
