@@ -9,7 +9,7 @@ export const solutions: Solution[] = [
     description:
       'End-to-end warehouse operations with autonomous mobile robots for picking, sorting, and goods-to-person workflows.',
     benefits: [
-      '60% faster order fulfillment',
+      'Faster order fulfillment workflows',
       'Reduced labor costs',
       '24/7 operational capability',
       'Real-time inventory visibility',
@@ -53,7 +53,7 @@ export const solutions: Solution[] = [
     description:
       'Automated inventory tracking and cycle counting with autonomous robots that scan and audit stock in real-time.',
     benefits: [
-      '99.9% inventory accuracy',
+      'Higher inventory accuracy',
       'Automated cycle counting',
       'Reduced shrinkage',
       'Real-time stock visibility',
@@ -64,7 +64,7 @@ export const solutions: Solution[] = [
       'Pharma inventory compliance',
       'Asset tracking',
     ],
-    image: '/Assets/69a6432069d0ae8ae745d6a0_Square Card-7.avif',
+    image: '/industries/arno-senoner-bCgsKqFzUcg-unsplash.jpg',
     products: ['pixel', 'cyborg-250'],
   },
   {
@@ -94,58 +94,58 @@ export const solutions: Solution[] = [
 export const caseStudies: CaseStudy[] = [
   {
     id: 'cs-warehouse-1',
-    title: 'Automated Fulfillment for E-Commerce Giant',
+    title: 'Warehouse Pilot Blueprint',
     slug: 'ecommerce-fulfillment',
-    client: 'Leading E-Commerce Company',
+    client: 'Example deployment scenario',
     industry: 'warehouses-logistics',
     product: 'pixel',
     challenge:
-      'Manual picking processes causing 48-hour order fulfillment times during peak seasons with high error rates.',
+      'Teams need a low-risk way to test goods movement without changing the entire warehouse layout.',
     solution:
-      'Deployed a fleet of 20 Pixel AMRs for goods-to-person picking, integrated with existing WMS for real-time task allocation.',
+      'Start with a single route, validate charging, safety zones, operator handoff, and WMS integration before expanding.',
     results: [
-      'Fulfillment time reduced to 12 hours',
-      '99.7% pick accuracy achieved',
-      'ROI achieved in 14 months',
-      'Scaled to 50 units in Year 2',
+      'Mapped pilot route',
+      'Defined success metrics',
+      'Integration checklist prepared',
+      'Expansion plan documented',
     ],
     image: '/Assets/Square_metalcut.avif',
   },
   {
     id: 'cs-automotive-1',
-    title: 'Line-Side Delivery for Automotive Assembly',
+    title: 'Line-Side Delivery Blueprint',
     slug: 'automotive-line-side',
-    client: 'Major Automotive Manufacturer',
+    client: 'Example deployment scenario',
     industry: 'automotive',
     product: 'orbit',
     challenge:
-      'Takt-time violations due to delayed parts delivery to assembly stations causing production bottlenecks.',
+      'Assembly teams need repeatable line feeding without adding more manual vehicle traffic.',
     solution:
-      'Implemented Orbit AMRs for just-in-time parts delivery with ERP integration for automated order triggering.',
+      'Design a controlled route between supermarket, buffer zone, and line-side drop point with safety review gates.',
     results: [
-      'Takt-time compliance improved to 99.2%',
-      '60% reduction in line stoppages',
-      'Annual savings of ₹2.4 crore',
-      'Zero safety incidents',
+      'Route simulation complete',
+      'Handoff points documented',
+      'Operator training scope defined',
+      'Scale path prepared',
     ],
-    image: '/Assets/69a643215a51cb0780c58bc1_Square Card-6.avif',
+    image: '/industries/6904ac0e507b4eaf85d5be53_Application-4.png',
   },
   {
     id: 'cs-pharma-1',
-    title: 'GMP-Compliant Transport for Pharma Manufacturing',
+    title: 'Traceable Transport Blueprint',
     slug: 'pharma-gmp-transport',
-    client: 'Top Pharma Company',
+    client: 'Example deployment scenario',
     industry: 'pharma',
     product: 'cyborg-250',
     challenge:
-      'Manual material transport risking GMP compliance with limited traceability of raw materials between buildings.',
+      'Pharma and lab teams need cleaner movement records for samples, kits, and controlled materials.',
     solution:
-      'Deployed Cyborg 250 fleet with cleanroom-compatible design and full audit trail logging for every material transfer.',
+      'Pair AMR routes with job IDs, access points, and operator approvals so every move can be reviewed later.',
     results: [
-      '100% GMP compliance maintained',
-      'Full traceability achieved',
-      '40% reduction in transfer time',
-      'Zero contamination incidents',
+      'Traceability map prepared',
+      'Access workflow outlined',
+      'Audit fields identified',
+      'Pilot governance aligned',
     ],
     image: '/Assets/Agility_Digit.avif',
   },

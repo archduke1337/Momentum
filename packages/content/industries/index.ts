@@ -10,7 +10,7 @@ export const industries: Industry[] = [
       'Power automotive assembly lines with precision robots for parts delivery, line feeding, and end-of-line testing.',
     icon: 'Car',
     solutions: [],
-    image: '/Assets/699fdc15aa9256862cec3c95_Agility_Digit_04.avif',
+    image: '/industries/6904ac0e507b4eaf85d5be53_Application-4.png',
   },
   {
     id: 'manufacturing',
@@ -32,7 +32,7 @@ export const industries: Industry[] = [
       'Transform warehouse operations with autonomous mobile robots for picking, sorting, and goods-to-person systems.',
     icon: 'Warehouse',
     solutions: ['warehouse-automation', 'inventory-management'],
-    image: '/Assets/69a6432069d0ae8ae745d6a0_Square Card-7.avif',
+    image: '/industries/arno-senoner-bCgsKqFzUcg-unsplash.jpg',
   },
   {
     id: 'pharma',
@@ -54,7 +54,7 @@ export const industries: Industry[] = [
       'Accelerate FMCG operations with automated picking, packing, and intralogistics across distribution centers.',
     icon: 'Package',
     solutions: ['warehouse-automation'],
-    image: '/Assets/69a643215a51cb0780c58bc1_Square Card-6.avif',
+    image: '/industries/refinary.jpg',
   },
   {
     id: 'education',
