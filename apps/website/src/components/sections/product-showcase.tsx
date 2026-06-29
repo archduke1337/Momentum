@@ -53,7 +53,7 @@ export function ProductShowcase() {
 
         <Link
           href="/products/cyborg"
-          className="group relative min-h-[720px] overflow-hidden border border-border bg-[linear-gradient(180deg,#f4f5ef_0%,#dfe6d8_100%)] text-[#10140f] transition hover:border-primary/50"
+          className="group relative min-h-[720px] overflow-hidden border border-border bg-[linear-gradient(180deg,var(--color-surface)_0%,var(--color-surface-elevated)_100%)] text-foreground transition hover:border-primary/50"
         >
           <Image
             src={cyborg.image}
