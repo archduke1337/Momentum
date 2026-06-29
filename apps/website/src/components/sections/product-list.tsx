@@ -1,92 +1,122 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowRight, Boxes, PackageCheck, SlidersHorizontal } from 'lucide-react';
 import { products } from '@workspace/content';
 import type { Product } from '@workspace/types';
-import GlowHover from '@/components/smoothui/glow-hover-card';
-import RevealText from '@/components/smoothui/reveal-text';
-import AnimatedTags from '@/components/smoothui/animated-tags';
 
-const categories = ['all', ...new Set(products.map((p) => p.category))];
+const categories = [
+  { label: 'All robots', value: 'all' },
+  { label: 'AMR platforms', value: 'amr' },
+  { label: 'Future systems', value: 'fleet-management' },
+];
+
+function productPayload(product: Product) {
+  if (product.variants?.length) {
+    return product.variants.map((variant) => variant.payload).join(', ');
+  }
+
+  return product.specifications['Payload Capacity'] ?? 'Configured per use case';
+}
 
 export function ProductList() {
   const [activeCategory, setActiveCategory] = useState('all');
   const filtered = activeCategory === 'all'
     ? products
-    : products.filter((p) => p.category === activeCategory);
+    : products.filter((product) => product.category === activeCategory);
 
   return (
-    <section className="max-w-7xl mx-auto px-6 pt-32 pb-24">
-      <div className="max-w-2xl">
-        <p className="text-sm text-muted font-medium tracking-wide mb-4">AMR Platforms</p>
-        <h1 className="font-heading text-5xl font-bold tracking-tight">
-          <RevealText direction="up">Our Products</RevealText>
-        </h1>
-        <p className="mt-4 text-muted max-w-xl leading-relaxed">
-          Autonomous mobile robots built for Indian industrial environments. From compact agile bots to heavy-duty haulers.
+    <section className="mx-auto max-w-7xl px-6 pb-24 pt-32">
+      <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+        <div>
+          <p className="mb-5 inline-flex rounded-full border border-border bg-surface px-3 py-1 text-sm text-muted">
+            AMR platforms
+          </p>
+          <h1 className="font-heading text-5xl font-bold leading-tight md:text-6xl">
+            Robots for practical material movement
+          </h1>
+        </div>
+        <p className="max-w-2xl text-base leading-7 text-muted md:text-lg">
+          Compare current Momentum platforms by payload, role, and deployment fit. More assets, CAD packs, and field data can be added as the product library grows.
         </p>
       </div>
 
-      <div className="mt-8">
-        <AnimatedTags
-          initialTags={categories}
-          selectedTags={[activeCategory]}
-          onChange={(tags) => setActiveCategory(tags[0] ?? 'all')}
-        />
+      <div className="mt-10 flex flex-wrap gap-2">
+        {categories.map((category) => (
+          <button
+            key={category.value}
+            type="button"
+            onClick={() => setActiveCategory(category.value)}
+            className={`min-h-10 rounded-full border px-4 text-sm font-medium transition ${
+              activeCategory === category.value
+                ? 'border-primary bg-primary text-primary-foreground'
+                : 'border-border bg-surface text-muted hover:border-primary/35 hover:text-foreground'
+            }`}
+          >
+            {category.label}
+          </button>
+        ))}
       </div>
 
-      <div className="mt-10">
-        <GlowHover
-          items={filtered.map((product: Product) => ({
-            id: product.id,
-            element: (
-              <Link
-                href={`/products/${product.slug}`}
-                className="group rounded-2xl border border-border bg-surface overflow-hidden transition-all duration-500 hover:border-primary/30 hover:bg-surface-elevated block"
-              >
-                <div className="aspect-[4/3] bg-accent relative overflow-hidden">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-contain p-6 transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent" />
+      <div className="mt-12 grid gap-5 lg:grid-cols-3">
+        {filtered.length === 0 ? (
+          <div className="rounded-2xl border border-dashed border-border bg-surface p-8 lg:col-span-3">
+            <h2 className="font-heading text-2xl font-bold">Future product space</h2>
+            <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">
+              This category is reserved for upcoming software and fleet-management modules. It is ready for content as the roadmap becomes public.
+            </p>
+          </div>
+        ) : null}
+
+        {filtered.map((product: Product) => (
+          <Link
+            key={product.id}
+            href={`/products/${product.slug}`}
+            className="group flex min-h-[620px] flex-col overflow-hidden rounded-2xl border border-border bg-surface transition duration-300 hover:border-primary/40 hover:bg-surface-elevated"
+          >
+            <div className="relative h-72 bg-accent">
+              <Image
+                src={product.image}
+                alt={`${product.name} AMR platform`}
+                fill
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                className="object-contain p-6 transition duration-700 group-hover:scale-[1.03]"
+              />
+            </div>
+            <div className="flex flex-1 flex-col p-6">
+              <div className="flex items-center justify-between gap-4">
+                <h2 className="font-heading text-3xl font-bold">{product.name}</h2>
+                <span className="rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-medium text-primary">
+                  Pilot-ready
+                </span>
+              </div>
+              <p className="mt-3 text-sm font-medium text-primary">{productPayload(product)}</p>
+              <p className="mt-4 text-sm leading-6 text-muted-foreground">{product.description}</p>
+
+              <div className="mt-6 grid gap-3 text-sm">
+                <div className="flex items-center gap-3 text-muted">
+                  <Boxes className="size-4 text-primary" aria-hidden="true" />
+                  <span>{product.tagline}</span>
                 </div>
-                <div className="p-6">
-                  <p className="text-[10px] uppercase tracking-[0.18em] text-primary font-semibold">
-                    {product.category === 'amr' ? 'Autonomous Mobile Robot' : product.category}
-                  </p>
-                  <h2 className="mt-2 text-xl font-semibold group-hover:text-primary transition-colors">
-                    {product.name}
-                  </h2>
-                  <p className="mt-1 text-sm text-muted-foreground">{product.tagline}</p>
-                  {product.variants && (
-                    <div className="mt-3 flex flex-wrap gap-1.5">
-                      {product.variants.map((v) => (
-                        <span key={v.id} className="rounded-full border border-border bg-accent px-2.5 py-1 text-[11px] text-muted">
-                          {v.payload}
-                        </span>
-                      ))}
-                    </div>
-                  )}
-                  {!product.variants && (
-                    <div className="mt-3 flex items-center gap-2 text-xs text-muted">
-                      <span>{product.specifications['Payload Capacity']}</span>
-                      <span className="w-1 h-1 rounded-full bg-border" />
-                      <span>{product.specifications['Speed']}</span>
-                    </div>
-                  )}
+                <div className="flex items-center gap-3 text-muted">
+                  <PackageCheck className="size-4 text-primary" aria-hidden="true" />
+                  <span>{product.industries.slice(0, 3).map((item) => item.replace(/-/g, ' ')).join(', ')}</span>
                 </div>
-              </Link>
-            ),
-          }))}
-          glowIntensity={0.12}
-          maskSize={300}
-          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-        />
+                <div className="flex items-center gap-3 text-muted">
+                  <SlidersHorizontal className="size-4 text-primary" aria-hidden="true" />
+                  <span>{product.features.slice(0, 2).join(', ')}</span>
+                </div>
+              </div>
+
+              <span className="mt-auto inline-flex items-center gap-2 pt-8 text-sm font-semibold text-foreground transition group-hover:text-primary">
+                Open product page
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </span>
+            </div>
+          </Link>
+        ))}
       </div>
     </section>
   );
