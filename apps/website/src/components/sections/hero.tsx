@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
+import { HexagonPattern } from '@/components/ui/hexagon-pattern';
 
 const trackCards = [
   {
@@ -24,7 +25,14 @@ export function Hero() {
   return (
     <section className="relative isolate min-h-[94dvh] overflow-hidden pt-24">
       <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,#070a08_0%,#0d130f_54%,#070a08_100%)]" />
-      <div className="absolute inset-0 -z-10 bg-[linear-gradient(90deg,rgb(255_255_255/0.055)_1px,transparent_1px),linear-gradient(180deg,rgb(255_255_255/0.035)_1px,transparent_1px)] bg-[size:88px_88px]" />
+      <div className="absolute inset-0 -z-10">
+        <HexagonPattern
+          radius={35}
+          gap={6}
+          className="stroke-primary/[0.06] fill-primary/[0.02]"
+          strokeDasharray="3 5"
+        />
+      </div>
       <div className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-[linear-gradient(180deg,transparent,color-mix(in_srgb,var(--color-primary)_9%,transparent))]" />
 
       <motion.div
