@@ -3,6 +3,8 @@ export interface ProductVariant {
   name: string;
   slug: string;
   payload: string;
+  image?: string;
+  specificationImage?: string;
   specifications: Record<string, string>;
 }
 
