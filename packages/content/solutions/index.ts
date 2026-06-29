@@ -7,12 +7,12 @@ export const solutions: Solution[] = [
     slug: 'warehouse-automation',
     industry: 'warehouses-logistics',
     description:
-      'End-to-end warehouse operations with autonomous mobile robots for picking, sorting, and goods-to-person workflows.',
+      'Pilot Cyborg routes for internal warehouse movement, staging, handoff points, and load transport.',
     benefits: [
-      'Faster order fulfillment workflows',
-      'Reduced labor costs',
-      '24/7 operational capability',
-      'Real-time inventory visibility',
+      'Route-first pilot planning',
+      'Load movement review',
+      'Operator handoff mapping',
+      'Scale path for fleets',
     ],
     useCases: [
       'E-commerce fulfillment',
@@ -29,12 +29,12 @@ export const solutions: Solution[] = [
     slug: 'education-automation',
     industry: 'education',
     description:
-      'Smart campus logistics with autonomous delivery robots for labs, libraries, and administrative buildings.',
+      'Robotics education platforms for ROS2, SLAM, mapping, and autonomous navigation learning.',
     benefits: [
-      'Automated inter-building delivery',
-      'Research platform for students',
-      'Reduced campus logistics burden',
-      'Modern campus experience',
+      'Hands-on ROS2 learning',
+      'SLAM and navigation practice',
+      'Sensor fusion experiments',
+      'Research-ready hardware',
     ],
     useCases: [
       'Lab sample transport',
@@ -51,12 +51,12 @@ export const solutions: Solution[] = [
     slug: 'inventory-management',
     industry: 'warehouses-logistics',
     description:
-      'Automated inventory tracking and cycle counting with autonomous robots that scan and audit stock in real-time.',
+      'Early planning track for autonomous stock movement, inventory routes, and future scanning workflows.',
     benefits: [
-      'Higher inventory accuracy',
-      'Automated cycle counting',
-      'Reduced shrinkage',
-      'Real-time stock visibility',
+      'Route and rack mapping',
+      'Workflow discovery',
+      'Integration planning',
+      'Future scanning readiness',
     ],
     useCases: [
       'Warehouse cycle counts',
@@ -73,12 +73,12 @@ export const solutions: Solution[] = [
     slug: 'startup-automation',
     industry: 'manufacturing',
     description:
-      'Scalable automation solutions for growing businesses. Start small and expand your robot fleet as operations grow.',
+      'A practical automation entry point for growing manufacturers, labs, and operators that need a first robotics pilot.',
     benefits: [
-      'Pay-as-you-grow model',
-      'Quick deployment',
-      'Minimal infrastructure changes',
-      'Fleet scaling roadmap',
+      'Pilot-first scope',
+      'Simple route selection',
+      'Training pathway',
+      'Expansion roadmap',
     ],
     useCases: [
       'Small warehouse ops',
