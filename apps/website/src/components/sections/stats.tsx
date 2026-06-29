@@ -23,8 +23,15 @@ const stack = [
 
 export function Stats() {
   return (
-    <section className="border-y border-border bg-surface/25">
-      <div className="mx-auto max-w-7xl px-6 py-16">
+    <section className="relative border-y border-border bg-surface/25 overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none">
+        <HexagonPattern
+          radius={25}
+          gap={4}
+          className="stroke-primary/[0.04] fill-primary/[0.01]"
+        />
+      </div>
+      <div className="relative mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div>
             <h2 className="font-heading text-4xl font-bold leading-tight md:text-5xl">
