@@ -18,9 +18,9 @@ import {
 } from '@/components/unlumen-ui/motion-navigation-menu';
 
 const productLinks = [
-  { name: 'Pixel', href: '/products/pixel', desc: '100kg compact AMR' },
-  { name: 'Orbit', href: '/products/orbit', desc: '500kg heavy-duty AMR' },
-  { name: 'Cyborg', href: '/products/cyborg', desc: '150–1000kg modular' },
+  { name: 'Pixel', href: '/products/pixel', desc: '100kg compact AMR', tag: 'Lab' },
+  { name: 'Orbit', href: '/products/orbit', desc: '500kg heavy-duty AMR', tag: 'Lab' },
+  { name: 'Cyborg', href: '/products/cyborg', desc: '150–1000kg modular platform', tag: 'Industrial' },
 ];
 
 const industryLinks = [
@@ -33,26 +33,26 @@ const industryLinks = [
 ];
 
 const solutionLinks = [
-  { name: 'Warehouse Automation', href: '/solutions/warehouse-automation' },
-  { name: 'Inventory Management', href: '/solutions/inventory-management' },
-  { name: 'Education Automation', href: '/solutions/education-automation' },
-  { name: 'Startup Automation', href: '/solutions/startup-automation' },
+  { name: 'Warehouse Automation', href: '/solutions/warehouse-automation', desc: 'Pick, sort, goods-to-person' },
+  { name: 'Inventory Management', href: '/solutions/inventory-management', desc: 'Cycle counting, audit trails' },
+  { name: 'Education Automation', href: '/solutions/education-automation', desc: 'Campus logistics, ROS2 labs' },
+  { name: 'Startup Automation', href: '/solutions/startup-automation', desc: 'Pay-as-you-grow model' },
 ];
 
 const companyLinks = [
-  { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
-  { name: 'Careers', href: '/careers' },
+  { name: 'About', href: '/about', desc: 'Our mission and team' },
+  { name: 'Contact', href: '/contact', desc: 'Start with one route' },
+  { name: 'Careers', href: '/careers', desc: 'Join Momentum' },
 ];
 
 const resourceLinks = [
-  { name: 'Blog', href: '/blog' },
-  { name: 'Documentation', href: '/resources/documentation' },
-  { name: 'Changelog', href: '/resources/changelog' },
+  { name: 'Blog', href: '/blog', desc: 'Insights and articles' },
+  { name: 'Documentation', href: '/resources/documentation', desc: 'Product guides' },
+  { name: 'Changelog', href: '/resources/changelog', desc: 'Version history' },
 ];
 
-const hl = 'bg-primary/[0.08] rounded-lg';
-const contentHl = 'bg-primary/[0.06] rounded-lg ring-1 ring-primary/10';
+const hl = 'bg-primary/[0.06] rounded-lg';
+const contentHl = 'bg-primary/[0.05] rounded-lg ring-1 ring-primary/[0.08]';
 
 export function MainNav() {
   const pathname = usePathname();
@@ -81,36 +81,39 @@ export function MainNav() {
         initial={{ opacity: 0, y: -14 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed inset-x-0 top-0 z-50 px-3 pt-3"
+        className="fixed inset-x-0 top-0 z-50 px-4 pt-3"
       >
         <div
-          className={`mx-auto grid h-16 max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-3 border px-3 transition duration-300 ${
+          className={`mx-auto flex h-14 max-w-7xl items-center justify-between border px-4 transition duration-300 ${
             scrolled
-              ? 'border-border bg-background/88 shadow-[0_18px_50px_rgb(0,0,0/0.22)] backdrop-blur-xl'
-              : 'border-white/10 bg-background/48 backdrop-blur-md'
+              ? 'border-border bg-background/90 shadow-[0_12px_40px_rgb(0,0,0/0.18)] backdrop-blur-xl'
+              : 'border-white/10 bg-background/50 backdrop-blur-md'
           }`}
         >
-          <Link href="/" className="flex items-center px-1">
-            <Logo className="h-5 w-auto" width={132} height={28} />
+          <Link href="/" className="flex items-center shrink-0">
+            <Logo className="h-[18px] w-auto" width={120} height={22} />
           </Link>
 
-          <nav className="hidden justify-center lg:flex" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center" aria-label="Main navigation">
             <MotionNavigationMenu
               viewportClassName="bg-surface border border-border shadow-xl shadow-black/5 backdrop-blur-md"
-              springStiffness={350}
-              springDamping={32}
+              springStiffness={380}
+              springDamping={30}
             >
               <MotionNavigationMenuList highlightClassName={hl}>
                 <MotionNavigationMenuItem value="products">
-                  <MotionNavigationMenuTrigger className="px-3 py-1.5 text-[12px] font-medium text-muted hover:text-foreground">
+                  <MotionNavigationMenuTrigger className="px-3 py-1.5 text-[13px] font-medium text-muted hover:text-foreground transition-colors">
                     Products
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
-                    <div className="grid w-[420px] grid-cols-3 gap-1 p-1">
+                    <div className="grid w-[460px] grid-cols-1 gap-0.5 p-1.5">
                       {productLinks.map((p) => (
-                        <MotionNavigationMenuLink key={p.href} href={p.href} className="flex flex-col gap-0.5 rounded-lg p-3">
-                          <span className="text-sm font-medium text-foreground">{p.name}</span>
-                          <span className="text-xs text-muted-foreground">{p.desc}</span>
+                        <MotionNavigationMenuLink key={p.href} href={p.href} className="flex items-center justify-between rounded-lg px-3.5 py-2.5">
+                          <div className="flex flex-col">
+                            <span className="text-[13px] font-medium text-foreground">{p.name}</span>
+                            <span className="text-[11px] text-muted-foreground mt-0.5">{p.desc}</span>
+                          </div>
+                          <span className="text-[10px] font-medium text-primary/70 uppercase tracking-wider">{p.tag}</span>
                         </MotionNavigationMenuLink>
                       ))}
                     </div>
@@ -118,13 +121,13 @@ export function MainNav() {
                 </MotionNavigationMenuItem>
 
                 <MotionNavigationMenuItem value="industries">
-                  <MotionNavigationMenuTrigger className="px-3 py-1.5 text-[12px] font-medium text-muted hover:text-foreground">
+                  <MotionNavigationMenuTrigger className="px-3 py-1.5 text-[13px] font-medium text-muted hover:text-foreground transition-colors">
                     Industries
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
-                    <div className="grid w-[280px] grid-cols-2 gap-1 p-1">
+                    <div className="grid w-[300px] grid-cols-2 gap-0.5 p-1.5">
                       {industryLinks.map((i) => (
-                        <MotionNavigationMenuLink key={i.href} href={i.href} className="rounded-lg px-3 py-2 text-sm text-foreground">
+                        <MotionNavigationMenuLink key={i.href} href={i.href} className="rounded-lg px-3 py-2 text-[13px] text-foreground">
                           {i.name}
                         </MotionNavigationMenuLink>
                       ))}
@@ -133,14 +136,15 @@ export function MainNav() {
                 </MotionNavigationMenuItem>
 
                 <MotionNavigationMenuItem value="solutions">
-                  <MotionNavigationMenuTrigger className="px-3 py-1.5 text-[12px] font-medium text-muted hover:text-foreground">
+                  <MotionNavigationMenuTrigger className="px-3 py-1.5 text-[13px] font-medium text-muted hover:text-foreground transition-colors">
                     Solutions
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
-                    <div className="grid w-[260px] gap-1 p-1">
+                    <div className="grid w-[320px] gap-0.5 p-1.5">
                       {solutionLinks.map((s) => (
-                        <MotionNavigationMenuLink key={s.href} href={s.href} className="rounded-lg px-3 py-2.5 text-sm text-foreground">
-                          {s.name}
+                        <MotionNavigationMenuLink key={s.href} href={s.href} className="flex flex-col rounded-lg px-3.5 py-2.5">
+                          <span className="text-[13px] font-medium text-foreground">{s.name}</span>
+                          <span className="text-[11px] text-muted-foreground mt-0.5">{s.desc}</span>
                         </MotionNavigationMenuLink>
                       ))}
                     </div>
@@ -148,14 +152,15 @@ export function MainNav() {
                 </MotionNavigationMenuItem>
 
                 <MotionNavigationMenuItem value="company">
-                  <MotionNavigationMenuTrigger className="px-3 py-1.5 text-[12px] font-medium text-muted hover:text-foreground">
+                  <MotionNavigationMenuTrigger className="px-3 py-1.5 text-[13px] font-medium text-muted hover:text-foreground transition-colors">
                     Company
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
-                    <div className="grid w-[240px] gap-1 p-1">
+                    <div className="grid w-[280px] gap-0.5 p-1.5">
                       {companyLinks.map((c) => (
-                        <MotionNavigationMenuLink key={c.href} href={c.href} className="rounded-lg px-3 py-2 text-sm text-foreground">
-                          {c.name}
+                        <MotionNavigationMenuLink key={c.href} href={c.href} className="flex flex-col rounded-lg px-3.5 py-2.5">
+                          <span className="text-[13px] font-medium text-foreground">{c.name}</span>
+                          <span className="text-[11px] text-muted-foreground mt-0.5">{c.desc}</span>
                         </MotionNavigationMenuLink>
                       ))}
                     </div>
@@ -163,14 +168,15 @@ export function MainNav() {
                 </MotionNavigationMenuItem>
 
                 <MotionNavigationMenuItem value="resources">
-                  <MotionNavigationMenuTrigger className="px-3 py-1.5 text-[12px] font-medium text-muted hover:text-foreground">
+                  <MotionNavigationMenuTrigger className="px-3 py-1.5 text-[13px] font-medium text-muted hover:text-foreground transition-colors">
                     Resources
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
-                    <div className="grid w-[240px] gap-1 p-1">
+                    <div className="grid w-[280px] gap-0.5 p-1.5">
                       {resourceLinks.map((r) => (
-                        <MotionNavigationMenuLink key={r.href} href={r.href} className="rounded-lg px-3 py-2 text-sm text-foreground">
-                          {r.name}
+                        <MotionNavigationMenuLink key={r.href} href={r.href} className="flex flex-col rounded-lg px-3.5 py-2.5">
+                          <span className="text-[13px] font-medium text-foreground">{r.name}</span>
+                          <span className="text-[11px] text-muted-foreground mt-0.5">{r.desc}</span>
                         </MotionNavigationMenuLink>
                       ))}
                     </div>
@@ -182,25 +188,25 @@ export function MainNav() {
             </MotionNavigationMenu>
           </nav>
 
-          <div className="hidden items-center gap-2 lg:flex">
+          <div className="hidden items-center gap-2.5 lg:flex">
             <ThemeToggle />
             <Link
               href="/contact"
-              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:brightness-110 active:scale-[0.98]"
+              className="inline-flex h-9 items-center gap-2 rounded-full bg-primary px-5 text-[13px] font-semibold text-primary-foreground transition hover:brightness-110 active:scale-[0.98]"
             >
               Pilot Cyborg
-              <ArrowRight className="size-4" aria-hidden="true" />
+              <ArrowRight className="size-3.5" aria-hidden="true" />
             </Link>
           </div>
 
           <button
             type="button"
             onClick={() => setMobileOpen((open) => !open)}
-            className="inline-flex size-11 items-center justify-center border border-border bg-surface text-foreground lg:hidden"
+            className="inline-flex size-9 items-center justify-center border border-border bg-surface text-foreground rounded-lg lg:hidden"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
           >
-            {mobileOpen ? <X className="size-5" aria-hidden="true" /> : <Menu className="size-5" aria-hidden="true" />}
+            {mobileOpen ? <X className="size-4" aria-hidden="true" /> : <Menu className="size-4" aria-hidden="true" />}
           </button>
         </div>
       </motion.header>
@@ -212,9 +218,9 @@ export function MainNav() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-background pt-24 lg:hidden"
+            className="fixed inset-0 z-40 bg-background pt-20 lg:hidden"
           >
-            <nav className="mx-auto flex h-full max-w-7xl flex-col px-6 pb-8" aria-label="Mobile navigation">
+            <nav className="mx-auto flex h-full max-w-7xl flex-col px-5 pb-6" aria-label="Mobile navigation">
               <div className="grid border border-border">
                 {[
                   { label: 'Products', href: '/products' },
@@ -222,22 +228,28 @@ export function MainNav() {
                   { label: 'Solutions', href: '/solutions' },
                   { label: 'Company', href: '/about' },
                   { label: 'Resources', href: '/blog' },
-                ].map((link) => (
-                  <Link
+                ].map((link, i) => (
+                  <motion.div
                     key={link.href}
-                    href={link.href}
-                    className="flex items-center justify-between border-b border-border bg-surface px-5 py-5 last:border-b-0"
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.05 + i * 0.04 }}
                   >
-                    <span className="font-heading text-3xl font-bold">{link.label}</span>
-                    <ArrowRight className="size-5 text-primary" aria-hidden="true" />
-                  </Link>
+                    <Link
+                      href={link.href}
+                      className="flex items-center justify-between border-b border-border bg-surface px-5 py-4 last:border-b-0"
+                    >
+                      <span className="font-heading text-2xl font-bold">{link.label}</span>
+                      <ArrowRight className="size-4 text-primary" aria-hidden="true" />
+                    </Link>
+                  </motion.div>
                 ))}
               </div>
 
-              <div className="mt-auto grid gap-4 pt-8">
+              <div className="mt-auto flex flex-col gap-3 pt-6">
                 <Link
                   href="/contact"
-                  className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
                 >
                   Pilot Cyborg
                   <ArrowRight className="size-4" aria-hidden="true" />
