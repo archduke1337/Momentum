@@ -210,7 +210,7 @@ export default function AboutPage() {
           <div className="relative aspect-[3/4] rounded-2xl border border-border bg-surface overflow-hidden">
             <Image
               src="/Assets/hi hand.avif"
-              alt="Robotic hand — M1.0"
+              alt="Robotic hand"
               fill
               className="object-contain"
             />
