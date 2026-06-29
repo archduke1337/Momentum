@@ -1,0 +1,19 @@
+{
+  "name": "@workspace/content",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./products": "./products/index.ts",
+    "./industries": "./industries/index.ts",
+    "./solutions": "./solutions/index.ts",
+    "./blog": "./blog/index.ts",
+    "./news": "./news/index.ts",
+    "./changelog": "./changelog/index.ts",
+    "./docs": "./docs/index.ts",
+    "./careers": "./careers/index.ts",
+    "./team": "./team/index.ts"
+  }
+}

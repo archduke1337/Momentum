@@ -1,0 +1,27 @@
+{
+  "name": "momentum-robotics",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "clean": "turbo clean"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.0",
+    "typescript": "^5.7.0"
+  },
+  "packageManager": "npm@10.9.0",
+  "dependencies": {
+    "lucide-react": "^1.22.0",
+    "motion": "^12.42.0"
+  },
+  "allowScripts": {
+    "sharp@0.34.5": true
+  }
+}
