@@ -83,7 +83,7 @@ export function ProductList() {
 
         <Link
           href="/products/cyborg"
-          className="group relative min-h-[720px] overflow-hidden border border-border bg-[linear-gradient(180deg,#f4f5ef_0%,#dfe6d8_100%)] text-[#10140f] transition hover:border-primary/50"
+          className="group relative min-h-[720px] overflow-hidden border border-border bg-[linear-gradient(180deg,var(--color-surface)_0%,var(--color-surface-elevated)_100%)] text-foreground transition hover:border-primary/50"
         >
           <Image
             src={cyborg.image}
@@ -93,11 +93,11 @@ export function ProductList() {
             className="object-contain object-bottom p-5 transition duration-700 group-hover:scale-[1.025]"
           />
           <div className="absolute inset-x-0 top-0 bg-[linear-gradient(180deg,rgb(246_247_241/0.98),rgb(246_247_241/0.72),transparent)] p-7 md:p-9">
-            <p className="text-sm font-semibold text-[#3e6c25]">{roles.cyborg.label}</p>
+            <p className="text-sm font-semibold text-primary">{roles.cyborg.label}</p>
             <h2 className="mt-2 font-heading text-5xl font-bold leading-none md:text-6xl">Cyborg</h2>
-            <p className="mt-4 text-sm font-semibold text-[#46513f]">{payload(cyborg)} variant planning</p>
-            <p className="mt-5 max-w-md text-base leading-7 text-[#394236]">{cyborg.description}</p>
-            <span className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#10140f] px-5 py-3 text-sm font-semibold text-white">
+            <p className="mt-4 text-sm font-semibold text-muted">{payload(cyborg)} variant planning</p>
+            <p className="mt-5 max-w-md text-base leading-7 text-muted-foreground">{cyborg.description}</p>
+            <span className="mt-7 inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background">
               {roles.cyborg.action}
               <ArrowRight className="size-4" aria-hidden="true" />
             </span>

@@ -24,7 +24,7 @@ export function Hero() {
 
   return (
     <section className="relative isolate min-h-[94dvh] overflow-hidden pt-24">
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,#070a08_0%,#0d130f_54%,#070a08_100%)]" />
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,var(--color-background)_0%,var(--color-surface)_54%,var(--color-background)_100%)]" />
       <div className="absolute inset-0 -z-10">
         <HexagonPattern
           radius={35}

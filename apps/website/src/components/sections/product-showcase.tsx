@@ -63,12 +63,12 @@ export function ProductShowcase() {
             className="object-contain object-bottom p-4 transition duration-700 group-hover:scale-[1.025]"
           />
           <div className="absolute inset-x-0 top-0 bg-[linear-gradient(180deg,rgb(246_247_241/0.96),rgb(246_247_241/0.76),transparent)] p-7 md:p-9">
-            <p className="text-sm font-semibold text-[#3e6c25]">Industrial product</p>
+            <p className="text-sm font-semibold text-primary">Industrial product</p>
             <h3 className="mt-2 font-heading text-5xl font-bold leading-none md:text-6xl">Cyborg</h3>
-            <p className="mt-5 max-w-md text-base leading-7 text-[#394236]">
+            <p className="mt-5 max-w-md text-base leading-7 text-muted-foreground">
               Factory and warehouse AMR for carrying loads, connecting routes, and replacing repeated manual movement.
             </p>
-            <span className="mt-7 inline-flex items-center gap-2 rounded-full bg-[#10140f] px-5 py-3 text-sm font-semibold text-white">
+            <span className="mt-7 inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background">
               View Cyborg
               <ArrowRight className="size-4" aria-hidden="true" />
             </span>
