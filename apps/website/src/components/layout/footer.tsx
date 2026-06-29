@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { Logo } from './logo';
 import { SocialLinks } from './social-links';
 import { HexagonPattern } from '@/components/ui/hexagon-pattern';
@@ -17,17 +18,8 @@ const footerGroups = [
     items: [
       { label: 'Warehouse Automation', href: '/solutions/warehouse-automation' },
       { label: 'Inventory Management', href: '/solutions/inventory-management' },
-      { label: 'Education', href: '/solutions/education-automation' },
-      { label: 'Startups', href: '/solutions/startup-automation' },
-    ],
-  },
-  {
-    title: 'Industries',
-    items: [
-      { label: 'Automotive', href: '/industries/automotive' },
-      { label: 'Manufacturing', href: '/industries/manufacturing' },
-      { label: 'Pharma', href: '/industries/pharma' },
-      { label: 'Warehouses', href: '/industries/warehouses-logistics' },
+      { label: 'Startup Automation', href: '/solutions/startup-automation' },
+      { label: 'Education Automation', href: '/solutions/education-automation' },
     ],
   },
   {
@@ -35,69 +27,76 @@ const footerGroups = [
     items: [
       { label: 'About', href: '/about' },
       { label: 'Careers', href: '/careers' },
-      { label: 'Blog', href: '/blog' },
-      { label: 'News', href: '/news' },
       { label: 'Contact', href: '/contact' },
+      { label: 'Documentation', href: '/resources/documentation' },
     ],
   },
 ];
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-border overflow-hidden">
+    <footer className="relative overflow-hidden border-t border-border bg-surface/25">
       <HexagonPattern
-        radius={30}
-        gap={8}
-        className="stroke-primary/[0.04] fill-primary/[0.01]"
-        strokeDasharray="3 5"
+        radius={34}
+        gap={9}
+        className="stroke-primary/[0.05] fill-primary/[0.015]"
+        strokeDasharray="3 6"
       />
-      <div className="relative max-w-7xl mx-auto px-6 pt-20 pb-12">
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-10 pb-16 border-b border-border">
-          <div className="max-w-sm">
+      <div className="relative mx-auto max-w-7xl px-6 py-14">
+        <div className="grid gap-10 border-b border-border pb-12 lg:grid-cols-[1.15fr_0.85fr]">
+          <div>
             <Link href="/" className="inline-block">
-              <Logo width={140} height={28} className="h-5 w-auto" />
+              <Logo width={150} height={32} className="h-6 w-auto" />
             </Link>
-            <p className="mt-5 text-sm text-muted leading-relaxed">
-              Autonomous mobile robots engineered for Indian industry. Manufacturing, warehousing, and logistics automation.
+            <p className="mt-5 max-w-md text-sm leading-6 text-muted">
+              Autonomous mobile robots for Indian factories, warehouses, and teams entering industrial automation with discipline.
             </p>
+            <Link
+              href="/contact"
+              className="mt-7 inline-flex min-h-11 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:brightness-110"
+            >
+              Book a demo
+              <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-3">
+            {footerGroups.map((group) => (
+              <div key={group.title}>
+                <h3 className="text-sm font-semibold text-foreground">{group.title}</h3>
+                <ul className="mt-4 space-y-3">
+                  {group.items.map((item) => (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid gap-8 pt-10 md:grid-cols-[1fr_auto] md:items-center">
+          <div>
+            <p className="text-sm font-medium text-foreground">Pune, Maharashtra, India</p>
+            <p className="mt-1 text-xs text-muted-foreground">
+              &copy; {new Date().getFullYear()} Momentum Robotics Pvt. Ltd. All rights reserved.
+            </p>
+            <div className="mt-4 flex flex-wrap gap-5">
+              <Link href="/privacy" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
+                Privacy Policy
+              </Link>
+              <Link href="/terms" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
+                Terms of Service
+              </Link>
+            </div>
           </div>
           <SocialLinks />
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 pt-16">
-          {footerGroups.map((group) => (
-            <div key={group.title}>
-              <h3 className="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted mb-5">
-                {group.title}
-              </h3>
-              <ul className="space-y-3">
-                {group.items.map((item) => (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-20 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Momentum Robotics Pvt. Ltd. All rights reserved.
-          </p>
-          <div className="flex gap-6">
-            <Link href="/privacy" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
-              Privacy Policy
-            </Link>
-            <Link href="/terms" className="text-xs text-muted-foreground transition-colors hover:text-foreground">
-              Terms of Service
-            </Link>
-          </div>
         </div>
       </div>
     </footer>

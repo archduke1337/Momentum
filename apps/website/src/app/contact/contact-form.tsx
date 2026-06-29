@@ -1,50 +1,112 @@
 'use client';
 
-import AnimatedInput from '@/components/ui/smoothui/animated-input';
-import MagneticButton from '@/components/ui/smoothui/magnetic-button';
+import { ArrowRight } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 
 export default function ContactForm() {
   return (
-    <form className="space-y-6">
-      <AnimatedInput
-        label="Name"
-        placeholder="Your name"
-        className="w-full"
-        inputClassName="rounded-xl border-border bg-surface px-5 py-3.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/50"
-        labelClassName="bg-surface text-muted"
-      />
-      <AnimatedInput
-        label="Email"
-        placeholder="you@company.com"
-        className="w-full"
-        inputClassName="rounded-xl border-border bg-surface px-5 py-3.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/50"
-        labelClassName="bg-surface text-muted"
-      />
-      <AnimatedInput
-        label="Company"
-        placeholder="Your company"
-        className="w-full"
-        inputClassName="rounded-xl border-border bg-surface px-5 py-3.5 text-sm text-foreground placeholder:text-muted-foreground focus:border-primary/50"
-        labelClassName="bg-surface text-muted"
-      />
-      <div className="relative">
-        <label htmlFor="message" className="block text-sm font-medium mb-2 text-foreground">Message</label>
-        <textarea
-          id="message"
-          rows={5}
-          className="w-full rounded-xl border border-border bg-surface px-5 py-3.5 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary/50 transition-colors resize-none"
-          placeholder="Tell us about your requirements..."
-        />
+    <form
+      action="mailto:hello@momentumrobotics.in"
+      method="post"
+      encType="text/plain"
+      className="rounded-2xl border border-border bg-surface p-5 md:p-7"
+    >
+      <div className="grid gap-5">
+        <div className="grid gap-2">
+          <Label htmlFor="name">Name</Label>
+          <Input
+            id="name"
+            name="name"
+            autoComplete="name"
+            required
+            className="min-h-12 rounded-xl bg-background/55 px-4"
+            placeholder="Your name"
+          />
+        </div>
+
+        <div className="grid gap-2">
+          <Label htmlFor="email">Work email</Label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            inputMode="email"
+            autoComplete="email"
+            required
+            className="min-h-12 rounded-xl bg-background/55 px-4"
+            placeholder="you@company.com"
+          />
+        </div>
+
+        <div className="grid gap-2">
+          <Label htmlFor="company">Company</Label>
+          <Input
+            id="company"
+            name="company"
+            autoComplete="organization"
+            className="min-h-12 rounded-xl bg-background/55 px-4"
+            placeholder="Company name"
+          />
+        </div>
+
+        <div className="grid gap-2">
+          <Label htmlFor="phone">Phone</Label>
+          <Input
+            id="phone"
+            name="phone"
+            type="tel"
+            inputMode="tel"
+            autoComplete="tel"
+            className="min-h-12 rounded-xl bg-background/55 px-4"
+            placeholder="+91"
+          />
+        </div>
+
+        <div className="grid gap-2">
+          <Label>Primary need</Label>
+          <Select name="requirement">
+            <SelectTrigger className="min-h-12 w-full rounded-xl bg-background/55 px-4">
+              <SelectValue placeholder="Select one" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="warehouse-automation">Warehouse automation</SelectItem>
+              <SelectItem value="factory-logistics">Factory logistics</SelectItem>
+              <SelectItem value="product-demo">Product demo</SelectItem>
+              <SelectItem value="partnership">Partnership</SelectItem>
+              <SelectItem value="careers">Careers</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+
+        <div className="grid gap-2">
+          <Label htmlFor="message">Movement problem</Label>
+          <Textarea
+            id="message"
+            name="message"
+            rows={6}
+            required
+            className="min-h-36 resize-none rounded-xl bg-background/55 px-4 py-3"
+            placeholder="Tell us the payload, route, floor condition, and what slows the current process."
+          />
+        </div>
       </div>
-      <MagneticButton
-        className="rounded-full px-8 py-4 text-sm font-semibold"
-        strength={0.3}
+
+      <button
+        type="submit"
+        className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground transition hover:brightness-110 active:scale-[0.98] sm:w-auto"
       >
-        Send Message
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M3 7h8M8 4l3 3-3 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        </svg>
-      </MagneticButton>
+        Send inquiry
+        <ArrowRight className="size-4" aria-hidden="true" />
+      </button>
     </form>
   );
 }
