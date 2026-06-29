@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import RevealText from '@/components/smoothui/reveal-text';
 
-const steps = ['Share one movement problem', 'Map the pilot route', 'Choose the right platform'];
+const steps = ['Share one load movement route', 'Map the floor and handoffs', 'Scope a Cyborg pilot'];
 
 export function CTA() {
   return (
@@ -13,24 +13,24 @@ export function CTA() {
         <div className="grid gap-8 p-7 md:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:p-12">
           <div>
             <h2 className="font-heading text-4xl font-bold leading-tight md:text-5xl">
-              <RevealText direction="up" triggerOnView>Bring us one route worth automating</RevealText>
+              <RevealText direction="up" triggerOnView>Bring us one route worth moving better</RevealText>
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-7 text-muted">
-              We will help evaluate whether an AMR pilot makes operational sense before you commit to a fleet.
+              We will help evaluate whether Cyborg makes operational sense before you commit to a fleet.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href="/contact"
                 className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground transition hover:brightness-110 active:scale-[0.98]"
               >
-                Book a demo
+                Pilot Cyborg
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
               <Link
                 href="/products"
                 className="inline-flex min-h-12 items-center justify-center rounded-full border border-border bg-background/40 px-6 text-sm font-semibold text-foreground transition hover:border-primary/45"
               >
-                View robots
+                View products
               </Link>
             </div>
           </div>
