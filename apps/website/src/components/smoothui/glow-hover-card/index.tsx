@@ -148,8 +148,8 @@ export default function GlowHover({
     // Initial sync
     syncCards();
 
-    // Sync on scroll and resize
-    window.addEventListener("scroll", syncCards, { passive: true });
+    // Sync on resize. Positions are relative to the container, so document scroll
+    // does not require a per-frame listener.
     window.addEventListener("resize", syncCards);
 
     return () => {
@@ -157,7 +157,6 @@ export default function GlowHover({
         observer.disconnect();
       }
       mutationObserver.disconnect();
-      window.removeEventListener("scroll", syncCards);
       window.removeEventListener("resize", syncCards);
     };
   }, [shouldReduceMotion]);
