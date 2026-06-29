@@ -4,7 +4,7 @@ import { ProductList } from '@/components/sections/product-list';
 export const metadata: Metadata = {
   title: 'Products',
   description:
-    'Explore our range of Autonomous Mobile Robots — Pixel, Orbit, and Cyborg platforms.',
+    'Explore Momentum Robotics products: Pixel and Orbit education platforms, and Cyborg industrial AMR for factories and warehouses.',
 };
 
 export default function ProductsPage() {
