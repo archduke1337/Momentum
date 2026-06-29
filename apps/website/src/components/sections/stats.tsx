@@ -1,5 +1,7 @@
 'use client';
 
+import { HexagonPattern } from '@/components/ui/hexagon-pattern';
+
 const stack = [
   {
     term: 'ROS2',
