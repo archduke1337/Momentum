@@ -77,8 +77,8 @@ export const products: Product[] = [
     description:
       'Cyborg is a modular robotics platform that can be configured for a wide range of applications. Available in multiple payload variants, its open architecture allows custom integrations for any industrial use case.',
     features: [
-      'Modular design',
-      'Open integration API',
+      'Modular payload architecture',
+      'Integration-ready API layer',
       'Configurable payload deck',
       'Swappable sensor modules',
       'Remote fleet management',
@@ -86,13 +86,12 @@ export const products: Product[] = [
     ],
     specifications: {
       Navigation: 'LiDAR + Camera + IMU',
-      Battery: '24V–48V Li-Ion',
-      'Run Time': '8–16 hours',
-      Speed: '0.8–1.2 m/s',
+      Battery: '24V-48V Li-Ion',
+      'Run Time': '8-16 hours',
+      Speed: '0.8-1.2 m/s',
     },
-    image: '/Product/cyborg.png',
+    image: '/Product/cyborg/specifications/cyborg250.jpg',
     images: [
-      '/Product/cyborg.png',
       '/Product/cyborg/specifications/cyborg150.jpg',
       '/Product/cyborg/specifications/cyborg250.jpg',
       '/Product/cyborg/specifications/cyborg500.jpg',
