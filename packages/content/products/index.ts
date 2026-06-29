@@ -78,7 +78,7 @@ export const products: Product[] = [
     slug: 'cyborg',
     tagline: 'Industrial AMR for factories and warehouses',
     description:
-      'Cyborg is Momentum Robotics' industrial load-carrying AMR for factories, warehouses, line-side movement, and internal logistics. It is the product platform for real operations, with variants planned around payload and deployment needs.',
+      "Cyborg is Momentum Robotics' industrial load-carrying AMR for factories, warehouses, line-side movement, and internal logistics. It is the product platform for real operations, with variants planned around payload and deployment needs.",
     features: [
       'Modular payload architecture',
       'Integration-ready API layer',
