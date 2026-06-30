@@ -39,7 +39,7 @@ export default function TechnologyPage() {
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-4">Fleet Management Architecture</h2>
         <p className="text-muted mb-4 leading-7">
-          {{/* TODO: Add fleet management details */}}
+          {/* TODO: Add fleet management details */}}
           Centralized browser-based dashboard. Mission assignment, traffic arbitration, deadlock prevention, charging optimization.
           VDA 5050 compliant for multi-vendor interoperability. REST API + MQTT for WMS/MES integration.
         </p>
@@ -49,7 +49,7 @@ export default function TechnologyPage() {
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-4">Software Architecture</h2>
         <p className="text-muted mb-4 leading-7">
-          {{/* TODO: Add software details */}}
+          {/* TODO: Add software details */}}
           ROS 2 Humble on Ubuntu 22.04. Standard DDS communication. Documented topics, services, and actions. Open-source packages
           (Nav2, SLAM Toolbox). No proprietary black boxes. Your engineers can extend and customize.
         </p>
@@ -59,7 +59,7 @@ export default function TechnologyPage() {
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-4">Integration & Extensibility</h2>
         <p className="text-muted mb-4 leading-7">
-          {{/* TODO: Add integration details */}}
+          {/* TODO: Add integration details */}}
           REST API for mission management. MQTT for real-time telemetry. PLC connectivity via OPC-UA or Modbus TCP.
           WMS integration patterns for pull-based missions. Custom perception and planning modules.
         </p>
@@ -69,7 +69,7 @@ export default function TechnologyPage() {
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-4">Safety & Compliance</h2>
         <p className="text-muted mb-4 leading-7">
-          {{/* TODO: Add safety details */}}
+          {/* TODO: Add safety details */}}
           ISO 3691-4 (AGV/AMR safety standard) compliance. Safety-rated LiDAR fields. Bumper sensors. E-stop functionality.
           Zone-based traffic management. Audit logging for regulatory compliance (pharma, food, etc.).
         </p>
@@ -79,7 +79,7 @@ export default function TechnologyPage() {
       <section className="mt-20 p-8 border border-border rounded-lg bg-surface">
         <h3 className="text-2xl font-bold mb-4">Ready to explore technical details?</h3>
         <p className="text-muted mb-6">
-          {{/* TODO: Add CTA text */}}
+          {/* TODO: Add CTA text */}}
           Let's discuss how our technology solves your specific challenge.
         </p>
         <a
