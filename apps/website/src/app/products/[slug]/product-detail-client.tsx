@@ -11,17 +11,17 @@ import { products } from '@workspace/content';
 const productRoles: Record<string, { label: string; intent: string; icon: typeof GraduationCap }> = {
   pixel: {
     label: 'ROS2 education kit',
-    intent: 'For learning SLAM, navigation, mapping, and robot software fundamentals.',
+    intent: '/* TODO: Add real product intent */',
     icon: GraduationCap,
   },
   orbit: {
     label: 'Scaled navigation platform',
-    intent: 'For larger experiments, route testing, payload movement, and applied autonomy learning.',
+    intent: '/* TODO: Add real product intent */',
     icon: GraduationCap,
   },
   cyborg: {
     label: 'Industrial AMR',
-    intent: 'For factories, warehouses, line-side delivery, and load-carrying material movement.',
+    intent: '/* TODO: Add real product intent */',
     icon: Factory,
   },
 };
@@ -50,7 +50,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
           <h1 className="font-heading text-5xl font-bold leading-tight md:text-6xl">{product.name}</h1>
           <p className="mt-3 text-xl font-medium text-primary">{product.tagline}</p>
           <p className="mt-4 max-w-2xl text-base leading-7 text-muted">
-            {product.description}
+            {/* TODO: Add real product description */}
           </p>
 
           <div className="mt-6 flex flex-col gap-2 sm:flex-row">
@@ -58,14 +58,14 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
               href="/contact"
               className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground transition hover:brightness-110 active:scale-[0.98]"
             >
-              {product.slug === 'cyborg' ? 'Pilot Cyborg' : 'Discuss education kit'}
+              {product.slug === 'cyborg' ? 'Pilot Cyborg' : 'Discuss kit'}
               <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
             <Link
               href="/products"
               className="inline-flex h-11 items-center justify-center rounded-full border border-border bg-surface px-6 text-sm font-semibold text-foreground transition hover:border-primary/40"
             >
-              Compare robots
+              Compare
             </Link>
           </div>
         </div>
@@ -123,7 +123,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
 
       <section className="mt-12 grid gap-4 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="border border-border bg-surface p-5">
-          <h2 className="font-heading text-2xl font-bold">Platform role</h2>
+          <h2 className="font-heading text-2xl font-bold">Details</h2>
           <div className="mt-4 grid gap-3">
             <div className="flex gap-3">
               <RoleIcon className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
@@ -135,7 +135,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
             <div className="flex gap-3">
               <PackageCheck className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden="true" />
               <div>
-                <p className="text-sm font-semibold text-foreground">Use environments</p>
+                <p className="text-sm font-semibold text-foreground">Industries</p>
                 <p className="mt-0.5 text-xs leading-5 text-muted-foreground">
                   {product.industries.map((industry) => industry.replace(/-/g, ' ')).join(', ')}
                 </p>
@@ -155,14 +155,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
       </section>
 
       <section className="mt-12 border border-border bg-surface p-5 md:p-7">
-        <h2 className="font-heading text-2xl font-bold">
-          {product.slug === 'cyborg' ? 'Industrial capabilities' : 'Learning outcomes'}
-        </h2>
-        <p className="mt-3 max-w-2xl text-sm leading-6 text-muted">
-          {product.slug === 'cyborg'
-            ? 'Cyborg focuses on repeatable load movement, operational routes, payload planning, and integration readiness.'
-            : 'Pixel and Orbit are designed to make robotics concepts tangible through hardware, sensors, mapping, and ROS2 navigation practice.'}
-        </p>
+        <h2 className="font-heading text-2xl font-bold">Features</h2>
         <div className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {product.features.map((feature) => (
             <div key={feature} className="flex gap-2.5 border border-border bg-background/45 p-3 text-sm text-muted">
@@ -177,10 +170,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
         <section className="mt-12 border border-border bg-surface p-5 md:p-7">
           <div className="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <h2 className="font-heading text-2xl font-bold">Cyborg variants</h2>
-              <p className="mt-3 text-sm leading-6 text-muted">
-                Each variant carries its own technical detail without being mistaken for the product hero image.
-              </p>
+              <h2 className="font-heading text-2xl font-bold">Variants</h2>
               <div className="mt-5 grid gap-1.5">
                 {product.variants.map((variant) => (
                   <button
@@ -213,7 +203,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
                 </div>
               ) : (
                 <div className="flex min-h-[360px] items-center justify-center border border-dashed border-border bg-background/45 p-6 text-center text-sm leading-6 text-muted">
-                  Specification sheet for this variant will be added when finalized.
+                  {/* TODO: Add specification sheet */}
                 </div>
               )}
             </div>

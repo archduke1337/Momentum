@@ -6,21 +6,18 @@ import { ArrowRight } from 'lucide-react';
 import { products } from '@workspace/content';
 import type { Product } from '@workspace/types';
 
-const roles: Record<string, { label: string; action: string; accent: string }> = {
+const roles: Record<string, { label: string; action: string }> = {
   pixel: {
     label: 'Education kit',
     action: 'Study Pixel',
-    accent: 'ROS2 + SLAM fundamentals',
   },
   orbit: {
     label: 'Scaled learning platform',
     action: 'Study Orbit',
-    accent: 'Navigation at larger scale',
   },
   cyborg: {
     label: 'Industrial AMR',
     action: 'Pilot Cyborg',
-    accent: 'Load movement for operations',
   },
 };
 
@@ -65,8 +62,7 @@ export function ProductList() {
                 <div className="flex flex-col p-5">
                   <p className="text-sm font-semibold text-primary">{role.label}</p>
                   <h2 className="mt-1.5 font-heading text-2xl font-bold">{product.name}</h2>
-                  <p className="mt-1.5 text-sm font-medium text-muted">{role.accent}</p>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{product.description}</p>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{/* TODO: Add real description */}</p>
                   <span className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-semibold text-foreground group-hover:text-primary">
                     {role.action}
                     <ArrowRight className="size-4" aria-hidden="true" />
@@ -92,7 +88,6 @@ export function ProductList() {
             <p className="text-sm font-semibold text-primary">{roles.cyborg.label}</p>
             <h2 className="mt-1.5 font-heading text-5xl font-bold leading-none md:text-6xl">Cyborg</h2>
             <p className="mt-3 text-sm font-semibold text-muted">{payload(cyborg)} variant planning</p>
-            <p className="mt-3 max-w-md text-base leading-7 text-muted-foreground">{cyborg.description}</p>
             <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background">
               {roles.cyborg.action}
               <ArrowRight className="size-4" aria-hidden="true" />

@@ -6,19 +6,6 @@ import { ArrowRight } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 import { HexagonPattern } from '@/components/ui/hexagon-pattern';
 
-const trackCards = [
-  {
-    label: 'Lab track',
-    title: 'Pixel and Orbit',
-    body: 'ROS2, SLAM, mapping, navigation, and sensor learning on real mobile robots.',
-  },
-  {
-    label: 'Floor track',
-    title: 'Cyborg',
-    body: 'Load-carrying AMR platform for factories, warehouses, and line-side movement.',
-  },
-];
-
 export function Hero() {
   const reduceMotion = useReducedMotion();
 
@@ -33,7 +20,6 @@ export function Hero() {
           strokeDasharray="3 5"
         />
       </div>
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-[linear-gradient(180deg,transparent,color-mix(in_srgb,var(--color-primary)_9%,transparent))]" />
 
       <motion.div
         initial={reduceMotion ? false : { opacity: 0, y: 30 }}
@@ -68,7 +54,7 @@ export function Hero() {
             transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="mt-6 max-w-2xl text-lg leading-8 text-muted md:text-xl"
           >
-            ROS2 learning platforms for labs. Industrial AMRs for factories and warehouses. Built in India from navigation to load movement.
+            {/* TODO: Add real tagline */}
           </motion.p>
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 14 }}
@@ -90,22 +76,6 @@ export function Hero() {
               Explore platforms
             </Link>
           </motion.div>
-        </div>
-
-        <div className="mt-auto grid gap-3 pt-24 md:grid-cols-2 lg:max-w-3xl">
-          {trackCards.map((track, index) => (
-            <motion.div
-              key={track.title}
-              initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.48, delay: 0.22 + index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-              className="border border-white/14 bg-background/58 p-5 backdrop-blur-xl"
-            >
-              <p className="text-sm font-medium text-primary">{track.label}</p>
-              <h2 className="mt-2 font-heading text-2xl font-bold">{track.title}</h2>
-              <p className="mt-3 text-sm leading-6 text-muted">{track.body}</p>
-            </motion.div>
-          ))}
         </div>
       </div>
     </section>

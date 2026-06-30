@@ -22,20 +22,20 @@ export function Footer() {
           <div>
             <Logo width={150} height={32} className="h-6 w-auto" />
             <h2 className="mt-10 max-w-3xl font-heading text-5xl font-bold leading-none md:text-7xl">
-              From ROS2 labs to factory loads.
+              {/* TODO: Add real tagline */}
             </h2>
           </div>
 
           <div className="grid content-between gap-10">
             <p className="max-w-xl text-base leading-7 text-muted">
-              Momentum Robotics is building an Indian robotics brand around education, navigation, and industrial material movement.
+              {/* TODO: Add real description */}
             </p>
             <div>
               <Link
                 href="/contact"
                 className="inline-flex min-h-12 items-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground transition hover:brightness-110"
               >
-                Pilot Cyborg
+                Contact
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
             </div>

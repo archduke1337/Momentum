@@ -6,8 +6,6 @@ import type { Solution } from '@workspace/types';
 
 export const metadata: Metadata = {
   title: 'Solutions',
-  description:
-    'Momentum Robotics solutions for robotics education, Cyborg pilots, warehouse movement, and early automation planning.',
 };
 
 export default function SolutionsPage() {
@@ -25,16 +23,9 @@ export default function SolutionsPage() {
             className="group flex min-h-80 flex-col bg-surface p-7 transition hover:bg-background md:p-8"
           >
             <p className="text-sm font-semibold text-primary">{solution.name}</p>
-            <p className="mt-5 text-sm leading-6 text-muted-foreground">{solution.description}</p>
-            <div className="mt-8 grid gap-2">
-              {solution.benefits.slice(0, 3).map((benefit) => (
-                <span key={benefit} className="border border-border bg-background/55 px-3 py-2 text-sm text-muted">
-                  {benefit}
-                </span>
-              ))}
-            </div>
+            <p className="mt-5 text-sm leading-6 text-muted-foreground">{/* TODO: Add real description */}</p>
             <span className="mt-auto inline-flex items-center gap-2 pt-8 text-sm font-semibold text-foreground group-hover:text-primary">
-              Open solution
+              View
               <ArrowRight className="size-4" aria-hidden="true" />
             </span>
           </Link>
