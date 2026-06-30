@@ -37,18 +37,21 @@ export function ProductList() {
 
   return (
     <section className="mx-auto max-w-7xl px-6 pb-16 pt-28">
-      <div className="max-w-3xl">
-        <span className="eyebrow">The platforms</span>
-        <h1 className="mt-4 font-heading text-5xl font-bold leading-[1.05] md:text-7xl">
-          Products
+      <div className="flex items-center justify-between border-b border-border py-3">
+        <span className="label-mono">Platforms</span>
+        <span className="label-mono hidden sm:block">One stack — three platforms</span>
+      </div>
+      <div className="grid gap-y-8 py-16 lg:grid-cols-12 lg:gap-x-10 lg:py-20">
+        <h1 className="display max-w-3xl text-5xl sm:text-6xl lg:col-span-8 lg:text-7xl">
+          From the lab to the line.
         </h1>
-        <p className="mt-5 text-lg leading-8 text-muted">
+        <p className="self-end text-lg leading-relaxed text-muted lg:col-span-4">
           One open software stack across three hardware platforms — so what you learn on
           Pixel scales straight to the factory floor.
         </p>
       </div>
 
-      <div className="mt-12 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="grid gap-5">
           {learningProducts.map((product) => {
             const role = roles[product.slug];
@@ -67,13 +70,13 @@ export function ProductList() {
                     className="object-contain p-4 transition duration-700 group-hover:scale-[1.04]"
                   />
                 </div>
-                <div className="flex flex-col p-6">
-                  <p className="text-sm font-semibold text-primary">{role.label}</p>
-                  <h2 className="mt-1.5 font-heading text-2xl font-bold">{product.name}</h2>
-                  <p className="mt-3 flex-1 text-sm leading-6 text-muted">{role.blurb}</p>
-                  <span className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-semibold text-foreground group-hover:text-primary">
+                <div className="flex flex-col p-6 md:p-8">
+                  <span className="label-mono text-primary">{role.label}</span>
+                  <h2 className="mt-2 text-2xl tracking-tight">{product.name}</h2>
+                  <p className="mt-3 flex-1 leading-relaxed text-muted">{role.blurb}</p>
+                  <span className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-medium tracking-tight text-foreground group-hover:text-primary">
                     {role.action}
-                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
                   </span>
                 </div>
               </Link>
@@ -93,10 +96,10 @@ export function ProductList() {
             className="object-contain object-bottom p-4 transition duration-700 group-hover:scale-[1.025]"
           />
           <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-background via-background/80 to-transparent p-6 md:p-8">
-            <p className="text-sm font-semibold text-primary">{roles.cyborg.label}</p>
-            <h2 className="mt-1.5 font-heading text-5xl font-bold leading-none md:text-6xl">Cyborg</h2>
-            <p className="mt-3 text-sm font-semibold text-muted">{payload(cyborg)} variant planning</p>
-            <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background">
+            <span className="label-mono text-primary">{roles.cyborg.label}</span>
+            <h2 className="display mt-2 text-5xl leading-none md:text-6xl">Cyborg</h2>
+            <p className="mt-3 font-mono text-sm text-muted">{payload(cyborg)} variant planning</p>
+            <span className="mt-5 inline-flex items-center gap-2 bg-foreground px-5 py-3 text-sm font-medium tracking-tight text-background">
               {roles.cyborg.action}
               <ArrowRight className="size-4" aria-hidden="true" />
             </span>

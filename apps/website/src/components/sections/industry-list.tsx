@@ -6,19 +6,20 @@ import type { Industry } from '@workspace/types';
 
 export function IndustryList() {
   return (
-    <section className="mx-auto max-w-7xl px-6 pb-24 pt-32">
-      <div className="max-w-3xl">
-        <span className="eyebrow">Industries</span>
-        <h1 className="mt-4 font-heading text-5xl font-bold leading-[1.05] md:text-7xl">
-          Industries
+    <section className="mx-auto max-w-7xl px-6 pb-24 pt-24">
+      <div className="flex items-center justify-between border-b border-border py-3">
+        <span className="label-mono">Industries</span>
+      </div>
+      <div className="grid gap-y-8 py-16 lg:grid-cols-12 lg:gap-x-10 lg:py-24">
+        <h1 className="display max-w-3xl text-5xl sm:text-6xl lg:col-span-8 lg:text-7xl">
+          The bottleneck, sector by sector.
         </h1>
-        <p className="mt-5 text-lg leading-8 text-muted">
-          The material-handling bottleneck looks different in every sector. See how
-          Momentum AMRs fit yours.
+        <p className="self-end text-lg leading-relaxed text-muted lg:col-span-4">
+          Material handling looks different everywhere. See how Momentum AMRs fit yours.
         </p>
       </div>
 
-      <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-px overflow-hidden border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
         {industries.map((industry: Industry, index) => (
           <Link
             key={industry.id}

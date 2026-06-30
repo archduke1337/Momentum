@@ -12,30 +12,32 @@ export const metadata: Metadata = {
 
 export default function SolutionsPage() {
   return (
-    <section className="mx-auto max-w-7xl px-6 pb-24 pt-32">
-      <div className="max-w-3xl">
-        <span className="eyebrow">Solutions</span>
-        <h1 className="mt-4 font-heading text-5xl font-bold leading-[1.05] md:text-7xl">
-          Solutions
+    <section className="mx-auto max-w-7xl px-6 pb-24 pt-24">
+      <div className="flex items-center justify-between border-b border-border py-3">
+        <span className="label-mono">Solutions</span>
+      </div>
+      <div className="grid gap-y-8 py-16 lg:grid-cols-12 lg:gap-x-10 lg:py-24">
+        <h1 className="display max-w-3xl text-5xl sm:text-6xl lg:col-span-8 lg:text-7xl">
+          Matched to your floor.
         </h1>
-        <p className="mt-5 text-lg leading-8 text-muted">
+        <p className="self-end text-lg leading-relaxed text-muted lg:col-span-4">
           From line-side delivery to full fleet orchestration — autonomous material
-          handling matched to your floor and your processes.
+          handling matched to your processes.
         </p>
       </div>
 
-      <div className="mt-14 grid gap-6 md:grid-cols-2">
+      <div className="grid border-t border-l border-border md:grid-cols-2">
         {solutions.map((solution: Solution) => (
           <Link
             key={solution.id}
             href={`/solutions/${solution.slug}`}
-            className="group surface-card flex min-h-72 flex-col p-8"
+            className="group flex min-h-72 flex-col border-b border-r border-border p-8 transition-colors hover:bg-surface md:p-10"
           >
-            <h2 className="font-heading text-xl font-bold">{solution.name}</h2>
-            <p className="mt-4 flex-1 text-sm leading-6 text-muted">{solution.description}</p>
-            <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary">
+            <h2 className="text-2xl tracking-tight">{solution.name}</h2>
+            <p className="mt-4 flex-1 leading-relaxed text-muted">{solution.description}</p>
+            <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium tracking-tight text-foreground group-hover:text-primary">
               Explore solution
-              <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </span>
           </Link>
         ))}
