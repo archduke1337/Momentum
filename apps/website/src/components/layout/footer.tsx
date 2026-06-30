@@ -75,11 +75,11 @@ export function Footer() {
             </p>
             <div className="mt-6 space-y-2.5 text-sm text-muted">
               <a href="mailto:hello@momentumrobotics.in" className="flex items-center gap-2.5 transition-colors hover:text-foreground">
-                <Mail className="size-4 text-primary" aria-hidden="true" />
+                <Mail className="size-4 text-muted-foreground" aria-hidden="true" />
                 hello@momentumrobotics.in
               </a>
               <p className="flex items-center gap-2.5">
-                <MapPin className="size-4 text-primary" aria-hidden="true" />
+                <MapPin className="size-4 text-muted-foreground" aria-hidden="true" />
                 Pune, Maharashtra, India
               </p>
             </div>
