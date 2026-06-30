@@ -1,0 +1,20 @@
+Specification,Pixel,Orbit,Cyborg_150,Cyborg_250,Cyborg_500,Cyborg_1000
+Payload Capacity (kg),300,1000,150,250,500,1000
+Length (mm),600,1200,1000,1200,1400,1600
+Width (mm),400,800,700,800,900,1000
+Height (mm),300,500,200,400,400,650
+Max Speed (m/s),1.5,1.2,1.2,1.0,1.0,0.8
+Navigation Sensors,"2D LiDAR + Intel RealSense D435i + IMU","2D LiDAR + IMU + Wheel Odometry","2D LiDAR + 3D Camera + IMU","2D LiDAR + 3D Camera + IMU","2D LiDAR + 3D Camera + IMU","2D LiDAR + 3D Camera + IMU"
+LiDAR Range (m),30,25,25,25,25,25
+Battery Type,24V Li-Ion,48V Li-Ion,48V Li-Ion,48V Li-Ion,72V LFP,72V LFP
+Battery Runtime (hours),8,12,5-6,10,12,16
+Charging Time (hours),2-3,2-4,2,2.5,1.5,2
+Charging Type,Contact-based,Contact-based,Contact-based,Contact-based,Fast-charge,Fast-charge
+Drive Configuration,Differential 2WD,Differential 2WD,Differential 2WD,Differential 2WD,Differential 2WD,4-wheel independent
+IP Rating,IP42,IP43,IP43,IP43,IP43,IP43
+Software Stack,"ROS 2 Humble, Nav2, SLAM Toolbox","ROS 2 Humble, Nav2, SLAM Toolbox","ROS 2 Humble, Nav2, SLAM Toolbox","ROS 2 Humble, Nav2, SLAM Toolbox","ROS 2 Humble, Nav2, SLAM Toolbox","ROS 2 Humble, Nav2, SLAM Toolbox"
+Connectivity,Wi-Fi 2.4/5GHz + ROS2 DDS,Wi-Fi + Ethernet + ROS2 DDS,Wi-Fi + Ethernet + ROS2 DDS,Wi-Fi + Ethernet + ROS2 DDS,Wi-Fi + Ethernet + ROS2 DDS,Wi-Fi + Ethernet + ROS2 DDS
+Safety Features,E-stop + Bumper + Proximity sensors,Safety-rated LiDAR fields + Bumpers,Safety-rated LiDAR fields + Bumpers,Safety-rated LiDAR fields + Bumpers,Safety-rated LiDAR fields + Bumpers,Safety-rated LiDAR fields + Bumpers
+Best Use Case,Line-side feeding + R&D,Pallet/trolley transport,Cleanroom + pharma,Manufacturing + WIP,Pallet + heavy duty,24/7 heavy industrial
+Industries,Manufacturing + Education,Automotive + Pharma + Warehouse,Pharma + Cleanroom,Automotive + Manufacturing,Automotive + FMCG + Warehouse,Heavy Manufacturing + Warehouse
+Attachment Options,Flat shelf + Roller conveyor + Custom tray,Flat deck + Tow hitch + Conveyor + Lift,Stainless steel deck + Customizable,Configurable deck + Attachments,Configurable deck + Auto-pallet pickup,Heavy-duty platforms + Tow 3+ trolleys
