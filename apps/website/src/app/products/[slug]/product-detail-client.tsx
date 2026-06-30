@@ -10,18 +10,18 @@ import { products } from '@workspace/content';
 
 const productRoles: Record<string, { label: string; intent: string; icon: typeof GraduationCap }> = {
   pixel: {
-    label: 'ROS2 education kit',
-    intent: '/* TODO: Add real product intent */',
+    label: 'Compact Autonomous Mobile Robot',
+    intent: 'Add your product intent statement here in CONTENT_TEMPLATES.md Section 3',
     icon: GraduationCap,
   },
   orbit: {
-    label: 'Scaled navigation platform',
-    intent: '/* TODO: Add real product intent */',
+    label: 'Mid-Duty Autonomous Mobile Robot',
+    intent: 'Add your product intent statement here in CONTENT_TEMPLATES.md Section 3',
     icon: GraduationCap,
   },
   cyborg: {
-    label: 'Industrial AMR',
-    intent: '/* TODO: Add real product intent */',
+    label: 'Industrial Autonomous Mobile Robot',
+    intent: 'Add your product intent statement here in CONTENT_TEMPLATES.md Section 3',
     icon: Factory,
   },
 };
@@ -49,9 +49,11 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
           </p>
           <h1 className="font-heading text-5xl font-bold leading-tight md:text-6xl">{product.name}</h1>
           <p className="mt-3 text-xl font-medium text-primary">{product.tagline}</p>
-          <p className="mt-4 max-w-2xl text-base leading-7 text-muted">
-            {/* TODO: Add real product description */}
-          </p>
+          {product.description && (
+            <p className="mt-4 max-w-2xl text-base leading-7 text-muted">
+              {product.description}
+            </p>
+          )}
 
           <div className="mt-6 flex flex-col gap-2 sm:flex-row">
             <Link
@@ -203,7 +205,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
                 </div>
               ) : (
                 <div className="flex min-h-[360px] items-center justify-center border border-dashed border-border bg-background/45 p-6 text-center text-sm leading-6 text-muted">
-                  {/* TODO: Add specification sheet */}
+                  <p>Specification sheet coming soon. Contact us for details.</p>
                 </div>
               )}
             </div>

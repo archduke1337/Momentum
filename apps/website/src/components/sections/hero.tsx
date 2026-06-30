@@ -54,7 +54,7 @@ export function Hero() {
             transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="mt-6 max-w-2xl text-lg leading-8 text-muted md:text-xl"
           >
-            {/* TODO: Add real tagline */}
+            Add your homepage tagline/value proposition here. See CONTENT_TEMPLATES.md Section 1 for guidance.
           </motion.p>
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 14 }}

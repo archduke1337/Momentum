@@ -17,7 +17,7 @@ export const products: Product[] = [
     ],
     specifications: {
       Dimensions: '600 x 400 x 300 mm',
-      'Payload Capacity': '100 kg',
+      'Payload Capacity': '300 kg',
       Speed: '1.5 m/s',
       Battery: '24V Li-Ion',
       'Run Time': '8 hours',
@@ -53,7 +53,7 @@ export const products: Product[] = [
     ],
     specifications: {
       Dimensions: '1200 x 800 x 500 mm',
-      'Payload Capacity': '500 kg',
+      'Payload Capacity': '1000 kg',
       Speed: '1.2 m/s',
       Battery: '48V Li-Ion',
       'Run Time': '12 hours',

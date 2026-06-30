@@ -207,7 +207,7 @@ export function MainNav() {
               href="/contact"
               className="inline-flex h-8 items-center gap-1.5 rounded-full bg-primary px-4 text-xs font-semibold text-primary-foreground transition hover:brightness-110 active:scale-[0.98]"
             >
-              Pilot Cyborg
+              Request Demo
               <ArrowRight className="size-3.5" aria-hidden="true" />
             </Link>
           </div>
