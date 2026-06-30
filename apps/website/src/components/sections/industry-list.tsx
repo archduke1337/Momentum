@@ -7,19 +7,9 @@ import type { Industry } from '@workspace/types';
 export function IndustryList() {
   return (
     <section className="mx-auto max-w-7xl px-6 pb-24 pt-32">
-      <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
-        <div>
-          <p className="mb-5 inline-flex rounded-full border border-border bg-surface px-3 py-1 text-sm text-muted">
-            Industries
-          </p>
-          <h1 className="font-heading text-5xl font-bold leading-tight md:text-7xl">
-            Where the platform can grow
-          </h1>
-        </div>
-        <p className="max-w-2xl text-base leading-7 text-muted md:text-lg">
-          Cyborg starts with practical material movement. Pixel and Orbit support the education and research environments that build robotics capability.
-        </p>
-      </div>
+      <h1 className="font-heading text-5xl font-bold leading-tight md:text-7xl">
+        Industries
+      </h1>
 
       <div className="mt-14 grid gap-px border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
         {industries.map((industry: Industry, index) => (
