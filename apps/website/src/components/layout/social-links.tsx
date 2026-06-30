@@ -6,7 +6,7 @@ import AnimatedTooltip from '@/components/smoothui/animated-tooltip';
 const socials = [
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/company/momentum-robotics-pune/',
+    href: 'https://www.linkedin.com/company/momentum-robotics/',
     icon: Linkedin,
   },
   {

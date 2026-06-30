@@ -4,6 +4,7 @@ import { Logo } from './logo';
 import { SocialLinks } from './social-links';
 
 const links = [
+  { label: 'Products', href: '/products' },
   { label: 'Pixel', href: '/products/pixel' },
   { label: 'Orbit', href: '/products/orbit' },
   { label: 'Cyborg', href: '/products/cyborg' },
@@ -58,7 +59,7 @@ export function Footer() {
           <div>
             <p className="text-sm font-medium text-foreground">Pune, Maharashtra, India</p>
             <p className="mt-1 text-xs text-muted-foreground">
-              &copy; {new Date().getFullYear()} Momentum Robotics Pvt. Ltd. All rights reserved.
+              &copy; {new Date().getFullYear()} iMomentum Robotics Pvt. Ltd. All rights reserved.
             </p>
             <div className="mt-4 flex gap-5">
               <Link href="/privacy" className="text-xs text-muted-foreground hover:text-foreground">
