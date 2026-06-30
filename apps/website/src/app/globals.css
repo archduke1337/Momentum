@@ -104,17 +104,17 @@ body {
   color: var(--color-foreground);
 }
 
-/* ── Button Utilities ── */
+/* ── Button Utilities (sharp, editorial) ── */
 .btn-primary {
-  @apply inline-flex items-center justify-center min-h-12 px-6 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-lg shadow-primary/20 transition hover:brightness-110 active:scale-[0.98];
+  @apply inline-flex items-center justify-center min-h-12 px-7 bg-foreground text-background font-medium text-sm tracking-tight transition-colors hover:bg-primary hover:text-primary-foreground active:translate-y-px;
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center min-h-12 px-6 rounded-full border border-border bg-surface-elevated text-foreground font-semibold text-sm transition hover:border-primary/50 hover:bg-surface hover:shadow-md hover:shadow-primary/10;
+  @apply inline-flex items-center justify-center min-h-12 px-7 border border-border bg-transparent text-foreground font-medium text-sm tracking-tight transition-colors hover:border-foreground;
 }
 
 .btn-tertiary {
-  @apply inline-flex items-center justify-center min-h-12 px-6 rounded-full bg-transparent border border-border/50 text-foreground font-semibold text-sm transition hover:bg-surface/50 hover:border-border;
+  @apply inline-flex items-center justify-center min-h-12 px-7 bg-transparent text-foreground font-medium text-sm tracking-tight transition-colors hover:text-primary;
 }
 
 /* ── Form Elements ── */
