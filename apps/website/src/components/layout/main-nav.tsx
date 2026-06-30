@@ -47,12 +47,24 @@ const companyLinks = [
 
 const resourceLinks = [
   { name: 'Blog', href: '/blog' },
+  { name: 'News', href: '/news' },
   { name: 'Documentation', href: '/resources/documentation' },
   { name: 'Changelog', href: '/resources/changelog' },
 ];
 
 const hl = 'bg-primary/[0.08] rounded-md';
 const contentHl = 'bg-primary/[0.06] rounded-md ring-1 ring-primary/10';
+
+function isActive(pathname: string, prefix: string) {
+  return pathname === prefix || pathname.startsWith(prefix + '/');
+}
+
+function ActiveDot({ active }: { active: boolean }) {
+  if (!active) return null;
+  return (
+    <span className="absolute -bottom-0.5 left-1/2 size-1 -translate-x-1/2 rounded-full bg-primary" />
+  );
+}
 
 export function MainNav() {
   const pathname = usePathname();
@@ -102,15 +114,16 @@ export function MainNav() {
             >
               <MotionNavigationMenuList highlightClassName={hl}>
                 <MotionNavigationMenuItem value="products">
-                  <MotionNavigationMenuTrigger className="px-3 py-1.5 text-sm font-semibold text-foreground hover:text-primary transition-colors">
+                  <MotionNavigationMenuTrigger className={`relative px-3 py-1.5 text-sm font-semibold transition-colors ${isActive(pathname, '/products') ? 'text-primary' : 'text-foreground hover:text-primary'}`}>
                     Products
+                    <ActiveDot active={isActive(pathname, '/products')} />
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
                     <div className="grid w-[380px] gap-px p-1">
                       {productLinks.map((p) => (
-                        <MotionNavigationMenuLink key={p.href} href={p.href} className="flex items-center justify-between rounded-md px-3 py-2">
+                        <MotionNavigationMenuLink key={p.href} href={p.href} className={`flex items-center justify-between rounded-md px-3 py-2 ${pathname === p.href ? 'bg-primary/10 text-primary' : 'text-foreground'}`}>
                           <div className="flex flex-col gap-0.5">
-                            <span className="text-sm font-semibold text-foreground">{p.name}</span>
+                            <span className="text-sm font-semibold">{p.name}</span>
                             <span className="text-xs text-muted-foreground">{p.desc}</span>
                           </div>
                         </MotionNavigationMenuLink>
@@ -120,13 +133,14 @@ export function MainNav() {
                 </MotionNavigationMenuItem>
 
                 <MotionNavigationMenuItem value="industries">
-                  <MotionNavigationMenuTrigger className="px-3 py-1.5 text-sm font-semibold text-foreground hover:text-primary transition-colors">
+                  <MotionNavigationMenuTrigger className={`relative px-3 py-1.5 text-sm font-semibold transition-colors ${isActive(pathname, '/industries') ? 'text-primary' : 'text-foreground hover:text-primary'}`}>
                     Industries
+                    <ActiveDot active={isActive(pathname, '/industries')} />
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
                     <div className="grid w-[280px] grid-cols-2 gap-px p-1">
                       {industryLinks.map((i) => (
-                        <MotionNavigationMenuLink key={i.href} href={i.href} className="rounded-md px-2.5 py-2 text-sm text-foreground">
+                        <MotionNavigationMenuLink key={i.href} href={i.href} className={`rounded-md px-2.5 py-2 text-sm ${pathname === i.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
                           {i.name}
                         </MotionNavigationMenuLink>
                       ))}
@@ -135,13 +149,14 @@ export function MainNav() {
                 </MotionNavigationMenuItem>
 
                 <MotionNavigationMenuItem value="solutions">
-                  <MotionNavigationMenuTrigger className="px-3 py-1.5 text-sm font-semibold text-foreground hover:text-primary transition-colors">
+                  <MotionNavigationMenuTrigger className={`relative px-3 py-1.5 text-sm font-semibold transition-colors ${isActive(pathname, '/solutions') ? 'text-primary' : 'text-foreground hover:text-primary'}`}>
                     Solutions
+                    <ActiveDot active={isActive(pathname, '/solutions')} />
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
                     <div className="grid w-[280px] gap-px p-1">
                       {solutionLinks.map((s) => (
-                        <MotionNavigationMenuLink key={s.href} href={s.href} className="rounded-md px-3 py-2 text-sm text-foreground">
+                        <MotionNavigationMenuLink key={s.href} href={s.href} className={`rounded-md px-3 py-2 text-sm ${pathname === s.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
                           {s.name}
                         </MotionNavigationMenuLink>
                       ))}
@@ -150,13 +165,14 @@ export function MainNav() {
                 </MotionNavigationMenuItem>
 
                 <MotionNavigationMenuItem value="company">
-                  <MotionNavigationMenuTrigger className="px-3 py-1.5 text-sm font-semibold text-foreground hover:text-primary transition-colors">
+                  <MotionNavigationMenuTrigger className={`relative px-3 py-1.5 text-sm font-semibold transition-colors ${isActive(pathname, '/about') || isActive(pathname, '/careers') || isActive(pathname, '/contact') ? 'text-primary' : 'text-foreground hover:text-primary'}`}>
                     Company
+                    <ActiveDot active={isActive(pathname, '/about') || isActive(pathname, '/careers') || isActive(pathname, '/contact')} />
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
                     <div className="grid w-[200px] gap-px p-1">
                       {companyLinks.map((c) => (
-                        <MotionNavigationMenuLink key={c.href} href={c.href} className="rounded-md px-3 py-2 text-sm text-foreground">
+                        <MotionNavigationMenuLink key={c.href} href={c.href} className={`rounded-md px-3 py-2 text-sm ${pathname === c.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
                           {c.name}
                         </MotionNavigationMenuLink>
                       ))}
@@ -165,13 +181,14 @@ export function MainNav() {
                 </MotionNavigationMenuItem>
 
                 <MotionNavigationMenuItem value="resources">
-                  <MotionNavigationMenuTrigger className="px-3 py-1.5 text-sm font-semibold text-foreground hover:text-primary transition-colors">
+                  <MotionNavigationMenuTrigger className={`relative px-3 py-1.5 text-sm font-semibold transition-colors ${isActive(pathname, '/blog') || isActive(pathname, '/news') || isActive(pathname, '/resources') ? 'text-primary' : 'text-foreground hover:text-primary'}`}>
                     Resources
+                    <ActiveDot active={isActive(pathname, '/blog') || isActive(pathname, '/news') || isActive(pathname, '/resources')} />
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
                     <div className="grid w-[200px] gap-px p-1">
                       {resourceLinks.map((r) => (
-                        <MotionNavigationMenuLink key={r.href} href={r.href} className="rounded-md px-3 py-2 text-sm text-foreground">
+                        <MotionNavigationMenuLink key={r.href} href={r.href} className={`rounded-md px-3 py-2 text-sm ${pathname === r.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
                           {r.name}
                         </MotionNavigationMenuLink>
                       ))}
@@ -223,6 +240,7 @@ export function MainNav() {
                   { label: 'Industries', href: '/industries' },
                   { label: 'Solutions', href: '/solutions' },
                   { label: 'Company', href: '/about' },
+                  { label: 'News', href: '/news' },
                   { label: 'Resources', href: '/blog' },
                 ].map((link, i) => (
                   <motion.div
@@ -233,7 +251,7 @@ export function MainNav() {
                   >
                     <Link
                       href={link.href}
-                      className="flex items-center justify-between border-b border-border bg-surface px-5 py-4 last:border-b-0"
+                      className={`flex items-center justify-between border-b border-border px-5 py-4 last:border-b-0 ${isActive(pathname, link.href) ? 'bg-primary/10 text-primary' : 'bg-surface text-foreground'}`}
                     >
                       <span className="font-heading text-2xl font-bold">{link.label}</span>
                       <ArrowRight className="size-5 text-primary" aria-hidden="true" />
