@@ -649,7 +649,7 @@ function MotionNavigationMenuViewport({
 
   return (
     <motion.div
-      className="absolute top-full isolate z-50 flex -translate-x-1/2 justify-center"
+      className="absolute top-full isolate z-[200] flex -translate-x-1/2 justify-center"
       initial={false}
       animate={{ left: context?.viewportX ?? "50%" }}
       transition={context?.spring}
