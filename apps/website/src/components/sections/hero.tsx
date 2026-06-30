@@ -6,107 +6,141 @@ import { ArrowRight } from 'lucide-react';
 import { motion, useReducedMotion } from 'motion/react';
 import { HexagonPattern } from '@/components/ui/hexagon-pattern';
 
-const trackCards = [
-  {
-    label: 'Lab track',
-    title: 'Pixel and Orbit',
-    body: 'ROS2, SLAM, mapping, navigation, and sensor learning on real mobile robots.',
-  },
-  {
-    label: 'Floor track',
-    title: 'Cyborg',
-    body: 'Load-carrying AMR platform for factories, warehouses, and line-side movement.',
-  },
-];
-
 export function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section className="relative isolate min-h-[94dvh] overflow-hidden pt-24">
-      <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,var(--color-background)_0%,var(--color-surface)_54%,var(--color-background)_100%)]" />
+    <section className="relative isolate min-h-[100dvh] overflow-hidden">
+      {/* Background layers */}
+      <div className="absolute inset-0 -z-20 bg-[linear-gradient(180deg,var(--color-background)_0%,var(--color-surface)_50%,var(--color-background)_100%)]" />
       <div className="absolute inset-0 -z-10">
         <HexagonPattern
-          radius={35}
-          gap={6}
-          className="stroke-primary/[0.06] fill-primary/[0.02]"
-          strokeDasharray="3 5"
+          radius={30}
+          gap={5}
+          className="stroke-primary/[0.05] fill-primary/[0.015]"
+          strokeDasharray="2 4"
         />
       </div>
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-1/2 bg-[linear-gradient(180deg,transparent,color-mix(in_srgb,var(--color-primary)_9%,transparent))]" />
 
-      <motion.div
-        initial={reduceMotion ? false : { opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute bottom-[12%] right-[-18%] z-0 w-[1050px] max-w-[105vw] md:right-[-9%] lg:bottom-[4%] lg:right-[-5%] xl:w-[1180px]"
-      >
-        <Image
-          src="/Product/cyborg/Cyborg.png"
-          alt="Cyborg industrial autonomous mobile robot"
-          width={1600}
-          height={900}
-          priority
-          sizes="(max-width: 768px) 105vw, 70vw"
-          className="h-auto w-full object-contain drop-shadow-[0_36px_80px_rgb(0_0_0/0.55)]"
-        />
-      </motion.div>
-
-      <div className="relative z-10 mx-auto flex min-h-[calc(94dvh-6rem)] max-w-7xl flex-col px-6 pb-8">
-        <div className="max-w-4xl pt-10 md:pt-14">
-          <motion.h1
-            initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="font-heading text-6xl font-bold leading-[0.96] text-foreground md:text-8xl lg:text-9xl"
+      {/* Main content grid */}
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-28 pb-12 lg:grid lg:grid-cols-[1fr_1.1fr] lg:items-center lg:gap-8 lg:min-h-[100dvh]">
+        {/* Left: Text content */}
+        <div className="lg:pr-8">
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            Momentum Robotics
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-surface/50 px-3 py-1">
+              <span className="size-1.5 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs font-medium text-muted">Pune, Maharashtra</span>
+            </div>
+          </motion.div>
+
+          <motion.h1
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+            className="font-heading text-5xl font-bold leading-[0.92] tracking-tight md:text-7xl lg:text-[5.5rem]"
+          >
+            Learn
+            <br />
+            autonomy.
+            <br />
+            <span className="text-primary">Move loads.</span>
           </motion.h1>
+
           <motion.p
             initial={reduceMotion ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 max-w-2xl text-lg leading-8 text-muted md:text-xl"
+            transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-6 max-w-md text-base leading-7 text-muted"
           >
-            ROS2 learning platforms for labs. Industrial AMRs for factories and warehouses. Built in India from navigation to load movement.
+            Pixel and Orbit teach ROS2 navigation in labs. Cyborg carries real loads in factories and warehouses.
           </motion.p>
+
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.14, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.5, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
             className="mt-8 flex flex-col gap-3 sm:flex-row"
           >
             <Link
               href="/products/cyborg"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground transition hover:brightness-110 active:scale-[0.98]"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-7 text-sm font-semibold text-primary-foreground transition hover:brightness-110 active:scale-[0.98]"
             >
               See Cyborg
               <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
             <Link
               href="/products"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/18 bg-white/6 px-6 text-sm font-semibold text-foreground backdrop-blur transition hover:border-primary/45 hover:bg-white/10"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-border bg-surface/50 px-7 text-sm font-semibold text-foreground transition hover:border-primary/40"
             >
-              Explore platforms
+              All platforms
             </Link>
+          </motion.div>
+
+          {/* Bottom stats strip */}
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-16 flex gap-10 border-t border-border pt-6"
+          >
+            <div>
+              <p className="font-heading text-2xl font-bold text-primary">3</p>
+              <p className="text-xs text-muted mt-1">Robot platforms</p>
+            </div>
+            <div>
+              <p className="font-heading text-2xl font-bold text-primary">ROS2</p>
+              <p className="text-xs text-muted mt-1">Navigation stack</p>
+            </div>
+            <div>
+              <p className="font-heading text-2xl font-bold text-primary">India</p>
+              <p className="text-xs text-muted mt-1">Built locally</p>
+            </div>
           </motion.div>
         </div>
 
-        <div className="mt-auto grid gap-3 pt-24 md:grid-cols-2 lg:max-w-3xl">
-          {trackCards.map((track, index) => (
-            <motion.div
-              key={track.title}
-              initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.48, delay: 0.22 + index * 0.06, ease: [0.22, 1, 0.36, 1] }}
-              className="border border-white/14 bg-background/58 p-5 backdrop-blur-xl"
-            >
-              <p className="text-sm font-medium text-primary">{track.label}</p>
-              <h2 className="mt-2 font-heading text-2xl font-bold">{track.title}</h2>
-              <p className="mt-3 text-sm leading-6 text-muted">{track.body}</p>
-            </motion.div>
-          ))}
-        </div>
+        {/* Right: Product image */}
+        <motion.div
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mt-12 lg:mt-0"
+        >
+          <div className="relative aspect-square lg:aspect-[4/3]">
+            <Image
+              src="/Product/cyborg/Cyborg.png"
+              alt="Cyborg industrial autonomous mobile robot"
+              fill
+              priority
+              sizes="(max-width: 1024px) 100vw, 45vw"
+              className="object-contain drop-shadow-[0_20px_60px_rgb(0,0,0/0.4)]"
+            />
+          </div>
+
+          {/* Floating spec cards */}
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            className="absolute -left-4 bottom-8 rounded-xl border border-border bg-surface/80 px-4 py-3 backdrop-blur-md"
+          >
+            <p className="text-xs text-muted">Payload</p>
+            <p className="font-heading text-lg font-bold">150–1000 kg</p>
+          </motion.div>
+
+          <motion.div
+            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="absolute -right-4 top-8 rounded-xl border border-border bg-surface/80 px-4 py-3 backdrop-blur-md"
+          >
+            <p className="text-xs text-muted">Navigation</p>
+            <p className="font-heading text-lg font-bold">LiDAR + SLAM</p>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
