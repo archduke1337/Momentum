@@ -10,17 +10,17 @@ import { products } from '@workspace/content';
 
 const productRoles: Record<string, { label: string; intent: string; icon: typeof GraduationCap }> = {
   pixel: {
-    label: 'Compact Autonomous Mobile Robot',
+    label: 'ROS2 Education Kit',
     intent: 'Add your product intent statement here in CONTENT_TEMPLATES.md Section 3',
     icon: GraduationCap,
   },
   orbit: {
-    label: 'Mid-Duty Autonomous Mobile Robot',
+    label: 'Multi-Robot Education Platform',
     intent: 'Add your product intent statement here in CONTENT_TEMPLATES.md Section 3',
     icon: GraduationCap,
   },
   cyborg: {
-    label: 'Industrial Autonomous Mobile Robot',
+    label: 'Industrial AMR',
     intent: 'Add your product intent statement here in CONTENT_TEMPLATES.md Section 3',
     icon: Factory,
   },

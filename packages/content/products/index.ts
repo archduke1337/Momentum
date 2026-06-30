@@ -36,20 +36,20 @@ export const products: Product[] = [
       '/Product/pixel/Pixel diagram.png',
     ],
     category: 'amr',
-    industries: ['warehouses-logistics', 'manufacturing', 'fmcg'],
+    industries: ['education'],
   },
   {
     id: 'orbit',
     name: 'Orbit',
     slug: 'orbit',
-    tagline: 'Scaled navigation platform',
+    tagline: 'Multi-robot coordination education platform',
     description: '',
     features: [
-      'Heavy payload capacity',
-      'Rugged industrial design',
-      'Multi-sensor fusion',
-      'Fleet coordination',
-      '24/7 operation ready',
+      'Multi-robot fleet coordination',
+      'Advanced path planning',
+      'Sensor fusion learning',
+      'Fleet management workflows',
+      'Scalable for research',
     ],
     specifications: {
       Dimensions: '1200 x 800 x 500 mm',
@@ -65,7 +65,7 @@ export const products: Product[] = [
       '/Product/orbit/9.png',
     ],
     category: 'amr',
-    industries: ['automotive', 'manufacturing', 'warehouses-logistics'],
+    industries: ['education'],
   },
   {
     id: 'cyborg',
@@ -95,7 +95,7 @@ export const products: Product[] = [
       '/Product/cyborg/specifications/cyborg500.jpg',
     ],
     category: 'amr',
-    industries: ['pharma', 'hotels-resorts', 'education', 'automotive', 'manufacturing', 'airports'],
+    industries: ['pharma', 'automotive', 'manufacturing', 'warehouses-logistics'],
     variants: [
       {
         id: 'cyborg-150',
