@@ -84,7 +84,7 @@ export function MainNav() {
         className="fixed inset-x-0 top-0 z-50 px-4 pt-3"
       >
         <div
-          className={`mx-auto flex h-14 max-w-7xl items-center justify-between border px-4 transition duration-300 ${
+          className={`mx-auto flex h-12 max-w-7xl items-center justify-between rounded-lg border px-3 transition duration-300 ${
             scrolled
               ? 'border-border bg-background/92 shadow-[0_8px_30px_rgb(0,0,0/0.15)] backdrop-blur-xl'
               : 'border-white/8 bg-background/40 backdrop-blur-md'
@@ -106,9 +106,9 @@ export function MainNav() {
                     Products
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
-                    <div className="grid w-[380px] gap-0 p-0.5">
+                    <div className="grid w-[380px] gap-px p-0">
                       {productLinks.map((p) => (
-                        <MotionNavigationMenuLink key={p.href} href={p.href} className="flex items-center justify-between rounded-md px-3 py-2">
+                        <MotionNavigationMenuLink key={p.href} href={p.href} className="flex items-center justify-between rounded-md px-2.5 py-1.5">
                           <div className="flex flex-col">
                             <span className="text-[13px] font-medium text-foreground">{p.name}</span>
                             <span className="text-[11px] text-muted-foreground">{p.desc}</span>
