@@ -44,17 +44,20 @@ export function Hero() {
             initial={reduceMotion ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="font-heading text-6xl font-bold leading-[0.96] text-foreground md:text-8xl lg:text-9xl"
+            className="font-heading text-5xl font-bold leading-tight text-foreground md:text-6xl lg:text-7xl"
           >
-            Momentum Robotics
+            Autonomous Material Handling
+            <br />
+            Open Standards. No Lock-In.
           </motion.h1>
           <motion.p
             initial={reduceMotion ? false : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 max-w-2xl text-lg leading-8 text-muted md:text-xl"
+            className="mt-6 max-w-3xl text-lg leading-8 text-muted md:text-xl"
           >
-            Add your homepage tagline/value proposition here. See CONTENT_TEMPLATES.md Section 1 for guidance.
+            {/* TODO: Add homepage subline - describe the solution */}
+            Momentum solves the last unautomated bottleneck in manufacturing — material movement between stations, racks, and zones. Built on ROS 2, standards-based, cost-effective. For education labs to global factories.
           </motion.p>
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 14 }}
@@ -63,17 +66,17 @@ export function Hero() {
             className="mt-8 flex flex-col gap-3 sm:flex-row"
           >
             <Link
-              href="/products/cyborg"
+              href="/contact"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:brightness-110 active:scale-[0.98]"
             >
-              See Cyborg
+              Explore Our Solutions
               <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
             <Link
-              href="/products"
+              href="/contact"
               className="inline-flex min-h-12 items-center justify-center rounded-full border border-border bg-surface-elevated px-6 text-sm font-semibold text-foreground transition hover:border-primary/50 hover:bg-surface hover:shadow-md hover:shadow-primary/10"
             >
-              Explore platforms
+              Talk to Our Team
             </Link>
           </motion.div>
         </div>
