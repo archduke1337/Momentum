@@ -648,10 +648,10 @@ function MotionNavigationMenuViewport({
   const height = size.height > 0 ? size.height : lastSize.height;
 
   return (
-    <motion.div
-      className="absolute top-full isolate z-[200] flex -translate-x-1/2 justify-center"
-      initial={false}
-      animate={{ left: context?.viewportX ?? "50%" }}
+      <motion.div
+        className="absolute top-full z-50 flex -translate-x-1/2 justify-center"
+        initial={false}
+        animate={{ left: context?.viewportX ?? "50%" }}
       transition={context?.spring}
     >
       <motion.div

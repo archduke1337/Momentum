@@ -11,6 +11,23 @@ export const metadata: Metadata = {
     'Latest news, media coverage, and event updates from Momentum Robotics.',
 };
 
+function NewsSkeleton() {
+  return (
+    <div className="mt-20 grid gap-px border border-border bg-border md:grid-cols-3">
+      {[1, 2, 3].map((i) => (
+        <div key={i} className="bg-surface p-6" aria-busy="true">
+          <div className="mb-3 flex items-center gap-2">
+            <div className="h-5 w-16 animate-pulse rounded-full bg-muted-foreground/20" />
+            <div className="h-3 w-12 animate-pulse rounded-md bg-muted-foreground/20" />
+          </div>
+          <div className="mb-2 h-5 w-3/4 animate-pulse rounded-md bg-muted-foreground/20" />
+          <div className="h-3 w-full animate-pulse rounded-md bg-muted-foreground/20" />
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function NewsPage() {
   return (
     <section className="mx-auto max-w-7xl px-6 pb-24 pt-32">
@@ -27,15 +44,7 @@ export default function NewsPage() {
       </div>
 
       {newsItems.length === 0 ? (
-        <div className="mt-20 grid gap-px border border-border bg-border md:grid-cols-3">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="bg-surface p-8">
-              <div className="mb-4 h-3 w-16 rounded bg-border" />
-              <div className="mb-3 h-5 w-3/4 rounded bg-border" />
-              <div className="h-3 w-full rounded bg-border" />
-            </div>
-          ))}
-        </div>
+        <NewsSkeleton />
       ) : (
         <div className="mt-14 grid gap-px border border-border bg-border md:grid-cols-2 lg:grid-cols-3">
           {newsItems.map((item: NewsItem) => (
