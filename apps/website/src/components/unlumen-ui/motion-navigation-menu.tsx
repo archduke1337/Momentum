@@ -684,7 +684,7 @@ function MotionNavigationMenuViewport({
               animate="active"
               exit="exit"
               transition={context.spring}
-              className={cn("p-2 pr-2.5", activeContent.className)}
+              className={cn("p-0", activeContent.className)}
             >
               <MotionNavigationMenuContentInner
                 highlightClassName={activeContent.highlightClassName}
