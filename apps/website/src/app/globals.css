@@ -40,7 +40,7 @@
   --color-srf: #1a202c;
   --color-srf-el: #2d3748;
   --color-bdr: #4a5568;
-  --color-pri: #4a90e2;
+  --color-pri: #059669;
   --color-pri-fg: #ffffff;
   --color-sec: #06b6d4;
   --color-sec-fg: #ffffff;
@@ -65,9 +65,9 @@
   --color-srf: #ffffff;
   --color-srf-el: #f7f9fc;
   --color-bdr: #cbd5e0;
-  --color-pri: #1e40af;
+  --color-pri: #16a34a;
   --color-pri-fg: #ffffff;
-  --color-sec: #0891b2;
+  --color-sec: #06b6d4;
   --color-sec-fg: #ffffff;
   --color-mut: #64748b;
   --color-mut-fg: #94a3b8;
@@ -79,7 +79,7 @@
   --color-scs: #16a34a;
   --color-scs-fg: #ffffff;
   --color-txt-ter: #64748b;
-  --color-txt-acc: #0891b2;
+  --color-txt-acc: #06b6d4;
 }
 
 html { scroll-behavior: smooth; }
