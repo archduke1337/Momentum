@@ -1,54 +1,28 @@
-'use client';
-
-import { HexagonPattern } from '@/components/ui/hexagon-pattern';
-
-const stack = [
-  {
-    term: 'ROS2',
-    line: 'Teaching teams how modern robot software is structured.',
-  },
-  {
-    term: 'SLAM',
-    line: 'Helping learners see mapping and localization as a real system.',
-  },
-  {
-    term: 'Navigation',
-    line: 'Moving from maps into routes, obstacles, recovery, and behavior.',
-  },
-  {
-    term: 'Load movement',
-    line: 'Translating that autonomy into Cyborg for factory and warehouse work.',
-  },
-];
-
 export function Stats() {
   return (
-    <section className="relative border-y border-border bg-surface/25 overflow-hidden">
-      <div className="absolute inset-0 pointer-events-none">
-        <HexagonPattern
-          radius={25}
-          gap={4}
-          className="stroke-primary/[0.04] fill-primary/[0.01]"
-        />
-      </div>
-      <div className="relative mx-auto max-w-7xl px-6 py-16">
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div>
-            <h2 className="font-heading text-4xl font-bold leading-tight md:text-5xl">
-              Navigation is the through-line
-            </h2>
-            <p className="mt-5 max-w-xl text-base leading-7 text-muted">
-              This is the clearer Momentum story: teach autonomy, test it at larger scale, then deploy it where material movement matters.
+    <section className="border-t border-border">
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="grid divide-x-0 divide-y divide-border/50 md:grid-cols-3 md:divide-x md:divide-y-0">
+          <div className="py-10 pr-8 md:py-16">
+            <p className="font-heading text-5xl font-bold leading-none text-primary md:text-6xl">3</p>
+            <p className="mt-3 font-heading text-lg font-semibold text-foreground">Robot platforms</p>
+            <p className="mt-2 max-w-xs text-sm leading-6 text-muted-foreground">
+              Pixel for ROS2 education, Orbit for scaled validation, Cyborg for industrial load movement.
             </p>
           </div>
-
-          <div className="grid gap-px overflow-hidden border border-border bg-border md:grid-cols-2">
-            {stack.map((item) => (
-              <div key={item.term} className="bg-background p-6">
-                <p className="font-heading text-3xl font-bold text-primary">{item.term}</p>
-                <p className="mt-3 text-sm leading-6 text-muted-foreground">{item.line}</p>
-              </div>
-            ))}
+          <div className="py-10 md:px-8 md:py-16">
+            <p className="font-heading text-5xl font-bold leading-none text-primary md:text-6xl">ROS2</p>
+            <p className="mt-3 font-heading text-lg font-semibold text-foreground">Navigation stack</p>
+            <p className="mt-2 max-w-xs text-sm leading-6 text-muted-foreground">
+              SLAM, mapping, path planning, sensor fusion, and recovery behavior across all three platforms.
+            </p>
+          </div>
+          <div className="py-10 md:pl-8 md:py-16">
+            <p className="font-heading text-5xl font-bold leading-none text-primary md:text-6xl">India</p>
+            <p className="mt-3 font-heading text-lg font-semibold text-foreground">Built and supported locally</p>
+            <p className="mt-2 max-w-xs text-sm leading-6 text-muted-foreground">
+              Design, assembly, pilot deployment, and service from Pune. Closer to the teams using the robots.
+            </p>
           </div>
         </div>
       </div>
