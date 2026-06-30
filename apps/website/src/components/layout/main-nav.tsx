@@ -81,10 +81,10 @@ export function MainNav() {
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed inset-x-0 top-0 z-50 px-4 pt-2.5"
+        className="fixed inset-x-0 top-0 z-50 px-4 pt-3"
       >
         <div
-          className={`mx-auto flex h-12 max-w-7xl items-center justify-between border px-3 transition duration-300 ${
+          className={`mx-auto flex h-14 max-w-7xl items-center justify-between border px-4 transition duration-300 ${
             scrolled
               ? 'border-border bg-background/92 shadow-[0_8px_30px_rgb(0,0,0/0.15)] backdrop-blur-xl'
               : 'border-white/8 bg-background/40 backdrop-blur-md'
