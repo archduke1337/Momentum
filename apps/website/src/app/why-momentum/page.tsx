@@ -74,7 +74,7 @@ export default function WhyMomentumPage() {
       <section className="mt-20 p-8 border border-border rounded-lg bg-surface">
         <h3 className="text-2xl font-bold mb-4">Ready to see these advantages in action?</h3>
         <p className="text-muted mb-6">
-          {{/* TODO: Add CTA text */}}
+          {/* TODO: Add CTA text */}
           Whether you're a plant, an engineering team, or a university — let's discuss how Momentum fits your challenge.
         </p>
         <a
