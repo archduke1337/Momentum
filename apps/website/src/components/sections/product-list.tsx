@@ -28,7 +28,6 @@ function payload(product: Product) {
   if (product.variants?.length) {
     return product.variants.map((variant) => variant.payload).join(', ');
   }
-
   return product.specifications['Payload Capacity'] ?? 'Configured platform';
 }
 
@@ -37,18 +36,18 @@ export function ProductList() {
   const learningProducts = products.filter((product) => product.slug !== 'cyborg');
 
   return (
-    <section className="mx-auto max-w-7xl px-6 pb-24 pt-32">
+    <section className="mx-auto max-w-7xl px-6 pb-16 pt-28">
       <div className="max-w-4xl">
         <h1 className="font-heading text-5xl font-bold leading-tight md:text-7xl">
           Products for learning autonomy and moving loads
         </h1>
-        <p className="mt-6 max-w-2xl text-base leading-7 text-muted md:text-lg">
+        <p className="mt-4 max-w-2xl text-base leading-7 text-muted md:text-lg">
           Pixel and Orbit are education platforms for ROS2 navigation. Cyborg is the industrial AMR for factories and warehouses.
         </p>
       </div>
 
-      <div className="mt-14 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="grid gap-5">
+      <div className="mt-10 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="grid gap-4">
           {learningProducts.map((product) => {
             const role = roles[product.slug];
             return (
@@ -57,21 +56,21 @@ export function ProductList() {
                 href={`/products/${product.slug}`}
                 className="group grid overflow-hidden border border-border bg-surface transition hover:border-primary/40 md:grid-cols-[0.8fr_1.2fr]"
               >
-                <div className="relative min-h-64 bg-[#050706]">
+                <div className="relative min-h-52 bg-background">
                   <Image
                     src={product.image}
                     alt={`${product.name} ${role.label}`}
                     fill
                     sizes="(max-width: 1024px) 100vw, 35vw"
-                    className="object-contain p-5 transition duration-700 group-hover:scale-[1.04]"
+                    className="object-contain p-4 transition duration-700 group-hover:scale-[1.04]"
                   />
                 </div>
-                <div className="flex flex-col p-6">
+                <div className="flex flex-col p-5">
                   <p className="text-sm font-semibold text-primary">{role.label}</p>
-                  <h2 className="mt-2 font-heading text-3xl font-bold">{product.name}</h2>
-                  <p className="mt-2 text-sm font-medium text-muted">{role.accent}</p>
-                  <p className="mt-5 text-sm leading-6 text-muted-foreground">{product.description}</p>
-                  <span className="mt-auto inline-flex items-center gap-2 pt-7 text-sm font-semibold text-foreground group-hover:text-primary">
+                  <h2 className="mt-1.5 font-heading text-2xl font-bold">{product.name}</h2>
+                  <p className="mt-1.5 text-sm font-medium text-muted">{role.accent}</p>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{product.description}</p>
+                  <span className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-semibold text-foreground group-hover:text-primary">
                     {role.action}
                     <ArrowRight className="size-4" aria-hidden="true" />
                   </span>
@@ -83,21 +82,21 @@ export function ProductList() {
 
         <Link
           href="/products/cyborg"
-          className="group relative min-h-[720px] overflow-hidden border border-border bg-[linear-gradient(180deg,var(--color-surface)_0%,var(--color-surface-elevated)_100%)] text-foreground transition hover:border-primary/50"
+          className="group relative min-h-[600px] overflow-hidden border border-border bg-surface text-foreground transition hover:border-primary/50"
         >
           <Image
             src={cyborg.image}
             alt="Cyborg industrial AMR"
             fill
             sizes="(max-width: 1024px) 100vw, 55vw"
-            className="object-contain object-bottom p-5 transition duration-700 group-hover:scale-[1.025]"
+            className="object-contain object-bottom p-4 transition duration-700 group-hover:scale-[1.025]"
           />
-          <div className="absolute inset-x-0 top-0 bg-[linear-gradient(180deg,rgb(246_247_241/0.98),rgb(246_247_241/0.72),transparent)] p-7 md:p-9">
+          <div className="absolute inset-x-0 top-0 bg-gradient-to-b from-background via-background/80 to-transparent p-6 md:p-8">
             <p className="text-sm font-semibold text-primary">{roles.cyborg.label}</p>
-            <h2 className="mt-2 font-heading text-5xl font-bold leading-none md:text-6xl">Cyborg</h2>
-            <p className="mt-4 text-sm font-semibold text-muted">{payload(cyborg)} variant planning</p>
-            <p className="mt-5 max-w-md text-base leading-7 text-muted-foreground">{cyborg.description}</p>
-            <span className="mt-7 inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background">
+            <h2 className="mt-1.5 font-heading text-5xl font-bold leading-none md:text-6xl">Cyborg</h2>
+            <p className="mt-3 text-sm font-semibold text-muted">{payload(cyborg)} variant planning</p>
+            <p className="mt-3 max-w-md text-base leading-7 text-muted-foreground">{cyborg.description}</p>
+            <span className="mt-5 inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-3 text-sm font-semibold text-background">
               {roles.cyborg.action}
               <ArrowRight className="size-4" aria-hidden="true" />
             </span>
