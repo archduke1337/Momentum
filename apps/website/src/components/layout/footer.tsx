@@ -4,7 +4,7 @@ import { SocialLinks } from './social-links';
 
 const footerLinks = [
   {
-    title: 'Products', href: '/products'
+    title: 'Products', href: '/products',
     items: [
       { label: 'Pixel', href: '/products/pixel' },
       { label: 'Orbit', href: '/products/orbit' },
@@ -76,7 +76,7 @@ export function Footer() {
         {/* Bottom row: Copyright */}
         <div className="py-6 border-t border-border flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} Momentum Robotics Pvt. Ltd.
+            &copy; {new Date().getFullYear()} iMomentum Robotics Pvt. Ltd.
           </p>
           <div className="flex gap-5">
             <Link href="/privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
