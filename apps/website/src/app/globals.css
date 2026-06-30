@@ -33,53 +33,53 @@
   --color-brand: var(--color-pri);
 }
 
-/* ── Dark ── */
+/* ── Dark (editorial ink) ── */
 :root {
-  --color-bg: #0f1419;
-  --color-fg: #e8eef7;
-  --color-srf: #1a202c;
-  --color-srf-el: #2d3748;
-  --color-bdr: #4a5568;
-  --color-pri: #059669;
-  --color-pri-fg: #ffffff;
-  --color-sec: #06b6d4;
-  --color-sec-fg: #ffffff;
-  --color-mut: #718096;
-  --color-mut-fg: #a0aec0;
-  --color-acc: #2d3748;
-  --color-des: #f56565;
+  --color-bg: #0a0a0b;
+  --color-fg: #ededea;
+  --color-srf: #111113;
+  --color-srf-el: #18181b;
+  --color-bdr: #26262a;
+  --color-pri: #3aa676;
+  --color-pri-fg: #050505;
+  --color-sec: #3aa676;
+  --color-sec-fg: #050505;
+  --color-mut: #9a9a96;
+  --color-mut-fg: #6f6f6b;
+  --color-acc: #18181b;
+  --color-des: #e05a5a;
   --color-des-fg: #ffffff;
-  --color-wrn: #ed8936;
-  --color-wrn-fg: #ffffff;
-  --color-scs: #48bb78;
-  --color-scs-fg: #ffffff;
-  --color-txt-ter: #cbd5e0;
-  --color-txt-acc: #06b6d4;
-  --radius: 0.5rem;
+  --color-wrn: #d99046;
+  --color-wrn-fg: #050505;
+  --color-scs: #3aa676;
+  --color-scs-fg: #050505;
+  --color-txt-ter: #b8b8b3;
+  --color-txt-acc: #3aa676;
+  --radius: 0px;
 }
 
-/* ── Light ── */
+/* ── Light (warm paper) ── */
 .light {
-  --color-bg: #f8f9fb;
-  --color-fg: #0f1419;
+  --color-bg: #f3f2ed;
+  --color-fg: #131310;
   --color-srf: #ffffff;
-  --color-srf-el: #f7f9fc;
-  --color-bdr: #cbd5e0;
-  --color-pri: #16a34a;
+  --color-srf-el: #faf9f5;
+  --color-bdr: #d9d8d0;
+  --color-pri: #1f7a4d;
   --color-pri-fg: #ffffff;
-  --color-sec: #06b6d4;
+  --color-sec: #1f7a4d;
   --color-sec-fg: #ffffff;
-  --color-mut: #64748b;
-  --color-mut-fg: #94a3b8;
-  --color-acc: #e2e8f0;
-  --color-des: #dc2626;
+  --color-mut: #5c5c54;
+  --color-mut-fg: #86867c;
+  --color-acc: #e8e7df;
+  --color-des: #c0392b;
   --color-des-fg: #ffffff;
-  --color-wrn: #ea580c;
+  --color-wrn: #b4690e;
   --color-wrn-fg: #ffffff;
-  --color-scs: #16a34a;
+  --color-scs: #1f7a4d;
   --color-scs-fg: #ffffff;
-  --color-txt-ter: #64748b;
-  --color-txt-acc: #06b6d4;
+  --color-txt-ter: #5c5c54;
+  --color-txt-acc: #1f7a4d;
 }
 
 html { scroll-behavior: smooth; }
@@ -89,7 +89,7 @@ body {
   background: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.011em;
 }
 
 * { border-color: var(--color-border); }
