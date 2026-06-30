@@ -1,93 +1,111 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import {
+  ArrowRight,
+  Compass,
+  Radar,
+  Network,
+  Boxes,
+  Plug,
+  ShieldCheck,
+} from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'Technology — ROS 2 Navigation & Fleet Management',
   description: 'Learn about Momentum robotics technology stack: ROS 2 native, VDA 5050 compliance, multi-sensor autonomous navigation, fleet management software.',
 };
 
+const stack = [
+  {
+    icon: Compass,
+    title: 'Autonomous Navigation Stack',
+    body: 'LiDAR SLAM for map building, adaptive Monte Carlo localization for real-time positioning, and Nav2 for global and local path planning. No magnetic tape, no infrastructure changes — works in real factory conditions with dust, reflective surfaces, and dynamic obstacles.',
+  },
+  {
+    icon: Radar,
+    title: 'Multi-Sensor Fusion & Perception',
+    body: '2D LiDAR (25–30 m range) + Intel RealSense 3D camera + 9-axis IMU + wheel encoders. This redundancy handles the realities of factory floors: reflective surfaces, dust, variable lighting, and mixed human-robot zones.',
+  },
+  {
+    icon: Network,
+    title: 'Fleet Management Architecture',
+    body: 'A centralized browser-based dashboard handling mission assignment, traffic arbitration, deadlock prevention, and charging optimization. VDA 5050 compliant for multi-vendor interoperability, with REST API and MQTT for WMS/MES integration.',
+  },
+  {
+    icon: Boxes,
+    title: 'Software Architecture',
+    body: 'ROS 2 Humble on Ubuntu 22.04 with standard DDS communication. Documented topics, services, and actions built on open-source packages (Nav2, SLAM Toolbox). No proprietary black boxes — your engineers can extend and customize.',
+  },
+  {
+    icon: Plug,
+    title: 'Integration & Extensibility',
+    body: 'REST API for mission management, MQTT for real-time telemetry, and PLC connectivity via OPC-UA or Modbus TCP. WMS integration patterns enable pull-based missions, plus custom perception and planning modules.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Safety & Compliance',
+    body: 'ISO 3691-4 (AGV/AMR safety) compliance with safety-rated LiDAR fields, bumper sensors, and E-stop functionality. Zone-based traffic management and audit logging for regulated environments such as pharma and food.',
+  },
+];
+
 export default function TechnologyPage() {
   return (
-    <div className="mx-auto max-w-4xl px-6 pt-32 pb-24">
-      <h1 className="text-4xl md:text-5xl font-bold mb-6">Technology</h1>
-      <p className="text-xl text-muted mb-12">
-        {/* TODO: Add technology intro */}
-        Built on open standards. Engineered for real-world conditions. No vendor lock-in.
-      </p>
-
-      {/* Section 1: Navigation Stack */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-4">Autonomous Navigation Stack</h2>
-        <p className="text-muted mb-4 leading-7">
-          {/* TODO: Add navigation stack details */}
-          Every Momentum robot uses LiDAR SLAM for map building, adaptive Monte Carlo localization for real-time positioning,
-          and Nav2 for global and local path planning. No magnetic tape. No infrastructure changes. Works in real Indian factory
-          conditions — dust, reflective surfaces, dynamic obstacles.
-        </p>
+    <div>
+      {/* Hero */}
+      <section className="relative overflow-hidden border-b border-border/60">
+        <div className="grid-backdrop pointer-events-none absolute inset-0 -z-10 opacity-60" aria-hidden="true" />
+        <div className="mx-auto max-w-4xl px-6 pb-16 pt-32">
+          <span className="eyebrow">The technology</span>
+          <h1 className="mt-4 font-heading text-4xl font-bold leading-[1.1] md:text-6xl">
+            Built on <span className="text-gradient">open standards</span>.
+            <br />
+            Engineered for the real world.
+          </h1>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
+            ROS 2 native, VDA 5050 compliant, and tuned for dust, glare, and mixed
+            human-robot zones — with no vendor lock-in.
+          </p>
+        </div>
       </section>
 
-      {/* Section 2: Sensor Fusion */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-4">Multi-Sensor Fusion & Perception</h2>
-        <p className="text-muted mb-4 leading-7">
-          {/* TODO: Add sensor fusion details */}
-          2D LiDAR (25-30m range) + Intel RealSense 3D camera + 9-axis IMU + wheel encoders. This redundancy handles
-          the challenges of real factory floors — reflective surfaces, dust, variable lighting, mixed human-robot zones.
-        </p>
-      </section>
-
-      {/* Section 3: Fleet Management */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-4">Fleet Management Architecture</h2>
-        <p className="text-muted mb-4 leading-7">
-          {/* TODO: Add fleet management details */}
-          Centralized browser-based dashboard. Mission assignment, traffic arbitration, deadlock prevention, charging optimization.
-          VDA 5050 compliant for multi-vendor interoperability. REST API + MQTT for WMS/MES integration.
-        </p>
-      </section>
-
-      {/* Section 4: Software Architecture */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-4">Software Architecture</h2>
-        <p className="text-muted mb-4 leading-7">
-          {/* TODO: Add software details */}
-          ROS 2 Humble on Ubuntu 22.04. Standard DDS communication. Documented topics, services, and actions. Open-source packages
-          (Nav2, SLAM Toolbox). No proprietary black boxes. Your engineers can extend and customize.
-        </p>
-      </section>
-
-      {/* Section 5: Integration */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-4">Integration & Extensibility</h2>
-        <p className="text-muted mb-4 leading-7">
-          {/* TODO: Add integration details */}
-          REST API for mission management. MQTT for real-time telemetry. PLC connectivity via OPC-UA or Modbus TCP.
-          WMS integration patterns for pull-based missions. Custom perception and planning modules.
-        </p>
-      </section>
-
-      {/* Section 6: Safety & Compliance */}
-      <section className="mb-16">
-        <h2 className="text-3xl font-bold mb-4">Safety & Compliance</h2>
-        <p className="text-muted mb-4 leading-7">
-          {/* TODO: Add safety details */}
-          ISO 3691-4 (AGV/AMR safety standard) compliance. Safety-rated LiDAR fields. Bumper sensors. E-stop functionality.
-          Zone-based traffic management. Audit logging for regulatory compliance (pharma, food, etc.).
-        </p>
+      {/* Stack grid */}
+      <section className="mx-auto max-w-7xl px-6 py-24">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {stack.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div key={item.title} className="surface-card flex flex-col p-8">
+                <span className="icon-tile">
+                  <Icon className="size-5" aria-hidden="true" />
+                </span>
+                <h2 className="mt-6 font-heading text-xl font-bold">{item.title}</h2>
+                <p className="mt-3 text-sm leading-6 text-muted">{item.body}</p>
+              </div>
+            );
+          })}
+        </div>
       </section>
 
       {/* CTA */}
-      <section className="mt-20 p-8 border border-border rounded-lg bg-surface">
-        <h3 className="text-2xl font-bold mb-4">Ready to explore technical details?</h3>
-        <p className="text-muted mb-6">
-          {/* TODO: Add CTA text */}
-          Let's discuss how our technology solves your specific challenge.
-        </p>
-        <a
-          href="/contact"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold hover:brightness-110 transition"
-        >
-          Talk to Our Engineers
-        </a>
+      <section className="mx-auto max-w-7xl px-6 pb-28">
+        <div className="industrial-shell relative overflow-hidden rounded-3xl px-8 py-14 text-center md:px-16">
+          <div className="grid-backdrop pointer-events-none absolute inset-0 opacity-50" aria-hidden="true" />
+          <div className="relative">
+            <h2 className="font-heading text-3xl font-bold md:text-4xl">
+              Ready to explore the technical details?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl leading-7 text-muted">
+              Let&apos;s discuss how our stack solves your specific navigation, fleet,
+              and integration challenges.
+            </p>
+            <div className="mt-8 flex justify-center">
+              <Link href="/contact" className="btn-primary gap-2">
+                Talk to Our Engineers
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );

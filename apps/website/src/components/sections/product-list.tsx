@@ -6,18 +6,21 @@ import { ArrowRight } from 'lucide-react';
 import { products } from '@workspace/content';
 import type { Product } from '@workspace/types';
 
-const roles: Record<string, { label: string; action: string }> = {
+const roles: Record<string, { label: string; action: string; blurb: string }> = {
   pixel: {
     label: 'Education kit',
     action: 'Study Pixel',
+    blurb: 'A compact, industry-grade ROS 2 SLAM platform for teaching real autonomous navigation — the same stack that powers our factory robots.',
   },
   orbit: {
     label: 'Scaled learning platform',
     action: 'Study Orbit',
+    blurb: 'A multi-robot coordination platform for research labs exploring fleet management, path planning, and sensor fusion at scale.',
   },
   cyborg: {
     label: 'Industrial AMR',
     action: 'Pilot Cyborg',
+    blurb: 'Modular autonomous mobile robots from 150 to 1000 kg, built for automotive, pharma, manufacturing, and warehouse floors.',
   },
 };
 
@@ -34,23 +37,28 @@ export function ProductList() {
 
   return (
     <section className="mx-auto max-w-7xl px-6 pb-16 pt-28">
-      <div className="max-w-4xl">
-        <h1 className="font-heading text-5xl font-bold leading-tight md:text-7xl">
+      <div className="max-w-3xl">
+        <span className="eyebrow">The platforms</span>
+        <h1 className="mt-4 font-heading text-5xl font-bold leading-[1.05] md:text-7xl">
           Products
         </h1>
+        <p className="mt-5 text-lg leading-8 text-muted">
+          One open software stack across three hardware platforms — so what you learn on
+          Pixel scales straight to the factory floor.
+        </p>
       </div>
 
-      <div className="mt-10 grid gap-4 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="grid gap-4">
+      <div className="mt-12 grid gap-5 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="grid gap-5">
           {learningProducts.map((product) => {
             const role = roles[product.slug];
             return (
               <Link
                 key={product.id}
                 href={`/products/${product.slug}`}
-                className="group grid overflow-hidden border border-border bg-surface transition hover:border-primary/40 md:grid-cols-[0.8fr_1.2fr]"
+                className="group surface-card grid overflow-hidden md:grid-cols-[0.8fr_1.2fr]"
               >
-                <div className="relative min-h-52 bg-background">
+                <div className="relative min-h-52 bg-background/60">
                   <Image
                     src={product.image}
                     alt={`${product.name} ${role.label}`}
@@ -59,13 +67,13 @@ export function ProductList() {
                     className="object-contain p-4 transition duration-700 group-hover:scale-[1.04]"
                   />
                 </div>
-                <div className="flex flex-col p-5">
+                <div className="flex flex-col p-6">
                   <p className="text-sm font-semibold text-primary">{role.label}</p>
                   <h2 className="mt-1.5 font-heading text-2xl font-bold">{product.name}</h2>
-                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{/* TODO: Add real description */}</p>
+                  <p className="mt-3 flex-1 text-sm leading-6 text-muted">{role.blurb}</p>
                   <span className="mt-auto inline-flex items-center gap-2 pt-4 text-sm font-semibold text-foreground group-hover:text-primary">
                     {role.action}
-                    <ArrowRight className="size-4" aria-hidden="true" />
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
                   </span>
                 </div>
               </Link>
@@ -75,7 +83,7 @@ export function ProductList() {
 
         <Link
           href="/products/cyborg"
-          className="group relative min-h-[600px] overflow-hidden border border-border bg-surface text-foreground transition hover:border-primary/50"
+          className="group surface-card relative min-h-[600px] overflow-hidden text-foreground"
         >
           <Image
             src={cyborg.image}

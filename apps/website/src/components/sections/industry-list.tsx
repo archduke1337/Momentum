@@ -7,11 +7,18 @@ import type { Industry } from '@workspace/types';
 export function IndustryList() {
   return (
     <section className="mx-auto max-w-7xl px-6 pb-24 pt-32">
-      <h1 className="font-heading text-5xl font-bold leading-tight md:text-7xl">
-        Industries
-      </h1>
+      <div className="max-w-3xl">
+        <span className="eyebrow">Industries</span>
+        <h1 className="mt-4 font-heading text-5xl font-bold leading-[1.05] md:text-7xl">
+          Industries
+        </h1>
+        <p className="mt-5 text-lg leading-8 text-muted">
+          The material-handling bottleneck looks different in every sector. See how
+          Momentum AMRs fit yours.
+        </p>
+      </div>
 
-      <div className="mt-14 grid gap-px border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-border bg-border md:grid-cols-2 lg:grid-cols-4">
         {industries.map((industry: Industry, index) => (
           <Link
             key={industry.id}

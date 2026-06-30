@@ -40,15 +40,23 @@ export function Hero() {
 
       <div className="relative z-10 mx-auto flex min-h-[calc(94dvh-6rem)] max-w-7xl flex-col px-6 pb-8">
         <div className="max-w-4xl pt-10 md:pt-14">
+          <motion.span
+            initial={reduceMotion ? false : { opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="eyebrow"
+          >
+            ROS 2 · VDA 5050 · Made in India
+          </motion.span>
           <motion.h1
             initial={reduceMotion ? false : { opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="font-heading text-5xl font-bold leading-tight text-foreground md:text-6xl lg:text-7xl"
+            transition={{ duration: 0.55, delay: 0.05, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-5 font-heading text-5xl font-bold leading-[1.05] text-foreground md:text-6xl lg:text-7xl"
           >
-            Autonomous Material Handling
+            Autonomous Material Handling.
             <br />
-            Open Standards. No Lock-In.
+            <span className="text-gradient">Open Standards. No Lock-In.</span>
           </motion.h1>
           <motion.p
             initial={reduceMotion ? false : { opacity: 0, y: 16 }}
@@ -56,8 +64,7 @@ export function Hero() {
             transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="mt-6 max-w-3xl text-lg leading-8 text-muted md:text-xl"
           >
-            {/* TODO: Add homepage subline - describe the solution */}
-            Momentum solves the last unautomated bottleneck in manufacturing — material movement between stations, racks, and zones. Built on ROS 2, standards-based, cost-effective. For education labs to global factories.
+            Momentum solves the last unautomated bottleneck in manufacturing — material movement between stations, racks, and zones. Built on ROS 2, standards-based, and cost-effective, from education labs to global factories.
           </motion.p>
           <motion.div
             initial={reduceMotion ? false : { opacity: 0, y: 14 }}
@@ -79,6 +86,14 @@ export function Hero() {
               Talk to Our Team
             </Link>
           </motion.div>
+          <motion.p
+            initial={reduceMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.22 }}
+            className="mt-7 font-mono text-xs uppercase tracking-[0.14em] text-muted-foreground"
+          >
+            150–1000 kg payloads · Deployed across automotive, pharma &amp; logistics
+          </motion.p>
         </div>
       </div>
     </section>
