@@ -28,7 +28,7 @@ export const solutions: Solution[] = [
     description:
       'End-to-end autonomous movement for picking, replenishment, and cross-docking that scales through peak demand without adding temporary labour.',
     benefits: [
-      'Absorb 2–3× seasonal demand without new hires',
+      'Absorb seasonal demand spikes without new hires',
       'Cut walking time with pull-based task assignment',
       'Run reliably across multiple shifts, 24/7',
     ],

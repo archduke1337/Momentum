@@ -7,19 +7,19 @@ const industries = [
   {
     name: 'Automotive',
     problem: 'Line starvation when parts don’t reach the station in time.',
-    impact: '₹2–5L / hr downtime',
+    impact: 'Idle lines, missed takt',
     href: '/industries/automotive',
   },
   {
     name: 'Warehouse & Logistics',
-    problem: 'Peak demand (2–3×) forces temporary hires with high attrition.',
-    impact: 'Labour cost & error rates',
+    problem: 'Peak-season demand spikes force temporary hires with high attrition.',
+    impact: 'Labour cost & errors',
     href: '/industries/warehouses-logistics',
   },
   {
     name: 'Pharma & Life Sciences',
     problem: 'Manual movement risks cleanroom contamination and audit exposure.',
-    impact: 'Compliance & traceability',
+    impact: 'Compliance & audit risk',
     href: '/industries/pharma',
   },
 ];
@@ -31,13 +31,13 @@ const advantages = [
     contrast: 'Not a proprietary black box.',
   },
   {
-    title: 'Priced for reality',
-    body: '₹15–30L per unit with a 2–3 year payback and a low total cost of ownership.',
-    contrast: 'Not a ₹40–100L import on annual contract.',
+    title: 'Own it, don’t rent it',
+    body: 'No per-seat licensing and no mandatory annual maintenance contracts — a lower total cost of ownership over the life of the fleet.',
+    contrast: 'Not software you lease forever.',
   },
   {
     title: 'Education to industry',
-    body: 'Pixel runs the same stack as Cyborg at education pricing — what you learn in the lab ships to the floor.',
+    body: 'Pixel runs the same stack as Cyborg — what you learn in the lab ships straight to the factory floor.',
     contrast: 'Not a toy that never leaves the bench.',
   },
   {
@@ -196,7 +196,7 @@ export default function HomePage() {
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
             Share your payloads, routes, and floor conditions — we&apos;ll come back with the
-            right platform, a deployment plan, and a payback estimate.
+            right platform and a deployment plan for your operation.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link href="/contact" className="btn-primary">

@@ -29,7 +29,7 @@ export const industries: Industry[] = [
     slug: 'warehouses-logistics',
     tagline: 'Scale through peak without scaling headcount',
     description:
-      'Absorb 2–3× peak-season demand without the cost and attrition of temporary labour. AMRs integrate with your WMS for pull-based picking, replenishment, and cross-dock movement that runs around the clock.',
+      'Absorb peak-season demand spikes without the cost and attrition of temporary labour. AMRs integrate with your WMS for pull-based picking, replenishment, and cross-dock movement that runs around the clock.',
     icon: 'Warehouse',
     solutions: ['warehouse-automation', 'fleet-management'],
     image: '/industries/arno-senoner-bCgsKqFzUcg-unsplash.jpg',

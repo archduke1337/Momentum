@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const story = [
-  'In 2023, Indian discrete manufacturing faced a structural bottleneck: 99% of material movement between production stations remained manual, despite massive investment in production automation. We saw automotive plants with ₹50+ crore in robotic welding but forklifts still in the aisles, warehouses struggling to scale peak-season labour, and universities teaching SLAM on simulation rather than real hardware.',
+  'Indian discrete manufacturing has a structural blind spot: production itself is heavily automated, but most material movement between stations is still manual. We saw automotive plants running advanced robotic welding cells while forklifts and hand-carts still worked the aisles, warehouses struggling to scale peak-season labour, and universities teaching SLAM in simulation rather than on real hardware.',
   'We started Momentum to build the alternative that did not exist: open-source-first AMRs (ROS 2 native, VDA 5050 compliant), industry-grade at accessible price points, designed for real factory conditions. Not locked into proprietary software, not designed only for clean Western factories — works with legacy infrastructure and handles dust, reflective surfaces, and mixed human-robot zones.',
 ];
 

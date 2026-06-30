@@ -14,13 +14,13 @@ const advantages = [
     contrast: 'Most proprietary stacks lock you in for both development and maintenance.',
   },
   {
-    title: 'Cost-Effective at Scale',
-    body: '₹15–30L per robot with a 2–3 year payback in most deployments. Low total cost of ownership: no licensing, no annual maintenance contracts, no proprietary software costs — Indian engineering efficiency without premium pricing.',
-    contrast: 'Imported robots cost ₹40–100L plus annual maintenance.',
+    title: 'Lower Total Cost of Ownership',
+    body: 'No licensing fees, no mandatory annual maintenance contracts, and no proprietary software costs. We build with Indian engineering efficiency so the economics work over the full life of the fleet, not just at purchase.',
+    contrast: 'Imported platforms often carry premium pricing plus recurring maintenance contracts.',
   },
   {
     title: 'Education-to-Industry Bridge',
-    body: 'Pixel is an industry-grade autonomous platform at education pricing. Students learn on the exact same ROS 2 stack and navigation architecture used in our industrial Cyborg deployments — no retraining when they join a factory.',
+    body: 'Pixel is an industry-grade autonomous platform made accessible for the classroom. Students learn on the exact same ROS 2 stack and navigation architecture used in our industrial Cyborg platforms — no retraining when they join a factory.',
     contrast: 'Toy education robots do not translate to real factories; industrial platforms are too expensive for universities.',
   },
   {

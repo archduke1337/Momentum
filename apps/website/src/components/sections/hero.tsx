@@ -6,9 +6,9 @@ import { motion, useReducedMotion } from 'motion/react';
 
 const specs = [
   { k: 'Payload', v: '150–1000 kg' },
-  { k: 'Runtime', v: '16 h' },
   { k: 'Stack', v: 'ROS 2' },
   { k: 'Fleet', v: 'VDA 5050' },
+  { k: 'Built in', v: 'India' },
 ];
 
 export function Hero() {
