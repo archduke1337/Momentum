@@ -704,7 +704,7 @@ function MotionNavigationMenuViewport({
         className="pointer-events-none invisible absolute top-1.5 left-0 w-max"
       >
         {activeContent && (
-          <div className={cn("p-2 pr-2.5", activeContent.className)}>
+          <div className={cn("p-0", activeContent.className)}>
             <MotionNavigationMenuContentInner
               highlightClassName={activeContent.highlightClassName}
               innerClassName={activeContent.innerClassName}
