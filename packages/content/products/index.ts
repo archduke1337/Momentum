@@ -87,9 +87,9 @@ export const products: Product[] = [
       'Run Time': '8–16 hours',
       Speed: '0.8–1.2 m/s',
     },
-    image: '/Product/cyborg.png',
+    image: '/Product/cyborg/Cyborg.png',
     images: [
-      '/Product/cyborg.png',
+      '/Product/cyborg/Cyborg.png',
       '/Product/cyborg/specifications/cyborg150.jpg',
       '/Product/cyborg/specifications/cyborg250.jpg',
       '/Product/cyborg/specifications/cyborg500.jpg',
