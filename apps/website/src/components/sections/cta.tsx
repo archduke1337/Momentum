@@ -9,7 +9,7 @@ const steps = ['Share one load movement route', 'Map the floor and handoffs', 'S
 export function CTA() {
   return (
     <section className="mx-auto max-w-7xl px-6 py-24">
-      <div className="industrial-shell overflow-hidden rounded-2xl">
+      <div className="industrial-shell overflow-hidden rounded-lg">
         <div className="grid gap-8 p-7 md:p-10 lg:grid-cols-[1.1fr_0.9fr] lg:p-12">
           <div>
             <h2 className="font-heading text-4xl font-bold leading-tight md:text-5xl">
@@ -37,7 +37,7 @@ export function CTA() {
 
           <div className="grid gap-3">
             {steps.map((step, index) => (
-              <div key={step} className="flex items-center gap-4 rounded-xl border border-border bg-background/50 p-4">
+              <div key={step} className="flex items-center gap-4 rounded-lg border border-border bg-background/50 p-4">
                 <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-primary text-sm font-bold text-primary-foreground">
                   {index + 1}
                 </span>
