@@ -52,8 +52,8 @@ const resourceLinks = [
   { name: 'Changelog', href: '/resources/changelog' },
 ];
 
-const hl = 'bg-primary/[0.12] rounded-md';
-const contentHl = 'bg-primary/[0.10] rounded-md ring-1 ring-primary/20';
+const hl = 'bg-accent';
+const contentHl = 'bg-accent';
 
 function isActive(pathname: string, prefix: string) {
   return pathname === prefix || pathname.startsWith(prefix + '/');
@@ -96,10 +96,10 @@ export function MainNav() {
         className="fixed inset-x-0 top-0 z-[100] px-4 pt-3"
       >
         <div
-          className={`mx-auto flex h-14 max-w-7xl items-center justify-between rounded-lg border px-4 transition duration-300 ${
+          className={`mx-auto flex h-14 max-w-7xl items-center justify-between border px-4 transition duration-300 ${
             scrolled
-              ? 'border-border bg-background/95 shadow-lg shadow-black/10 backdrop-blur-xl'
-              : 'border-border/30 bg-background/40 backdrop-blur-md'
+              ? 'border-border bg-background/95 backdrop-blur-xl'
+              : 'border-border/40 bg-background/50 backdrop-blur-md'
           }`}
         >
           <Link href="/" className="flex items-center shrink-0">
@@ -205,9 +205,9 @@ export function MainNav() {
             <ThemeToggle />
             <Link
               href="/contact"
-              className="inline-flex h-8 items-center gap-1.5 rounded-full bg-primary px-4 text-xs font-semibold text-primary-foreground transition hover:brightness-110 active:scale-[0.98]"
+              className="inline-flex h-8 items-center gap-1.5 bg-foreground px-4 text-xs font-medium tracking-tight text-background transition-colors hover:bg-primary hover:text-primary-foreground"
             >
-              Request Demo
+              Request demo
               <ArrowRight className="size-3.5" aria-hidden="true" />
             </Link>
           </div>
@@ -215,7 +215,7 @@ export function MainNav() {
           <button
             type="button"
             onClick={() => setMobileOpen((open) => !open)}
-            className="inline-flex size-8 items-center justify-center border border-border bg-surface text-foreground rounded-lg lg:hidden"
+            className="inline-flex size-8 items-center justify-center border border-border bg-surface text-foreground lg:hidden"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
           >
@@ -251,10 +251,10 @@ export function MainNav() {
                   >
                     <Link
                       href={link.href}
-                      className={`flex items-center justify-between border-b border-border px-5 py-4 last:border-b-0 ${isActive(pathname, link.href) ? 'bg-primary/10 text-primary' : 'bg-surface text-foreground'}`}
+                      className={`flex items-center justify-between border-b border-border px-5 py-4 last:border-b-0 ${isActive(pathname, link.href) ? 'bg-accent text-primary' : 'bg-surface text-foreground'}`}
                     >
-                      <span className="font-heading text-2xl font-bold">{link.label}</span>
-                      <ArrowRight className="size-5 text-primary" aria-hidden="true" />
+                      <span className="text-2xl tracking-tight">{link.label}</span>
+                      <ArrowRight className="size-5 text-muted" aria-hidden="true" />
                     </Link>
                   </motion.div>
                 ))}
@@ -263,9 +263,9 @@ export function MainNav() {
               <div className="mt-auto flex flex-col gap-2.5 pt-5">
                 <Link
                   href="/contact"
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground"
+                  className="inline-flex h-12 items-center justify-center gap-2 bg-foreground px-6 text-sm font-medium tracking-tight text-background"
                 >
-                  Pilot Cyborg
+                  Request a demo
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
                 <div className="flex justify-center">

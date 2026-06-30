@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { products } from '@workspace/content';
 import { MediaPlaceholder } from '@/components/ui/media-placeholder';
 
@@ -13,13 +13,13 @@ const productCards = [pixel, orbit, cyborg].filter(Boolean);
 export function ProductShowcase() {
   if (productCards.length === 0) {
     return (
-      <section className="mx-auto max-w-7xl px-6 py-24">
-        <div className="grid gap-6 md:grid-cols-3">
+      <section className="mx-auto max-w-7xl px-6 pb-24 pt-16">
+        <div className="grid border border-border md:grid-cols-3">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="border border-border bg-surface p-5" aria-busy="true">
-              <div className="mb-4 aspect-[4/3] animate-pulse rounded-md bg-muted-foreground/20" />
-              <div className="mb-3 h-5 w-1/2 animate-pulse rounded-md bg-muted-foreground/20" />
-              <div className="h-4 w-3/4 animate-pulse rounded-md bg-muted-foreground/20" />
+            <div key={i} className="border-border p-8 not-last:border-b md:not-last:border-b-0 md:not-last:border-r" aria-busy="true">
+              <div className="mb-6 aspect-[4/3] animate-pulse bg-surface-elevated" />
+              <div className="mb-3 h-6 w-1/2 animate-pulse bg-surface-elevated" />
+              <div className="h-4 w-3/4 animate-pulse bg-surface-elevated" />
             </div>
           ))}
         </div>
@@ -28,13 +28,13 @@ export function ProductShowcase() {
   }
 
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24">
-      <div className="grid gap-6 md:grid-cols-3">
-        {productCards.map((product) => (
+    <section className="mx-auto max-w-7xl px-6 pb-24 pt-16">
+      <div className="grid border-t border-border md:grid-cols-3">
+        {productCards.map((product, i) => (
           <Link
             key={product!.id}
             href={`/products/${product!.slug}`}
-            className="group flex flex-col overflow-hidden rounded-lg border border-border bg-surface transition hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
+            className="group flex flex-col border-b border-border p-8 transition-colors hover:bg-surface md:border-b-0 md:p-10 md:[&:not(:last-child)]:border-r"
           >
             <div className="relative aspect-[4/3] bg-surface-elevated">
               {product!.image ? (
@@ -43,18 +43,19 @@ export function ProductShowcase() {
                   alt={product!.name}
                   fill
                   sizes="(max-width: 1024px) 100vw, 33vw"
-                  className="object-contain p-5 transition duration-700 group-hover:scale-[1.04]"
+                  className="object-contain p-6 transition-transform duration-500 group-hover:scale-[1.03]"
                 />
               ) : (
                 <MediaPlaceholder label={product!.name} aspect="aspect-[4/3]" />
               )}
             </div>
-            <div className="flex flex-1 flex-col p-5">
-              <h3 className="font-heading text-2xl font-bold">{product!.name}</h3>
-              <p className="mt-2 flex-1 text-sm leading-6 text-muted-foreground">{product!.tagline}</p>
-              <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-foreground group-hover:text-primary">
-                View
-                <ArrowRight className="size-3.5" aria-hidden="true" />
+            <div className="mt-6 flex flex-1 flex-col">
+              <span className="index-numeral text-sm">0{i + 1}</span>
+              <h3 className="mt-3 text-3xl tracking-tight">{product!.name}</h3>
+              <p className="mt-2 flex-1 leading-relaxed text-muted">{product!.tagline}</p>
+              <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium tracking-tight text-foreground group-hover:text-primary">
+                View platform
+                <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
               </span>
             </div>
           </Link>

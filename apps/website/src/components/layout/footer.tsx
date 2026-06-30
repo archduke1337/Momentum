@@ -45,21 +45,18 @@ export function Footer() {
   return (
     <footer className="border-t border-border">
       {/* CTA strip */}
-      <div className="border-b border-border bg-surface/40">
-        <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 py-12 sm:flex-row sm:items-center sm:justify-between">
+      <div className="border-b border-border">
+        <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 py-14 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="font-heading text-2xl font-bold md:text-3xl">
+            <h2 className="display text-3xl md:text-4xl">
               Let&apos;s automate your floor.
             </h2>
-            <p className="mt-2 max-w-xl text-sm leading-6 text-muted">
+            <p className="mt-3 max-w-xl leading-relaxed text-muted">
               Tell us your payloads, routes, and floor conditions — we&apos;ll map the right platform for your operation.
             </p>
           </div>
-          <Link
-            href="/contact"
-            className="inline-flex min-h-12 shrink-0 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:brightness-110 active:scale-[0.98]"
-          >
-            Request a Demo
+          <Link href="/contact" className="btn-primary shrink-0 gap-2">
+            Request a demo
             <ArrowRight className="size-4" aria-hidden="true" />
           </Link>
         </div>
