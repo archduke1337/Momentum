@@ -19,7 +19,7 @@ export default function WhyMomentumPage() {
       <section className="mb-16 pb-16 border-b border-border">
         <h2 className="text-3xl font-bold mb-4">1. Open Standards, No Lock-In</h2>
         <p className="text-muted mb-4 leading-7">
-          {{/* TODO: Add detail */}}
+          {/* TODO: Add detail */}
           ROS 2 native. VDA 5050 compliant. Your engineers can read, modify, and extend our code. You're never locked into proprietary
           software or maintenance contracts. Hire a roboticist trained anywhere — they'll understand our stack.
         </p>
@@ -33,7 +33,7 @@ export default function WhyMomentumPage() {
       <section className="mb-16 pb-16 border-b border-border">
         <h2 className="text-3xl font-bold mb-4">2. Cost-Effective at Scale</h2>
         <p className="text-muted mb-4 leading-7">
-          {{/* TODO: Add detail */}}
+          {/* TODO: Add detail */}
           ₹15-30L per robot. 2-3 year payback in most deployments. Low TCO: no licensing, no annual maintenance contracts,
           no proprietary software costs. Leveraging Indian engineering and manufacturing efficiency without premium pricing.
         </p>
@@ -46,7 +46,7 @@ export default function WhyMomentumPage() {
       <section className="mb-16 pb-16 border-b border-border">
         <h2 className="text-3xl font-bold mb-4">3. Education-to-Industry Bridge</h2>
         <p className="text-muted mb-4 leading-7">
-          {{/* TODO: Add detail */}}
+          {/* TODO: Add detail */}
           Pixel is an industry-grade autonomous platform at education pricing. Students learn on the exact same ROS 2 stack
           and navigation architecture used in our industrial Cyborg deployments. No retraining when they join a factory.
         </p>
@@ -60,12 +60,12 @@ export default function WhyMomentumPage() {
       <section className="mb-16">
         <h2 className="text-3xl font-bold mb-4">4. Global Ambitions, Local Roots</h2>
         <p className="text-muted mb-4 leading-7">
-          {{/* TODO: Add detail */}}
+          {/* TODO: Add detail */}
           Rooted in Pune, partnering with European automation firms. We understand Indian factory conditions while building
           for global standards. Not a global company ignoring local needs, and not a local startup that can't scale.
         </p>
         <p className="text-sm text-muted-foreground">
-          <strong>Vs. Competitors:</strong> {/* TODO: Add competitor comparison */}} Global AMR companies often miss regional
+          <strong>Vs. Competitors:</strong> {/* TODO: Add competitor comparison */} Global AMR companies often miss regional
           specifics. Pure Indian startups lack international experience.
         </p>
       </section>
