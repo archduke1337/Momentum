@@ -12,12 +12,20 @@
   --color-border: var(--color-bdr);
   --color-primary: var(--color-pri);
   --color-primary-foreground: var(--color-pri-fg);
+  --color-secondary: var(--color-sec);
+  --color-secondary-foreground: var(--color-sec-fg);
   --color-muted: var(--color-mut);
   --color-muted-foreground: var(--color-mut-fg);
   --color-accent: var(--color-acc);
   --color-accent-foreground: var(--color-fg);
-  --color-destructive: #dc2626;
-  --color-destructive-foreground: #ffffff;
+  --color-destructive: var(--color-des);
+  --color-destructive-foreground: var(--color-des-fg);
+  --color-warning: var(--color-wrn);
+  --color-warning-foreground: var(--color-wrn-fg);
+  --color-success: var(--color-scs);
+  --color-success-foreground: var(--color-scs-fg);
+  --color-text-tertiary: var(--color-txt-ter);
+  --color-text-accent: var(--color-txt-acc);
   --color-popover: var(--color-srf);
   --color-popover-foreground: var(--color-fg);
   --color-card: var(--color-srf);
@@ -27,31 +35,51 @@
 
 /* ── Dark ── */
 :root {
-  --color-bg: #0a0d0b;
-  --color-fg: #f0ece4;
-  --color-srf: #111613;
-  --color-srf-el: #181e1a;
-  --color-bdr: #253027;
-  --color-pri: #7ce838;
-  --color-pri-fg: #08100b;
-  --color-mut: #9aa398;
-  --color-mut-fg: #6b7568;
-  --color-acc: #141a16;
+  --color-bg: #0f1419;
+  --color-fg: #e8eef7;
+  --color-srf: #1a202c;
+  --color-srf-el: #2d3748;
+  --color-bdr: #4a5568;
+  --color-pri: #4a90e2;
+  --color-pri-fg: #ffffff;
+  --color-sec: #06b6d4;
+  --color-sec-fg: #ffffff;
+  --color-mut: #718096;
+  --color-mut-fg: #a0aec0;
+  --color-acc: #2d3748;
+  --color-des: #f56565;
+  --color-des-fg: #ffffff;
+  --color-wrn: #ed8936;
+  --color-wrn-fg: #ffffff;
+  --color-scs: #48bb78;
+  --color-scs-fg: #ffffff;
+  --color-txt-ter: #cbd5e0;
+  --color-txt-acc: #06b6d4;
   --radius: 0.5rem;
 }
 
 /* ── Light ── */
 .light {
-  --color-bg: #f7f8f4;
-  --color-fg: #141816;
+  --color-bg: #f8f9fb;
+  --color-fg: #0f1419;
   --color-srf: #ffffff;
-  --color-srf-el: #eef0eb;
-  --color-bdr: #d4dbd0;
-  --color-pri: #2a7d3f;
+  --color-srf-el: #f7f9fc;
+  --color-bdr: #cbd5e0;
+  --color-pri: #1e40af;
   --color-pri-fg: #ffffff;
-  --color-mut: #4d5749;
-  --color-mut-fg: #6b7568;
-  --color-acc: #e8ece5;
+  --color-sec: #0891b2;
+  --color-sec-fg: #ffffff;
+  --color-mut: #64748b;
+  --color-mut-fg: #94a3b8;
+  --color-acc: #e2e8f0;
+  --color-des: #dc2626;
+  --color-des-fg: #ffffff;
+  --color-wrn: #ea580c;
+  --color-wrn-fg: #ffffff;
+  --color-scs: #16a34a;
+  --color-scs-fg: #ffffff;
+  --color-txt-ter: #64748b;
+  --color-txt-acc: #0891b2;
 }
 
 html { scroll-behavior: smooth; }
@@ -61,6 +89,7 @@ body {
   background: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
 }
 
 * { border-color: var(--color-border); }
@@ -73,6 +102,62 @@ body {
 ::selection {
   background: color-mix(in srgb, var(--color-primary) 25%, transparent);
   color: var(--color-foreground);
+}
+
+/* ── Button Utilities ── */
+.btn-primary {
+  @apply inline-flex items-center justify-center min-h-12 px-6 rounded-full bg-primary text-primary-foreground font-semibold text-sm shadow-lg shadow-primary/20 transition hover:brightness-110 active:scale-[0.98];
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center min-h-12 px-6 rounded-full border border-border bg-surface-elevated text-foreground font-semibold text-sm transition hover:border-primary/50 hover:bg-surface hover:shadow-md hover:shadow-primary/10;
+}
+
+.btn-tertiary {
+  @apply inline-flex items-center justify-center min-h-12 px-6 rounded-full bg-transparent border border-border/50 text-foreground font-semibold text-sm transition hover:bg-surface/50 hover:border-border;
+}
+
+/* ── Form Elements ── */
+input:disabled,
+textarea:disabled,
+select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+input:invalid,
+textarea:invalid {
+  border-color: var(--color-destructive);
+}
+
+input:disabled::placeholder,
+textarea:disabled::placeholder {
+  color: var(--color-muted-foreground);
+}
+
+/* ── Focus States ── */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ── Typography Improvements ── */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: -0.02em;
+  font-weight: 600;
+}
+
+p {
+  line-height: 1.6;
+}
+
+code {
+  background: var(--color-surface-elevated);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
 }
 
 body::before {

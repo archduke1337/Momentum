@@ -64,14 +64,14 @@ export function Hero() {
           >
             <Link
               href="/products/cyborg"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground transition hover:brightness-110 active:scale-[0.98]"
+              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition hover:brightness-110 active:scale-[0.98]"
             >
               See Cyborg
               <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
             <Link
               href="/products"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/18 bg-white/6 px-6 text-sm font-semibold text-foreground backdrop-blur transition hover:border-primary/45 hover:bg-white/10"
+              className="inline-flex min-h-12 items-center justify-center rounded-full border border-border bg-surface-elevated px-6 text-sm font-semibold text-foreground transition hover:border-primary/50 hover:bg-surface hover:shadow-md hover:shadow-primary/10"
             >
               Explore platforms
             </Link>

@@ -34,9 +34,9 @@ export function ProductShowcase() {
           <Link
             key={product!.id}
             href={`/products/${product!.slug}`}
-            className="group flex flex-col overflow-hidden border border-border bg-surface transition hover:border-primary/40"
+            className="group flex flex-col overflow-hidden rounded-lg border border-border bg-surface transition hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10"
           >
-            <div className="relative aspect-[4/3] bg-[#050706]">
+            <div className="relative aspect-[4/3] bg-surface-elevated">
               {product!.image ? (
                 <Image
                   src={product!.image}

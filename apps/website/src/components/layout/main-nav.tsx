@@ -52,8 +52,8 @@ const resourceLinks = [
   { name: 'Changelog', href: '/resources/changelog' },
 ];
 
-const hl = 'bg-primary/[0.08] rounded-md';
-const contentHl = 'bg-primary/[0.06] rounded-md ring-1 ring-primary/10';
+const hl = 'bg-primary/[0.12] rounded-md';
+const contentHl = 'bg-primary/[0.10] rounded-md ring-1 ring-primary/20';
 
 function isActive(pathname: string, prefix: string) {
   return pathname === prefix || pathname.startsWith(prefix + '/');
@@ -98,8 +98,8 @@ export function MainNav() {
         <div
           className={`mx-auto flex h-14 max-w-7xl items-center justify-between rounded-lg border px-4 transition duration-300 ${
             scrolled
-              ? 'border-border bg-background/92 shadow-[0_8px_30px_rgb(0,0,0/0.15)] backdrop-blur-xl'
-              : 'border-white/8 bg-background/40 backdrop-blur-md'
+              ? 'border-border bg-background/95 shadow-lg shadow-black/10 backdrop-blur-xl'
+              : 'border-border/30 bg-background/40 backdrop-blur-md'
           }`}
         >
           <Link href="/" className="flex items-center shrink-0">
