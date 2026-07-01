@@ -83,6 +83,7 @@ export function MainNav() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 380, damping: 40, restDelta: 0.001 });
 
@@ -131,6 +132,7 @@ export function MainNav() {
               viewportClassName="bg-surface border border-border"
               springStiffness={400}
               springDamping={28}
+              onValueChange={(value) => setMenuOpen(Boolean(value))}
             >
               <MotionNavigationMenuList highlightClassName={hl}>
                 <MotionNavigationMenuItem value="solutions">
@@ -257,6 +259,19 @@ export function MainNav() {
           </button>
         </div>
       </motion.header>
+
+      <AnimatePresence>
+        {menuOpen ? (
+          <motion.div
+            aria-hidden
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[90] hidden bg-background/70 backdrop-blur-[1px] lg:block"
+          />
+        ) : null}
+      </AnimatePresence>
 
       <AnimatePresence mode="wait">
         {mobileOpen ? (

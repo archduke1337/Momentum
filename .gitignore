@@ -41,10 +41,12 @@ yarn-error.log*
 .agents
 .agents/skills
 .claude
-.agents\skills
 .agents/
-
+.agents\skills
+Momentum\.agents
 # Next.js
+
+
 next-env.d.ts
 
 # OS
