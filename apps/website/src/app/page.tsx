@@ -43,7 +43,7 @@ const advantages = [
   {
     title: 'Local and global',
     body: 'Engineered in Pune with European partnerships, deployable and serviceable worldwide.',
-    contrast: 'Not a vendor that ignores local realities.',
+    detail: 'Serviced from Pune, deployed wherever you operate.',
   },
 ];
 
@@ -135,8 +135,8 @@ export default function HomePage() {
                 <span className="index-numeral text-sm">0{i + 1}</span>
                 <h3 className="mt-5 text-xl tracking-tight">{adv.title}</h3>
                 <p className="mt-3 flex-1 leading-relaxed text-muted">{adv.body}</p>
-                <p className="mt-6 border-t border-border pt-4 text-sm text-mut-foreground">
-                  {adv.contrast}
+                <p className="mt-6 border-t border-border pt-4 text-sm text-muted-foreground">
+                  {adv.detail}
                 </p>
               </div>
             ))}
