@@ -12,69 +12,73 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 
+const field = 'min-h-12 rounded-none border-border bg-background px-4';
+
 export default function ContactForm() {
   return (
     <form
       action="mailto:hello@momentumrobotics.in"
       method="post"
       encType="text/plain"
-      className="rounded-2xl border border-border bg-surface p-5 md:p-7"
+      className="border border-border bg-surface p-6 md:p-8"
     >
-      <div className="grid gap-5">
+      <div className="grid gap-6">
         <div className="grid gap-2">
-          <Label htmlFor="name">Name</Label>
+          <Label htmlFor="name" className="label-mono">Name</Label>
           <Input
             id="name"
             name="name"
             autoComplete="name"
             required
-            className="min-h-12 rounded-xl bg-background/55 px-4"
+            className={field}
             placeholder="Your name"
           />
         </div>
 
-        <div className="grid gap-2">
-          <Label htmlFor="email">Work email</Label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            inputMode="email"
-            autoComplete="email"
-            required
-            className="min-h-12 rounded-xl bg-background/55 px-4"
-            placeholder="you@company.com"
-          />
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-2">
+            <Label htmlFor="email" className="label-mono">Work email</Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              inputMode="email"
+              autoComplete="email"
+              required
+              className={field}
+              placeholder="you@company.com"
+            />
+          </div>
+
+          <div className="grid gap-2">
+            <Label htmlFor="phone" className="label-mono">Phone</Label>
+            <Input
+              id="phone"
+              name="phone"
+              type="tel"
+              inputMode="tel"
+              autoComplete="tel"
+              className={field}
+              placeholder="+91"
+            />
+          </div>
         </div>
 
         <div className="grid gap-2">
-          <Label htmlFor="company">Company</Label>
+          <Label htmlFor="company" className="label-mono">Company</Label>
           <Input
             id="company"
             name="company"
             autoComplete="organization"
-            className="min-h-12 rounded-xl bg-background/55 px-4"
+            className={field}
             placeholder="Company name"
           />
         </div>
 
         <div className="grid gap-2">
-          <Label htmlFor="phone">Phone</Label>
-          <Input
-            id="phone"
-            name="phone"
-            type="tel"
-            inputMode="tel"
-            autoComplete="tel"
-            className="min-h-12 rounded-xl bg-background/55 px-4"
-            placeholder="+91"
-          />
-        </div>
-
-        <div className="grid gap-2">
-          <Label>Primary need</Label>
+          <Label className="label-mono">Primary need</Label>
           <Select name="requirement">
-            <SelectTrigger className="min-h-12 w-full rounded-xl bg-background/55 px-4">
+            <SelectTrigger className={`w-full ${field}`}>
               <SelectValue placeholder="Select one" />
             </SelectTrigger>
             <SelectContent>
@@ -88,22 +92,19 @@ export default function ContactForm() {
         </div>
 
         <div className="grid gap-2">
-          <Label htmlFor="message">Movement problem</Label>
+          <Label htmlFor="message" className="label-mono">Movement problem</Label>
           <Textarea
             id="message"
             name="message"
             rows={6}
             required
-            className="min-h-36 resize-none rounded-xl bg-background/55 px-4 py-3"
+            className="min-h-36 resize-none rounded-none border-border bg-background px-4 py-3"
             placeholder="Tell us the payload, route, floor condition, and what slows the current process."
           />
         </div>
       </div>
 
-      <button
-        type="submit"
-        className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-primary px-6 text-sm font-semibold text-primary-foreground transition hover:brightness-110 active:scale-[0.98] sm:w-auto"
-      >
+      <button type="submit" className="btn-primary mt-8 w-full gap-2 sm:w-auto">
         Send inquiry
         <ArrowRight className="size-4" aria-hidden="true" />
       </button>
