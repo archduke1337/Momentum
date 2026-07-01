@@ -38,6 +38,11 @@ yarn-error.log*
 .idea/
 *.swp
 *.swo
+.agents
+.claude
+.agents\skills
+.agents/skills
+.agents/
 
 # Next.js
 next-env.d.ts
