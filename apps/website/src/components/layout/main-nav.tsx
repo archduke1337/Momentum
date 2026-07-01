@@ -65,6 +65,10 @@ function isActive(pathname: string, prefix: string) {
   return pathname === prefix || pathname.startsWith(prefix + '/');
 }
 
+function isCompanyActive(pathname: string) {
+  return companyLinks.some((c) => isActive(pathname, c.href));
+}
+
 function ActiveDot({ active }: { active: boolean }) {
   if (!active) return null;
   return (
