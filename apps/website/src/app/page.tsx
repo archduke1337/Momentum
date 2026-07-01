@@ -28,7 +28,7 @@ const advantages = [
   {
     title: 'Open standards',
     body: 'ROS 2-native and VDA 5050 compliant. Your engineers extend the stack instead of waiting on a vendor.',
-    contrast: 'Not a proprietary black box.',
+    detail: 'Extend it yourself; no ticket, no vendor gatekeeping.',
   },
   {
     title: 'Own it, don’t rent it',
