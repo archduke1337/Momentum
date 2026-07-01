@@ -245,6 +245,30 @@ body::before {
   letter-spacing: 0;
 }
 
+/* ── Data figure — real numbers used as design elements ── */
+.stat-figure {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.045em;
+  line-height: 0.95;
+}
+
+/* ── Telemetry / datasheet cell (mono key over value) ── */
+.spec-key {
+  font-family: var(--font-mono);
+  font-size: 0.625rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-mut-fg);
+}
+
+.spec-value {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--color-foreground);
+}
+
 /* ── text-gradient kept as a no-op solid (legacy usages) ── */
 .text-gradient { color: var(--color-primary); }
 
