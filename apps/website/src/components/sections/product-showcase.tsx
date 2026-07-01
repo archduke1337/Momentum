@@ -10,6 +10,12 @@ const cyborg = products.find((product) => product.slug === 'cyborg');
 
 const productCards = [pixel, orbit, cyborg].filter(Boolean);
 
+const keySpec: Record<string, { payload: string; role: string }> = {
+  pixel: { payload: '300 kg', role: 'Education kit' },
+  orbit: { payload: '1000 kg', role: 'Research platform' },
+  cyborg: { payload: '150–1000 kg', role: 'Industrial · 4 variants' },
+};
+
 export function ProductShowcase() {
   if (productCards.length === 0) {
     return (
@@ -30,7 +36,7 @@ export function ProductShowcase() {
   return (
     <section className="mx-auto max-w-7xl px-6 pb-24 pt-16">
       <div className="grid border-t border-border md:grid-cols-3">
-        {productCards.map((product, i) => (
+        {productCards.map((product) => (
           <Link
             key={product!.id}
             href={`/products/${product!.slug}`}
@@ -50,10 +56,16 @@ export function ProductShowcase() {
               )}
             </div>
             <div className="mt-6 flex flex-1 flex-col">
-              <span className="index-numeral text-sm">0{i + 1}</span>
-              <h3 className="mt-3 text-3xl tracking-tight">{product!.name}</h3>
+              <div className="flex items-baseline justify-between gap-3">
+                <h3 className="text-3xl tracking-tight">{product!.name}</h3>
+                <span className="label-mono">{keySpec[product!.slug]?.role}</span>
+              </div>
               <p className="mt-2 flex-1 leading-relaxed text-muted">{product!.tagline}</p>
-              <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium tracking-tight text-foreground group-hover:text-primary">
+              <div className="mt-5 flex items-baseline gap-2 border-t border-border pt-4">
+                <span className="spec-key">Payload</span>
+                <span className="spec-value text-sm text-foreground">{keySpec[product!.slug]?.payload}</span>
+              </div>
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium tracking-tight text-foreground group-hover:text-primary">
                 View platform
                 <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
               </span>
