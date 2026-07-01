@@ -64,8 +64,8 @@ const tech = [
 ];
 
 const where = [
-  { k: 'Founded', v: '2023 · Pune, India' },
-  { k: 'Stage', v: 'R&D + selective deployment' },
+  { k: 'HQ', v: 'Pune, India · R&D + mfg' },
+  { k: 'Stage', v: 'Selective deployment' },
   { k: 'Europe', v: 'Gebroeders Doms BV, Belgium' },
   { k: 'Platforms', v: 'Pixel · Orbit · Cyborg' },
 ];
