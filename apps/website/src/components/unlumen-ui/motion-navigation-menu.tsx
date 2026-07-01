@@ -440,7 +440,7 @@ function MotionNavigationMenuItem({
 }
 
 const motionNavigationMenuTriggerStyle = cva(
-  "group inline-flex h-9 w-max items-center justify-center rounded-md bg-transparent px-4 py-2 text-sm font-medium hover:text-accent-foreground focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=open]:text-accent-foreground focus-visible:ring-ring/50 outline-none transition-colors focus-visible:ring-[3px] focus-visible:outline-1",
+  "group inline-flex h-9 w-max items-center justify-center bg-transparent px-4 py-2 text-sm font-medium hover:text-accent-foreground focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=open]:text-accent-foreground focus-visible:ring-ring/50 outline-none transition-colors focus-visible:ring-[3px] focus-visible:outline-1",
 );
 
 function MotionNavigationMenuTrigger({
@@ -552,7 +552,7 @@ function MotionNavigationMenuContent({
           exit="exit"
           transition={context.spring}
           className={cn(
-            "bg-background/90 text-popover-foreground absolute top-full left-0 z-50 mt-1.5 rounded-md border p-2 pr-2.5 shadow",
+            "bg-background text-popover-foreground absolute top-full left-0 z-50 mt-1.5 border p-2 pr-2.5",
             className,
           )}
         >
@@ -583,7 +583,7 @@ function MotionNavigationMenuContentInner({
       controlledItems
       hover
       className={cn(
-        "bg-accent rounded-lg pointer-events-none",
+        "bg-accent pointer-events-none",
         highlightClassName,
       )}
       style={{ zIndex: -1 }}
@@ -665,7 +665,7 @@ function MotionNavigationMenuViewport({
         }}
         transition={context?.spring}
         className={cn(
-          "bg-background text-popover-foreground relative mt-1.5 overflow-hidden rounded-lg border shadow backdrop-blur-md",
+          "bg-background text-popover-foreground relative mt-1.5 overflow-hidden border",
           className,
         )}
       >
@@ -727,7 +727,7 @@ function MotionNavigationMenuLink({
       <a
         data-slot="navigation-menu-link"
         className={cn(
-          "data-[active=true]:text-accent-foreground hover:text-accent-foreground focus:text-accent-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 rounded-md p-1.5 text-sm transition-colors outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
+          "data-[active=true]:text-accent-foreground hover:text-accent-foreground focus:text-accent-foreground focus-visible:ring-ring/50 [&_svg:not([class*='text-'])]:text-muted-foreground flex flex-col gap-1 p-1.5 text-sm transition-colors outline-none focus-visible:ring-[3px] focus-visible:outline-1 [&_svg:not([class*='size-'])]:size-4",
           className,
         )}
         {...props}
