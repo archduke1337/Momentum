@@ -339,7 +339,7 @@ export default function HomePage() {
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link href="/contact" className="btn-primary group">
-              Book a deployment call
+              Book a consultation
               <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </Link>
             <Link href="/solutions" className="btn-secondary">

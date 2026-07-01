@@ -61,6 +61,7 @@ export const industries: Industry[] = [
     solutions: ['warehouse-automation', 'fleet-management'],
     image: '/industries/6904ac0e507b4eaf85d5be53_Application-4.png',
   },
+  /* Temporarily disabled — commented out of routing/nav/homepage until ready to relaunch.
   {
     id: 'pharma',
     name: 'Pharma & Life Sciences',
@@ -91,6 +92,7 @@ export const industries: Industry[] = [
     solutions: ['warehouse-automation', 'heavy-payload-transport', 'fleet-management'],
     image: '/industries/refinary.jpg',
   },
+  */
   {
     id: 'electronics',
     name: 'Electronics Manufacturing',
@@ -106,6 +108,7 @@ export const industries: Industry[] = [
     solutions: ['line-side-delivery', 'fleet-management'],
     image: '/Assets/Square_metalcut.avif',
   },
+  /* Temporarily disabled — commented out of routing/nav/homepage until ready to relaunch.
   {
     id: 'textiles-apparel',
     name: 'Textiles & Apparel',
@@ -121,6 +124,7 @@ export const industries: Industry[] = [
     solutions: ['line-side-delivery', 'warehouse-automation', 'fleet-management'],
     image: '/Product/orbit/11.png',
   },
+  */
   {
     id: 'education',
     name: 'Education & Research',

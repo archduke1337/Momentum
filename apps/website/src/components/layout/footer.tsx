@@ -23,7 +23,7 @@ const footerLinks = [
       { label: 'Manufacturing', href: '/industries/manufacturing' },
       { label: 'Warehousing & 3PL', href: '/industries/warehouses-logistics' },
       { label: 'E-commerce & Retail', href: '/industries/e-commerce-retail' },
-      { label: 'Pharma', href: '/industries/pharma' },
+      // Temporarily disabled: { label: 'Pharma', href: '/industries/pharma' },
       { label: 'Education', href: '/industries/education' },
     ],
   },
@@ -72,7 +72,7 @@ export function Footer() {
             </p>
           </div>
           <Link href="/contact" className="btn-primary shrink-0 gap-2">
-            Request a demo
+            Contact us
             <ArrowRight className="size-4" aria-hidden="true" />
           </Link>
         </div>

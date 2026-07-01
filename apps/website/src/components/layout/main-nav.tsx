@@ -29,11 +29,11 @@ const industryLinks = [
   { name: 'Automotive', href: '/industries/automotive' },
   { name: 'Manufacturing', href: '/industries/manufacturing' },
   { name: 'Electronics', href: '/industries/electronics' },
-  { name: 'Textiles & Apparel', href: '/industries/textiles-apparel' },
+  // Temporarily disabled: { name: 'Textiles & Apparel', href: '/industries/textiles-apparel' },
   { name: 'Warehousing & 3PL', href: '/industries/warehouses-logistics' },
   { name: 'E-commerce & Retail', href: '/industries/e-commerce-retail' },
-  { name: 'Food & FMCG', href: '/industries/fmcg' },
-  { name: 'Pharma', href: '/industries/pharma' },
+  // Temporarily disabled: { name: 'Food & FMCG', href: '/industries/fmcg' },
+  // Temporarily disabled: { name: 'Pharma', href: '/industries/pharma' },
   { name: 'Education', href: '/industries/education' },
 ];
 
@@ -243,7 +243,7 @@ export function MainNav() {
               href="/contact"
               className="group inline-flex h-9 items-center gap-1.5 bg-foreground px-4 text-xs font-medium tracking-tight text-background transition-colors hover:bg-primary hover:text-primary-foreground"
             >
-              Request demo
+              Contact us
               <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </Link>
           </div>
@@ -313,7 +313,7 @@ export function MainNav() {
                   href="/contact"
                   className="inline-flex h-12 items-center justify-center gap-2 bg-foreground px-6 text-sm font-medium tracking-tight text-background"
                 >
-                  Request a demo
+                  Contact us
                   <ArrowRight className="size-4" aria-hidden="true" />
                 </Link>
                 <div className="flex justify-center">
