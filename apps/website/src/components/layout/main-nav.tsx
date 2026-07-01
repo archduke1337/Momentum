@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useScroll, useSpring } from 'motion/react';
-import { ArrowRight, Menu, X } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Menu, X } from 'lucide-react';
 import { Logo } from './logo';
 import { ThemeToggle } from './theme-toggle';
 import {
@@ -45,8 +45,10 @@ const productLinks = [
 
 const companyLinks = [
   { name: 'About', href: '/about' },
-  { name: 'Contact', href: '/contact' },
+  { name: 'Why Momentum', href: '/why-momentum' },
+  { name: 'Technology', href: '/technology' },
   { name: 'Careers', href: '/careers' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 const resourceLinks = [
@@ -122,7 +124,7 @@ export function MainNav() {
 
           <nav className="hidden lg:flex items-center" aria-label="Main navigation">
             <MotionNavigationMenu
-              viewportClassName="bg-surface border border-border shadow-lg shadow-black/5 backdrop-blur-md"
+              viewportClassName="bg-surface border border-border"
               springStiffness={400}
               springDamping={28}
             >
@@ -133,13 +135,17 @@ export function MainNav() {
                     <ActiveDot active={isActive(pathname, '/solutions')} />
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
-                    <div className="grid w-[400px] gap-px p-1">
-                      {solutionLinks.map((s) => (
-                        <MotionNavigationMenuLink key={s.href} href={s.href} className={`flex items-center justify-between px-3 py-2 ${pathname === s.href ? 'bg-primary/10 text-primary' : 'text-foreground'}`}>
-                          <div className="flex flex-col gap-0.5">
-                            <span className="text-sm font-semibold">{s.name}</span>
-                            <span className="text-xs text-muted-foreground">{s.desc}</span>
+                    <div className="w-[420px] divide-y divide-border p-1">
+                      {solutionLinks.map((s, i) => (
+                        <MotionNavigationMenuLink key={s.href} href={s.href} className={`group flex flex-row items-center justify-between gap-3 p-3 ${pathname === s.href ? 'bg-primary/10 text-primary' : 'text-foreground'}`}>
+                          <div className="flex items-baseline gap-3">
+                            <span className="label-mono text-muted-foreground">{String(i + 1).padStart(2, '0')}</span>
+                            <div className="flex flex-col gap-0.5">
+                              <span className="text-sm font-semibold">{s.name}</span>
+                              <span className="text-xs text-muted-foreground">{s.desc}</span>
+                            </div>
                           </div>
+                          <ArrowUpRight className="size-3.5 shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true" />
                         </MotionNavigationMenuLink>
                       ))}
                     </div>
@@ -152,11 +158,17 @@ export function MainNav() {
                     <ActiveDot active={isActive(pathname, '/industries')} />
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
-                    <div className="grid w-[360px] grid-cols-2 gap-px p-1">
-                      {industryLinks.map((i) => (
-                        <MotionNavigationMenuLink key={i.href} href={i.href} className={`px-2.5 py-2 text-sm ${pathname === i.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
-                          {i.name}
-                        </MotionNavigationMenuLink>
+                    <div className="grid w-[380px] grid-cols-2 p-1">
+                      {[0, 1].map((col) => (
+                        <div key={col} className={`divide-y divide-border ${col === 1 ? 'border-l border-border' : ''}`}>
+                          {industryLinks
+                            .filter((_, i) => i % 2 === col)
+                            .map((ind) => (
+                              <MotionNavigationMenuLink key={ind.href} href={ind.href} className={`p-3 text-sm ${pathname === ind.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
+                                {ind.name}
+                              </MotionNavigationMenuLink>
+                            ))}
+                        </div>
                       ))}
                     </div>
                   </MotionNavigationMenuContent>
@@ -168,13 +180,14 @@ export function MainNav() {
                     <ActiveDot active={isActive(pathname, '/products')} />
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
-                    <div className="grid w-[380px] gap-px p-1">
+                    <div className="w-[380px] divide-y divide-border p-1">
                       {productLinks.map((p) => (
-                        <MotionNavigationMenuLink key={p.href} href={p.href} className={`flex items-center justify-between px-3 py-2 ${pathname === p.href ? 'bg-primary/10 text-primary' : 'text-foreground'}`}>
+                        <MotionNavigationMenuLink key={p.href} href={p.href} className={`group flex flex-row items-center justify-between gap-3 p-3 ${pathname === p.href ? 'bg-primary/10 text-primary' : 'text-foreground'}`}>
                           <div className="flex flex-col gap-0.5">
                             <span className="text-sm font-semibold">{p.name}</span>
                             <span className="text-xs text-muted-foreground">{p.desc}</span>
                           </div>
+                          <ArrowUpRight className="size-3.5 shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true" />
                         </MotionNavigationMenuLink>
                       ))}
                     </div>
@@ -182,14 +195,14 @@ export function MainNav() {
                 </MotionNavigationMenuItem>
 
                 <MotionNavigationMenuItem value="company">
-                  <MotionNavigationMenuTrigger className={triggerClass(isActive(pathname, '/about') || isActive(pathname, '/careers') || isActive(pathname, '/contact'))}>
+                  <MotionNavigationMenuTrigger className={triggerClass(isCompanyActive(pathname))}>
                     Company
-                    <ActiveDot active={isActive(pathname, '/about') || isActive(pathname, '/careers') || isActive(pathname, '/contact')} />
+                    <ActiveDot active={isCompanyActive(pathname)} />
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
-                    <div className="grid w-[200px] gap-px p-1">
+                    <div className="w-[220px] divide-y divide-border p-1">
                       {companyLinks.map((c) => (
-                        <MotionNavigationMenuLink key={c.href} href={c.href} className={`px-3 py-2 text-sm ${pathname === c.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
+                        <MotionNavigationMenuLink key={c.href} href={c.href} className={`p-3 text-sm ${pathname === c.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
                           {c.name}
                         </MotionNavigationMenuLink>
                       ))}
@@ -203,9 +216,9 @@ export function MainNav() {
                     <ActiveDot active={isActive(pathname, '/blog') || isActive(pathname, '/news') || isActive(pathname, '/resources')} />
                   </MotionNavigationMenuTrigger>
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
-                    <div className="grid w-[200px] gap-px p-1">
+                    <div className="w-[200px] divide-y divide-border p-1">
                       {resourceLinks.map((r) => (
-                        <MotionNavigationMenuLink key={r.href} href={r.href} className={`px-3 py-2 text-sm ${pathname === r.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
+                        <MotionNavigationMenuLink key={r.href} href={r.href} className={`p-3 text-sm ${pathname === r.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
                           {r.name}
                         </MotionNavigationMenuLink>
                       ))}
