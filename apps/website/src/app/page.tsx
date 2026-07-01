@@ -33,12 +33,12 @@ const advantages = [
   {
     title: 'Own it, don’t rent it',
     body: 'No per-seat licensing and no mandatory annual maintenance contracts — a lower total cost of ownership over the life of the fleet.',
-    contrast: 'Not software you lease forever.',
+    detail: 'You buy the fleet once and it stays yours.',
   },
   {
     title: 'Education to industry',
     body: 'Pixel runs the same stack as Cyborg — what you learn in the lab ships straight to the factory floor.',
-    contrast: 'Not a toy that never leaves the bench.',
+    detail: 'Same stack in the lab and on the line.',
   },
   {
     title: 'Local and global',
