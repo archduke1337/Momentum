@@ -39,9 +39,9 @@ yarn-error.log*
 *.swp
 *.swo
 .agents
+.agents/skills
 .claude
 .agents\skills
-.agents/skills
 .agents/
 
 # Next.js
