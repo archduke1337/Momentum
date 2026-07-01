@@ -5,28 +5,22 @@ import type { Industry, Solution } from '@workspace/types';
 import { Hero } from '@/components/sections/hero';
 import { ProductShowcase } from '@/components/sections/product-showcase';
 
-/* Real problem economics — sourced from Momentum's positioning research, framed
-   as sector observations rather than guaranteed outcomes. */
 const bottleneck = [
   {
-    figure: '~99%',
-    label: 'of inter-station moves are still manual',
-    sub: 'even in plants that automated welding, paint and assembly',
+    title: 'A late delivery stops the station, not just slows it',
+    sub: 'On a just-in-time line, material timing depends on who is on shift and whether a Kanban card survived the last changeover.',
   },
   {
-    figure: '₹2–5L',
-    label: 'lost per hour of line-down',
-    sub: 'when a station is starved of material on a just-in-time line',
+    title: 'Forklifts and pedestrians already share the aisle',
+    sub: 'Mixed-traffic aisles between stations are a standing safety cost that predates any automation project.',
   },
   {
-    figure: '65–75%',
-    label: 'typical OEE on discrete lines',
-    sub: 'material delivery is a leading performance-loss driver',
+    title: 'Peak season means hiring people you will lose in weeks',
+    sub: 'New material handlers take weeks to reach full speed, then the peak ends and headcount is cut again.',
   },
   {
-    figure: '25–35%',
-    label: 'annual attrition of material handlers',
-    sub: 'and every new hire takes weeks to reach full speed',
+    title: 'Skilled operators are pushing carts, not running machines',
+    sub: 'The most automated line in the plant is often still fed by hand, one trolley at a time.',
   },
 ];
 
