@@ -44,15 +44,10 @@ export function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-7xl px-6">
-        {/* stat kicker */}
-        <motion.p {...rise(0)} className="label-mono mt-10 text-muted">
-          In most plants, ~99% of moves between stations are still manual
-        </motion.p>
-
         {/* headline */}
         <motion.h1
-          {...rise(0.04)}
-          className="display mt-5 max-w-[16ch] text-[3rem] leading-[0.95] sm:text-[4.5rem] lg:text-[6rem]"
+          {...rise(0)}
+          className="display mt-12 max-w-[16ch] text-[3rem] leading-[0.95] sm:text-[4.5rem] lg:text-[6rem]"
         >
           Robots for the last manual step on the floor.
         </motion.h1>
