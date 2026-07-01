@@ -5,20 +5,35 @@ import { SocialLinks } from './social-links';
 
 const footerLinks = [
   {
-    title: 'Products', href: '/products',
+    title: 'Solutions',
+    href: '/solutions',
+    items: [
+      { label: 'Line-Side Delivery', href: '/solutions/line-side-delivery' },
+      { label: 'Warehouse & Fulfilment', href: '/solutions/warehouse-automation' },
+      { label: 'Pallet & Heavy Payload', href: '/solutions/heavy-payload-transport' },
+      { label: 'Fleet Orchestration', href: '/solutions/fleet-management' },
+      { label: 'Custom Integration', href: '/solutions/custom-integration' },
+    ],
+  },
+  {
+    title: 'Industries',
+    href: '/industries',
+    items: [
+      { label: 'Automotive', href: '/industries/automotive' },
+      { label: 'Manufacturing', href: '/industries/manufacturing' },
+      { label: 'Warehousing & 3PL', href: '/industries/warehouses-logistics' },
+      { label: 'E-commerce & Retail', href: '/industries/e-commerce-retail' },
+      { label: 'Pharma', href: '/industries/pharma' },
+      { label: 'Education', href: '/industries/education' },
+    ],
+  },
+  {
+    title: 'Products',
+    href: '/products',
     items: [
       { label: 'Pixel', href: '/products/pixel' },
       { label: 'Orbit', href: '/products/orbit' },
       { label: 'Cyborg', href: '/products/cyborg' },
-    ],
-  },
-  {
-    title: 'Solutions',
-    items: [
-      { label: 'Warehouse Automation', href: '/solutions/warehouse-automation' },
-      { label: 'Inventory Management', href: '/solutions/inventory-management' },
-      { label: 'Education Automation', href: '/solutions/education-automation' },
-      { label: 'Startup Automation', href: '/solutions/startup-automation' },
     ],
   },
   {
@@ -35,8 +50,7 @@ const footerLinks = [
     items: [
       { label: 'Documentation', href: '/resources/documentation' },
       { label: 'Changelog', href: '/resources/changelog' },
-      { label: 'Privacy', href: '/privacy' },
-      { label: 'Terms', href: '/terms' },
+      { label: 'News', href: '/news' },
     ],
   },
 ];
@@ -52,7 +66,7 @@ export function Footer() {
               Let&apos;s automate your floor.
             </h2>
             <p className="mt-3 max-w-xl leading-relaxed text-muted">
-              Tell us your payloads, routes, and floor conditions — we&apos;ll map the right platform for your operation.
+              Tell us your payloads, routes, and floor conditions — we&apos;ll map the right solution for your operation.
             </p>
           </div>
           <Link href="/contact" className="btn-primary shrink-0 gap-2">
@@ -64,7 +78,7 @@ export function Footer() {
 
       <div className="mx-auto max-w-7xl px-6">
         {/* Top row: brand + columns */}
-        <div className="grid gap-10 py-12 lg:grid-cols-[1.4fr_2.6fr]">
+        <div className="grid gap-10 py-12 lg:grid-cols-[1.3fr_2.7fr]">
           <div className="max-w-sm">
             <Link href="/" className="flex items-center">
               <Logo width={140} height={28} className="h-5 w-auto" />
@@ -89,10 +103,18 @@ export function Footer() {
           </div>
 
           {/* Link columns */}
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
             {footerLinks.map((group) => (
               <div key={group.title}>
-                <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground mb-4">{group.title}</h3>
+                <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-foreground">
+                  {group.href ? (
+                    <Link href={group.href} className="transition-colors hover:text-primary">
+                      {group.title}
+                    </Link>
+                  ) : (
+                    group.title
+                  )}
+                </h3>
                 <ul className="space-y-3">
                   {group.items.map((item) => (
                     <li key={item.href}>

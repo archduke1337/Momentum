@@ -37,12 +37,12 @@ export function IndustryList() {
               <div className="absolute inset-0 bg-gradient-to-t from-background/92 via-background/10 to-transparent" />
             </div>
             <div className="p-5 md:p-6">
-              <h2 className="font-heading text-2xl font-bold">{industry.name}</h2>
-              <p className="mt-2 text-sm font-medium text-primary">{industry.tagline}</p>
+              <h2 className="text-2xl tracking-tight">{industry.name}</h2>
+              <p className="label-mono mt-2 text-primary">{industry.tagline}</p>
               <p className="mt-3 text-sm leading-6 text-muted-foreground">{industry.description}</p>
-              <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-foreground group-hover:text-primary">
+              <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium tracking-tight text-foreground group-hover:text-primary">
                 View fit
-                <ArrowRight className="size-4" aria-hidden="true" />
+                <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
               </span>
             </div>
           </Link>

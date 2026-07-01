@@ -17,26 +17,30 @@ import {
   MotionNavigationMenuTrigger,
 } from '@/components/unlumen-ui/motion-navigation-menu';
 
-const productLinks = [
-  { name: 'Pixel', href: '/products/pixel', desc: '100kg compact AMR' },
-  { name: 'Orbit', href: '/products/orbit', desc: '500kg heavy-duty AMR' },
-  { name: 'Cyborg', href: '/products/cyborg', desc: '150–1000kg modular' },
+const solutionLinks = [
+  { name: 'Line-Side Delivery', href: '/solutions/line-side-delivery', desc: 'JIT parts & kits to the line' },
+  { name: 'Warehouse & Fulfilment', href: '/solutions/warehouse-automation', desc: 'Picking, replenishment, cross-dock' },
+  { name: 'Pallet & Heavy Payload', href: '/solutions/heavy-payload-transport', desc: 'Forklift-replacement moves to 1 t' },
+  { name: 'Fleet Orchestration', href: '/solutions/fleet-management', desc: 'VDA 5050 mixed-fleet control' },
+  { name: 'Custom Integration', href: '/solutions/custom-integration', desc: 'PLC, WMS & ROS 2 extension' },
 ];
 
 const industryLinks = [
   { name: 'Automotive', href: '/industries/automotive' },
   { name: 'Manufacturing', href: '/industries/manufacturing' },
-  { name: 'Warehouses', href: '/industries/warehouses-logistics' },
+  { name: 'Electronics', href: '/industries/electronics' },
+  { name: 'Textiles & Apparel', href: '/industries/textiles-apparel' },
+  { name: 'Warehousing & 3PL', href: '/industries/warehouses-logistics' },
+  { name: 'E-commerce & Retail', href: '/industries/e-commerce-retail' },
+  { name: 'Food & FMCG', href: '/industries/fmcg' },
   { name: 'Pharma', href: '/industries/pharma' },
-  { name: 'FMCG', href: '/industries/fmcg' },
   { name: 'Education', href: '/industries/education' },
 ];
 
-const solutionLinks = [
-  { name: 'Warehouse Automation', href: '/solutions/warehouse-automation' },
-  { name: 'Inventory Management', href: '/solutions/inventory-management' },
-  { name: 'Education Automation', href: '/solutions/education-automation' },
-  { name: 'Startup Automation', href: '/solutions/startup-automation' },
+const productLinks = [
+  { name: 'Pixel', href: '/products/pixel', desc: 'ROS 2 education AMR' },
+  { name: 'Orbit', href: '/products/orbit', desc: 'Multi-robot research platform' },
+  { name: 'Cyborg', href: '/products/cyborg', desc: '150–1000 kg industrial AMR' },
 ];
 
 const companyLinks = [
@@ -65,6 +69,9 @@ function ActiveDot({ active }: { active: boolean }) {
     <span className="absolute -bottom-0.5 left-1/2 size-1 -translate-x-1/2 rounded-full bg-primary" />
   );
 }
+
+const triggerClass = (active: boolean) =>
+  `relative px-3 py-1.5 text-sm font-semibold transition-colors ${active ? 'text-primary' : 'text-foreground hover:text-primary'}`;
 
 export function MainNav() {
   const pathname = usePathname();
@@ -113,8 +120,43 @@ export function MainNav() {
               springDamping={28}
             >
               <MotionNavigationMenuList highlightClassName={hl}>
+                <MotionNavigationMenuItem value="solutions">
+                  <MotionNavigationMenuTrigger className={triggerClass(isActive(pathname, '/solutions'))}>
+                    Solutions
+                    <ActiveDot active={isActive(pathname, '/solutions')} />
+                  </MotionNavigationMenuTrigger>
+                  <MotionNavigationMenuContent highlightClassName={contentHl}>
+                    <div className="grid w-[400px] gap-px p-1">
+                      {solutionLinks.map((s) => (
+                        <MotionNavigationMenuLink key={s.href} href={s.href} className={`flex items-center justify-between rounded-md px-3 py-2 ${pathname === s.href ? 'bg-primary/10 text-primary' : 'text-foreground'}`}>
+                          <div className="flex flex-col gap-0.5">
+                            <span className="text-sm font-semibold">{s.name}</span>
+                            <span className="text-xs text-muted-foreground">{s.desc}</span>
+                          </div>
+                        </MotionNavigationMenuLink>
+                      ))}
+                    </div>
+                  </MotionNavigationMenuContent>
+                </MotionNavigationMenuItem>
+
+                <MotionNavigationMenuItem value="industries">
+                  <MotionNavigationMenuTrigger className={triggerClass(isActive(pathname, '/industries'))}>
+                    Industries
+                    <ActiveDot active={isActive(pathname, '/industries')} />
+                  </MotionNavigationMenuTrigger>
+                  <MotionNavigationMenuContent highlightClassName={contentHl}>
+                    <div className="grid w-[360px] grid-cols-2 gap-px p-1">
+                      {industryLinks.map((i) => (
+                        <MotionNavigationMenuLink key={i.href} href={i.href} className={`rounded-md px-2.5 py-2 text-sm ${pathname === i.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
+                          {i.name}
+                        </MotionNavigationMenuLink>
+                      ))}
+                    </div>
+                  </MotionNavigationMenuContent>
+                </MotionNavigationMenuItem>
+
                 <MotionNavigationMenuItem value="products">
-                  <MotionNavigationMenuTrigger className={`relative px-3 py-1.5 text-sm font-semibold transition-colors ${isActive(pathname, '/products') ? 'text-primary' : 'text-foreground hover:text-primary'}`}>
+                  <MotionNavigationMenuTrigger className={triggerClass(isActive(pathname, '/products'))}>
                     Products
                     <ActiveDot active={isActive(pathname, '/products')} />
                   </MotionNavigationMenuTrigger>
@@ -132,40 +174,8 @@ export function MainNav() {
                   </MotionNavigationMenuContent>
                 </MotionNavigationMenuItem>
 
-                <MotionNavigationMenuItem value="industries">
-                  <MotionNavigationMenuTrigger className={`relative px-3 py-1.5 text-sm font-semibold transition-colors ${isActive(pathname, '/industries') ? 'text-primary' : 'text-foreground hover:text-primary'}`}>
-                    Industries
-                    <ActiveDot active={isActive(pathname, '/industries')} />
-                  </MotionNavigationMenuTrigger>
-                  <MotionNavigationMenuContent highlightClassName={contentHl}>
-                    <div className="grid w-[280px] grid-cols-2 gap-px p-1">
-                      {industryLinks.map((i) => (
-                        <MotionNavigationMenuLink key={i.href} href={i.href} className={`rounded-md px-2.5 py-2 text-sm ${pathname === i.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
-                          {i.name}
-                        </MotionNavigationMenuLink>
-                      ))}
-                    </div>
-                  </MotionNavigationMenuContent>
-                </MotionNavigationMenuItem>
-
-                <MotionNavigationMenuItem value="solutions">
-                  <MotionNavigationMenuTrigger className={`relative px-3 py-1.5 text-sm font-semibold transition-colors ${isActive(pathname, '/solutions') ? 'text-primary' : 'text-foreground hover:text-primary'}`}>
-                    Solutions
-                    <ActiveDot active={isActive(pathname, '/solutions')} />
-                  </MotionNavigationMenuTrigger>
-                  <MotionNavigationMenuContent highlightClassName={contentHl}>
-                    <div className="grid w-[280px] gap-px p-1">
-                      {solutionLinks.map((s) => (
-                        <MotionNavigationMenuLink key={s.href} href={s.href} className={`rounded-md px-3 py-2 text-sm ${pathname === s.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
-                          {s.name}
-                        </MotionNavigationMenuLink>
-                      ))}
-                    </div>
-                  </MotionNavigationMenuContent>
-                </MotionNavigationMenuItem>
-
                 <MotionNavigationMenuItem value="company">
-                  <MotionNavigationMenuTrigger className={`relative px-3 py-1.5 text-sm font-semibold transition-colors ${isActive(pathname, '/about') || isActive(pathname, '/careers') || isActive(pathname, '/contact') ? 'text-primary' : 'text-foreground hover:text-primary'}`}>
+                  <MotionNavigationMenuTrigger className={triggerClass(isActive(pathname, '/about') || isActive(pathname, '/careers') || isActive(pathname, '/contact'))}>
                     Company
                     <ActiveDot active={isActive(pathname, '/about') || isActive(pathname, '/careers') || isActive(pathname, '/contact')} />
                   </MotionNavigationMenuTrigger>
@@ -181,7 +191,7 @@ export function MainNav() {
                 </MotionNavigationMenuItem>
 
                 <MotionNavigationMenuItem value="resources">
-                  <MotionNavigationMenuTrigger className={`relative px-3 py-1.5 text-sm font-semibold transition-colors ${isActive(pathname, '/blog') || isActive(pathname, '/news') || isActive(pathname, '/resources') ? 'text-primary' : 'text-foreground hover:text-primary'}`}>
+                  <MotionNavigationMenuTrigger className={triggerClass(isActive(pathname, '/blog') || isActive(pathname, '/news') || isActive(pathname, '/resources'))}>
                     Resources
                     <ActiveDot active={isActive(pathname, '/blog') || isActive(pathname, '/news') || isActive(pathname, '/resources')} />
                   </MotionNavigationMenuTrigger>
@@ -236,11 +246,10 @@ export function MainNav() {
             <nav className="mx-auto flex h-full max-w-7xl flex-col px-5 pb-6" aria-label="Mobile navigation">
               <div className="grid border border-border">
                 {[
-                  { label: 'Products', href: '/products' },
-                  { label: 'Industries', href: '/industries' },
                   { label: 'Solutions', href: '/solutions' },
+                  { label: 'Industries', href: '/industries' },
+                  { label: 'Products', href: '/products' },
                   { label: 'Company', href: '/about' },
-                  { label: 'News', href: '/news' },
                   { label: 'Resources', href: '/blog' },
                 ].map((link, i) => (
                   <motion.div

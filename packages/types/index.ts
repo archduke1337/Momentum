@@ -29,6 +29,10 @@ export interface Industry {
   slug: string;
   tagline: string;
   description: string;
+  /** The real, sector-specific bottleneck — qualitative, no invented figures. */
+  challenge?: string;
+  /** How Momentum addresses the challenge. */
+  approach?: string;
   icon: string;
   solutions: string[];
   image: string;
@@ -40,6 +44,8 @@ export interface Solution {
   slug: string;
   industry: string;
   description: string;
+  /** The bottleneck this solution removes — qualitative, no invented figures. */
+  problem?: string;
   benefits: string[];
   useCases: string[];
   image: string;

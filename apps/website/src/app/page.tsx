@@ -1,43 +1,24 @@
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
+import { industries, solutions } from '@workspace/content';
+import type { Industry, Solution } from '@workspace/types';
 import { Hero } from '@/components/sections/hero';
 import { ProductShowcase } from '@/components/sections/product-showcase';
-
-const industries = [
-  {
-    name: 'Automotive',
-    problem: 'Line starvation when parts don’t reach the station in time.',
-    impact: 'Idle lines, missed takt',
-    href: '/industries/automotive',
-  },
-  {
-    name: 'Warehouse & Logistics',
-    problem: 'Peak-season demand spikes force temporary hires with high attrition.',
-    impact: 'Labour cost & errors',
-    href: '/industries/warehouses-logistics',
-  },
-  {
-    name: 'Pharma & Life Sciences',
-    problem: 'Manual movement risks cleanroom contamination and audit exposure.',
-    impact: 'Compliance & audit risk',
-    href: '/industries/pharma',
-  },
-];
 
 const advantages = [
   {
     title: 'Open standards',
-    body: 'ROS 2-native and VDA 5050 compliant. Your engineers extend the stack instead of waiting on a vendor.',
+    body: 'ROS 2-native and VDA 5050 compliant, so your engineers extend the stack directly instead of filing a ticket and waiting on a vendor to unlock it.',
     detail: 'Extend it yourself; no ticket, no vendor gatekeeping.',
   },
   {
     title: 'Own it, don’t rent it',
-    body: 'No per-seat licensing and no mandatory annual maintenance contracts — a lower total cost of ownership over the life of the fleet.',
+    body: 'No per-seat licensing, no mandatory annual maintenance contract. You buy the fleet once and run it, which keeps the cost of ownership predictable over its working life.',
     detail: 'You buy the fleet once and it stays yours.',
   },
   {
     title: 'Education to industry',
-    body: 'Pixel runs the same stack as Cyborg — what you learn in the lab ships straight to the factory floor.',
+    body: 'Pixel runs the same stack as Cyborg. What a student writes in the lab ships to the factory floor without a rewrite.',
     detail: 'Same stack in the lab and on the line.',
   },
   {
@@ -84,6 +65,8 @@ function SectionHeader({
 }
 
 export default function HomePage() {
+  const featuredIndustries = industries.slice(0, 6);
+
   return (
     <>
       <Hero />
@@ -92,21 +75,20 @@ export default function HomePage() {
       <section className="mx-auto max-w-7xl px-6 py-24 md:py-32">
         <SectionHeader
           index="01"
-          label="The bottleneck"
-          title="Material movement is the last unautomated step."
-          lede="It looks different in every sector, but it’s the same problem: people pushing carts where robots should run."
+          label="Who we serve"
+          title="The bottleneck, sector by sector."
+          lede="Material movement looks different in every sector — but it’s the same unautomated step. See where Momentum fits yours."
         />
         <ul className="mt-16">
-          {industries.map((ind, i) => (
-            <li key={ind.name}>
+          {featuredIndustries.map((ind: Industry, i) => (
+            <li key={ind.id}>
               <Link
-                href={ind.href}
-                className="group grid items-baseline gap-y-2 border-t border-border py-8 transition-colors hover:bg-surface md:grid-cols-12 md:gap-x-8 last:border-b"
+                href={`/industries/${ind.slug}`}
+                className="group grid items-baseline gap-y-2 border-t border-border py-8 transition-colors hover:bg-surface last:border-b md:grid-cols-12 md:gap-x-8"
               >
                 <span className="index-numeral text-sm md:col-span-1">0{i + 1}</span>
-                <h3 className="text-2xl tracking-tight md:col-span-3">{ind.name}</h3>
-                <p className="text-muted md:col-span-5">{ind.problem}</p>
-                <span className="label-mono text-destructive md:col-span-2">{ind.impact}</span>
+                <h3 className="text-2xl tracking-tight md:col-span-4">{ind.name}</h3>
+                <p className="text-muted md:col-span-6">{ind.tagline}</p>
                 <ArrowUpRight
                   className="size-5 text-muted transition-colors group-hover:text-foreground md:col-span-1 md:justify-self-end"
                   aria-hidden="true"
@@ -115,31 +97,54 @@ export default function HomePage() {
             </li>
           ))}
         </ul>
+        <div className="mt-10">
+          <Link
+            href="/industries"
+            className="inline-flex items-center gap-2 text-sm font-medium tracking-tight text-foreground hover:text-primary"
+          >
+            All industries
+            <ArrowUpRight className="size-4" aria-hidden="true" />
+          </Link>
+        </div>
       </section>
 
-      {/* 02 — WHY MOMENTUM (modular hairline grid) */}
+      {/* 02 — SOLUTIONS (modular hairline grid) */}
       <section className="border-t border-border bg-surface/30">
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
           <SectionHeader
             index="02"
-            label="Why Momentum"
-            title="Open by default. Priced for reality."
-            lede="Robotics you can own, extend, and afford — built by engineers who started where you are."
+            label="What we do"
+            title="Autonomous handling, five ways."
+            lede="However material moves on your floor, it maps to one of these — from just-in-time line delivery to full fleet orchestration."
           />
-          <div className="mt-16 grid border border-border md:grid-cols-2">
-            {advantages.map((adv, i) => (
-              <div
-                key={adv.title}
-                className="flex flex-col border-border p-8 md:p-10 [&:nth-child(-n+2)]:border-b md:[&:nth-child(odd)]:border-r"
+          <div className="mt-16 grid border-t border-l border-border sm:grid-cols-2 lg:grid-cols-3">
+            {solutions.map((solution: Solution, i) => (
+              <Link
+                key={solution.id}
+                href={`/solutions/${solution.slug}`}
+                className="group flex min-h-64 flex-col border-b border-r border-border p-8 transition-colors hover:bg-surface"
               >
                 <span className="index-numeral text-sm">0{i + 1}</span>
-                <h3 className="mt-5 text-xl tracking-tight">{adv.title}</h3>
-                <p className="mt-3 flex-1 leading-relaxed text-muted">{adv.body}</p>
-                <p className="mt-6 border-t border-border pt-4 text-sm text-muted-foreground">
-                  {adv.detail}
+                <h3 className="mt-5 text-xl tracking-tight">{solution.name}</h3>
+                <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
+                  {solution.description}
                 </p>
-              </div>
+                <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium tracking-tight text-foreground group-hover:text-primary">
+                  Explore solution
+                  <ArrowUpRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+                </span>
+              </Link>
             ))}
+            <Link
+              href="/solutions"
+              className="group flex min-h-64 flex-col justify-between border-b border-r border-border bg-surface/50 p-8 transition-colors hover:bg-surface"
+            >
+              <span className="label-mono">All solutions</span>
+              <span className="inline-flex items-center gap-2 text-lg tracking-tight text-foreground group-hover:text-primary">
+                See every solution
+                <ArrowUpRight className="size-5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+              </span>
+            </Link>
           </div>
         </div>
       </section>
@@ -174,11 +179,38 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 04 — PLATFORMS */}
+      {/* 04 — WHY MOMENTUM (modular hairline grid) */}
       <section className="border-t border-border bg-surface/30">
-        <div className="mx-auto max-w-7xl px-6 pt-24 md:pt-32">
+        <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
           <SectionHeader
             index="04"
+            label="Why Momentum"
+            title="Open by default. Priced for reality."
+            lede="Robotics you can own, extend, and afford — built by engineers who started where you are."
+          />
+          <div className="mt-16 grid border border-border md:grid-cols-2">
+            {advantages.map((adv, i) => (
+              <div
+                key={adv.title}
+                className="flex flex-col border-border p-8 md:p-10 [&:nth-child(-n+2)]:border-b md:[&:nth-child(odd)]:border-r"
+              >
+                <span className="index-numeral text-sm">0{i + 1}</span>
+                <h3 className="mt-5 text-xl tracking-tight">{adv.title}</h3>
+                <p className="mt-3 flex-1 leading-relaxed text-muted">{adv.body}</p>
+                <p className="mt-6 border-t border-border pt-4 text-sm text-muted-foreground">
+                  {adv.detail}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 05 — PLATFORMS */}
+      <section className="border-t border-border">
+        <div className="mx-auto max-w-7xl px-6 pt-24 md:pt-32">
+          <SectionHeader
+            index="05"
             label="Platforms"
             title="One stack. Three platforms."
             lede="What you learn on Pixel scales straight to a Cyborg fleet on the factory floor — no rewrite, no relearning."
@@ -196,14 +228,14 @@ export default function HomePage() {
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
             Share your payloads, routes, and floor conditions — we&apos;ll come back with the
-            right platform and a deployment plan for your operation.
+            right solution and a deployment plan for your operation.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link href="/contact" className="btn-primary">
               Get in touch
             </Link>
-            <Link href="/products" className="btn-secondary">
-              View products
+            <Link href="/solutions" className="btn-secondary">
+              Explore solutions
             </Link>
           </div>
         </div>
