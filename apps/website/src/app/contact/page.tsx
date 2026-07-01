@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ContactForm from './contact-form';
+import { SocialLinks } from '@/components/layout/social-links';
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 
 const details = [
   { label: 'Email', value: 'hello@momentumrobotics.in', href: 'mailto:hello@momentumrobotics.in' },
+  { label: 'Phone / WhatsApp', value: '+91 92360 03396', href: 'tel:+919236003396' },
   { label: 'Location', value: 'Pune, Maharashtra, India' },
   { label: 'Office hours', value: 'Monday to Friday, 9:00–18:00 IST' },
 ];
@@ -61,6 +63,13 @@ export default function ContactPage() {
               </div>
             ))}
           </dl>
+
+          <div className="mt-8">
+            <span className="label-mono">Or reach us directly</span>
+            <div className="mt-4">
+              <SocialLinks />
+            </div>
+          </div>
         </aside>
       </div>
     </section>

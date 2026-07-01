@@ -30,7 +30,7 @@ const stack = [
   },
   {
     title: 'Safety & Compliance',
-    body: 'ISO 3691-4 (AGV/AMR safety) compliance with safety-rated LiDAR fields, bumper sensors, and E-stop functionality. Zone-based traffic management and audit logging for regulated environments such as pharma and food.',
+    body: 'ISO 3691-4 (AGV/AMR safety) compliance with safety-rated LiDAR fields, bumper sensors, and E-stop functionality. Zone-based traffic management and mission logging for regulated, audited environments.',
   },
 ];
 

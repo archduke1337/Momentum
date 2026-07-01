@@ -3,30 +3,35 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Why Momentum — Competitive Advantages',
-  description: 'Discover what makes Momentum different: ROS 2 native, cost-effective, open standards, education-to-industry bridge.',
+  title: 'Why Momentum',
+  description:
+    'What actually makes Momentum different: an open ROS 2 stack exposed to customers, native VDA 5050 fleet orchestration, and perception tuned for real factory floors.',
 };
 
 const advantages = [
   {
-    title: 'Open Standards, No Lock-In',
-    body: 'ROS 2 native and VDA 5050 compliant. Your engineers can read, modify, and extend our code — you are never locked into proprietary software or maintenance contracts. Hire a roboticist trained anywhere and they will understand our stack.',
-    contrast: 'Most proprietary stacks lock you in for both development and maintenance.',
+    title: 'Open ROS 2, exposed — not buried under a layer',
+    body: 'Momentum runs ROS 2 Humble with Nav2 and SLAM Toolbox, and we hand you the actual stack — topics, services, and source you can read and extend. Your engineers own the navigation logic instead of filing a ticket for every change.',
+    pattern:
+      'ROS 2 is common under the hood across the industry, but it usually stays internal — wrapped in a closed application layer the customer never touches.',
   },
   {
-    title: 'Lower Total Cost of Ownership',
-    body: 'No licensing fees, no mandatory annual maintenance contracts, and no proprietary software costs. We build with Indian engineering efficiency so the economics work over the full life of the fleet, not just at purchase.',
-    contrast: 'Imported platforms often carry premium pricing plus recurring maintenance contracts.',
+    title: 'VDA 5050 native, not retrofitted',
+    body: 'Fleet orchestration speaks VDA 5050 from the ground up, so a mixed fleet — including third-party robots — can run under one interface, one dashboard, one traffic model.',
+    pattern:
+      'VDA 5050 is now a tender requirement on a growing number of automotive lines, and several established vendors are still building adapter layers to bridge older, proprietary APIs onto it.',
   },
   {
-    title: 'Education-to-Industry Bridge',
-    body: 'Pixel is an industry-grade autonomous platform made accessible for the classroom. Students learn on the exact same ROS 2 stack and navigation architecture used in our industrial Cyborg platforms — no retraining when they join a factory.',
-    contrast: 'Toy education robots do not translate to real factories; industrial platforms are too expensive for universities.',
+    title: 'Tuned for the floor you actually have',
+    body: 'Perception fuses 2D LiDAR, 3D depth, and IMU specifically to hold a stable map through dust, glare, and reflective metal — the conditions on a working floor, not a clean demo warehouse.',
+    pattern:
+      'A lot of AMR navigation is validated on flat, well-lit, well-marked warehouse floors, and degrades once conditions get messier.',
   },
   {
-    title: 'Global Ambitions, Local Roots',
-    body: 'Rooted in Pune, partnering with European automation firms. We understand Indian factory conditions while building for global standards — not a global company ignoring local needs, and not a local startup that cannot scale.',
-    contrast: 'Global AMR companies miss regional specifics; pure local startups lack international experience.',
+    title: 'Education-to-industry, same stack',
+    body: 'Pixel runs the identical ROS 2 navigation architecture as our industrial Cyborg line. A student building SLAM and multi-robot coordination on Pixel in a lab is training on the exact software a Cyborg runs on a factory floor.',
+    pattern:
+      'Education robots and industrial robots are typically built by different companies on different stacks, so the skills rarely transfer directly.',
   },
 ];
 
@@ -44,8 +49,8 @@ export default function WhyMomentumPage() {
               A different approach to autonomy.
             </h1>
             <p className="self-end text-lg leading-relaxed text-muted lg:col-span-4">
-              Open standards, honest pricing, and a path from the lab to the floor — with
-              no vendor lock-in.
+              Open standards and a straight line from the lab to the factory floor —
+              with no vendor lock-in.
             </p>
           </div>
         </div>
@@ -59,10 +64,10 @@ export default function WhyMomentumPage() {
               <span className="index-numeral text-sm">0{i + 1}</span>
               <h2 className="mt-5 text-2xl tracking-tight">{adv.title}</h2>
               <p className="mt-4 flex-1 leading-relaxed text-muted">{adv.body}</p>
-              <p className="mt-6 border-t border-border pt-4 text-sm leading-6 text-mut-foreground">
-                <span className="label-mono">Vs. competitors</span>
+              <p className="mt-6 border-t border-border pt-4 text-sm leading-6 text-muted-foreground">
+                <span className="label-mono">Industry pattern</span>
                 <br />
-                {adv.contrast}
+                {adv.pattern}
               </p>
             </div>
           ))}

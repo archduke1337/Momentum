@@ -8,46 +8,77 @@ export const metadata: Metadata = {
 const sections = [
   {
     title: 'Information we collect',
-    body: 'When you contact Momentum Robotics, we may collect your name, work email, phone number, company name, role, and details about your robotics or automation requirement.',
+    body: 'When you contact us through this website, we collect what you submit directly — name, work email, phone number, company name, and details about your material-handling or robotics requirement.',
   },
   {
-    title: 'How we use information',
-    body: 'We use inquiry information to respond to you, plan demos, evaluate pilot requirements, improve our website, and maintain business communication records.',
+    title: 'How we use it',
+    body: 'Inquiry information is used to respond to you, plan demos, evaluate pilot requirements, and keep a record of business communication. We do not use it for advertising or resell it.',
+  },
+  {
+    title: 'Cookies & tracking',
+    body: 'This website does not run analytics or advertising trackers. Your light/dark theme preference is stored locally in your browser (not a cookie sent to our servers) and never leaves your device.',
   },
   {
     title: 'Sharing',
-    body: 'We do not sell personal information. We may share limited information with service providers who help us operate the website, manage email, or support business operations.',
+    body: 'We do not sell personal information. We may share limited information with service providers who help us operate the website, manage email, or support business operations — never for their own marketing use.',
   },
   {
     title: 'Retention',
-    body: 'We keep inquiry information for as long as needed to manage the business relationship, comply with obligations, resolve disputes, and improve our services.',
+    body: 'We keep inquiry information for as long as needed to manage the business relationship, meet legal obligations, and resolve disputes, then delete or anonymise it.',
   },
   {
     title: 'Your choices',
-    body: 'You can ask us to update, correct, or delete your contact information by emailing hello@momentumrobotics.in.',
+    body: 'You can ask us to access, correct, or delete the contact information we hold on you at any time by emailing hello@momentumrobotics.in.',
+  },
+  {
+    title: 'Governing law',
+    body: 'This policy is governed by the laws of India. Momentum Robotics Pvt. Ltd. is headquartered in Pune, Maharashtra.',
+  },
+  {
+    title: 'Changes to this policy',
+    body: 'We may update this policy as our practices evolve. The date below reflects the most recent revision.',
   },
 ];
 
 export default function PrivacyPage() {
   return (
-    <main className="mx-auto max-w-4xl px-6 pb-24 pt-32">
-      <p className="mb-5 inline-flex rounded-full border border-border bg-surface px-3 py-1 text-sm text-muted">
-        Momentum Robotics
-      </p>
-      <h1 className="font-heading text-5xl font-bold leading-tight md:text-6xl">Privacy Policy</h1>
-      <p className="mt-5 text-sm leading-6 text-muted">Last updated: June 29, 2026</p>
-      <p className="mt-8 max-w-2xl text-base leading-7 text-muted">
-        This policy explains how Momentum Robotics Pvt. Ltd. handles information submitted through this website and related business communications.
-      </p>
-
-      <div className="mt-12 grid gap-5">
-        {sections.map((section) => (
-          <section key={section.title} className="border border-border bg-surface p-6">
-            <h2 className="font-heading text-2xl font-bold">{section.title}</h2>
-            <p className="mt-3 text-sm leading-6 text-muted-foreground">{section.body}</p>
-          </section>
-        ))}
+    <section className="mx-auto max-w-7xl px-6 pb-24 pt-24 md:pb-32">
+      {/* meta rule */}
+      <div className="flex items-center justify-between border-b border-border py-3">
+        <span className="label-mono">Legal</span>
+        <span className="label-mono hidden sm:block">Last updated: June 29, 2026</span>
       </div>
-    </main>
+
+      {/* header */}
+      <div className="grid gap-y-6 pt-12 lg:grid-cols-12 lg:gap-x-10">
+        <div className="lg:col-span-7">
+          <h1 className="display text-5xl sm:text-6xl lg:text-7xl">Privacy Policy</h1>
+        </div>
+        <p className="self-end text-base leading-relaxed text-muted lg:col-span-4 lg:col-start-9">
+          How Momentum Robotics Pvt. Ltd. handles information submitted through this
+          website and related business communications.
+        </p>
+      </div>
+
+      {/* sections */}
+      <dl className="mt-16 border-t border-border">
+        {sections.map((section, i) => (
+          <div
+            key={section.title}
+            className="grid gap-y-2 border-b border-border py-7 md:grid-cols-12 md:gap-x-8"
+          >
+            <dt className="flex items-baseline gap-3 md:col-span-3">
+              <span className="index-numeral text-sm text-muted-foreground">
+                {String(i + 1).padStart(2, '0')}
+              </span>
+              <span className="label-mono">{section.title}</span>
+            </dt>
+            <dd className="text-base leading-relaxed text-muted md:col-span-9">
+              {section.body}
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </section>
   );
 }
