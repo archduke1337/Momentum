@@ -400,7 +400,7 @@ function MotionNavigationMenuList({
       controlledItems
       hover
       className={cn(
-        "bg-accent rounded-md pointer-events-none",
+        "bg-accent pointer-events-none",
         highlightClassName,
       )}
       style={{ zIndex: -1 }}
