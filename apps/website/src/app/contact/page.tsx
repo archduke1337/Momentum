@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { Clock, Mail, MapPin } from 'lucide-react';
 import ContactForm from './contact-form';
 
 export const metadata: Metadata = {
@@ -8,62 +7,62 @@ export const metadata: Metadata = {
     'Contact Momentum Robotics for AMR product demos, pilot planning, and industrial automation partnerships in India.',
 };
 
-const contactCards = [
-  {
-    title: 'Email',
-    value: 'hello@momentumrobotics.in',
-    href: 'mailto:hello@momentumrobotics.in',
-    icon: Mail,
-  },
-  {
-    title: 'Location',
-    value: 'Pune, Maharashtra, India',
-    icon: MapPin,
-  },
-  {
-    title: 'Office hours',
-    value: 'Monday to Friday, 9:00 AM to 6:00 PM IST',
-    icon: Clock,
-  },
+const details = [
+  { label: 'Email', value: 'hello@momentumrobotics.in', href: 'mailto:hello@momentumrobotics.in' },
+  { label: 'Location', value: 'Pune, Maharashtra, India' },
+  { label: 'Office hours', value: 'Monday to Friday, 9:00–18:00 IST' },
 ];
 
 export default function ContactPage() {
   return (
-    <div>
-      <section className="mx-auto max-w-7xl px-6 pb-20 pt-32">
-        <h1 className="font-heading text-5xl font-bold leading-tight md:text-7xl">
-          Contact
-        </h1>
+    <section className="mx-auto max-w-7xl px-6 pb-24 pt-24 md:pb-32">
+      {/* meta rule */}
+      <div className="flex items-center justify-between border-b border-border py-3">
+        <span className="label-mono">Contact</span>
+        <span className="label-mono hidden sm:block">Pune, India</span>
+      </div>
 
-        <div className="mt-14 grid gap-8 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="grid gap-6">
-            <ContactForm />
-          </div>
-
-          <aside className="grid content-start gap-4">
-            {contactCards.map((card) => {
-              const Icon = card.icon;
-              const content = (
-                <div className="rounded-2xl border border-border bg-surface p-6">
-                  <span className="inline-flex size-10 items-center justify-center rounded-xl bg-primary/12 text-primary">
-                    <Icon className="size-5" aria-hidden="true" />
-                  </span>
-                  <p className="mt-5 text-sm font-semibold text-foreground">{card.title}</p>
-                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{card.value}</p>
-                </div>
-              );
-
-              return card.href ? (
-                <a key={card.title} href={card.href}>
-                  {content}
-                </a>
-              ) : (
-                <div key={card.title}>{content}</div>
-              );
-            })}
-          </aside>
+      {/* header */}
+      <div className="grid gap-y-6 pt-12 lg:grid-cols-12 lg:gap-x-10">
+        <div className="lg:col-span-7">
+          <h1 className="display text-5xl sm:text-6xl lg:text-7xl">
+            Tell us what
+            <br />
+            you move.
+          </h1>
         </div>
-      </section>
-    </div>
+        <p className="self-end text-base leading-relaxed text-muted lg:col-span-4 lg:col-start-9">
+          Share your payloads, routes, and floor conditions. We&apos;ll come back with the right
+          platform and a deployment plan for your operation.
+        </p>
+      </div>
+
+      {/* body */}
+      <div className="mt-16 grid gap-x-10 gap-y-12 border-t border-border pt-12 lg:grid-cols-12">
+        <div className="lg:col-span-7">
+          <ContactForm />
+        </div>
+
+        <aside className="lg:col-span-4 lg:col-start-9">
+          <span className="label-mono">Direct</span>
+          <dl className="mt-6 border-t border-border">
+            {details.map((d) => (
+              <div key={d.label} className="border-b border-border py-5">
+                <dt className="label-mono">{d.label}</dt>
+                <dd className="mt-2 text-lg leading-relaxed text-foreground">
+                  {d.href ? (
+                    <a href={d.href} className="transition-colors hover:text-primary">
+                      {d.value}
+                    </a>
+                  ) : (
+                    d.value
+                  )}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </aside>
+      </div>
+    </section>
   );
 }
