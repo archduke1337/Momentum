@@ -20,16 +20,28 @@ export function Hero() {
   });
 
   return (
-    <section className="relative border-b border-border pt-24">
+    <section className="relative overflow-hidden border-b border-border pt-24">
+      {/* faint technical grid backdrop, fading before it reaches the copy */}
+      <div
+        aria-hidden
+        className="grid-backdrop pointer-events-none absolute inset-0 opacity-70 [mask-image:linear-gradient(to_bottom,black,transparent_72%)]"
+      />
+
       {/* meta rule */}
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-7xl px-6">
         <div className="flex items-center justify-between border-b border-border py-3">
-          <span className="label-mono">Autonomous Material Handling</span>
+          <span className="label-mono flex items-center gap-2.5">
+            <span className="relative flex size-1.5" aria-hidden>
+              <span className="absolute inline-flex h-full w-full animate-ping bg-primary opacity-60" />
+              <span className="relative inline-flex size-1.5 bg-primary" />
+            </span>
+            Autonomous Material Handling
+          </span>
           <span className="label-mono hidden sm:block">Pune, India — EST. 2024</span>
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-7xl px-6">
         {/* headline */}
         <motion.h1
           {...rise(0.02)}
@@ -49,8 +61,11 @@ export function Hero() {
               racks, and zones, around the clock.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Link href="/contact" className="btn-primary">
+              <Link href="/contact" className="btn-primary group">
                 Request a demo
+                <span className="ml-2 transition-transform group-hover:translate-x-0.5" aria-hidden>
+                  →
+                </span>
               </Link>
               <Link href="/technology" className="btn-secondary">
                 How it works
@@ -68,7 +83,13 @@ export function Hero() {
           </motion.div>
 
           <motion.div {...rise(0.14)} className="relative lg:col-span-7">
-            <span className="label-mono absolute left-0 top-0 z-10">Cyborg / 1000 kg</span>
+            {/* technical corner marks */}
+            <span aria-hidden className="pointer-events-none absolute -left-px -top-px z-10 size-3 border-l border-t border-border" />
+            <span aria-hidden className="pointer-events-none absolute -right-px -top-px z-10 size-3 border-r border-t border-border" />
+            <span aria-hidden className="pointer-events-none absolute -bottom-px -left-px z-10 size-3 border-b border-l border-border" />
+            <span aria-hidden className="pointer-events-none absolute -bottom-px -right-px z-10 size-3 border-b border-r border-border" />
+
+            <span className="label-mono absolute left-2 top-2 z-10">Cyborg / 1000 kg</span>
             <Image
               src="/Product/cyborg/Cyborg.png"
               alt="Cyborg industrial autonomous mobile robot"

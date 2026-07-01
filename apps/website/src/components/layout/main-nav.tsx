@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { AnimatePresence, motion } from 'motion/react';
+import { AnimatePresence, motion, useScroll, useSpring } from 'motion/react';
 import { ArrowRight, Menu, X } from 'lucide-react';
 import { Logo } from './logo';
 import { ThemeToggle } from './theme-toggle';
@@ -66,7 +66,7 @@ function isActive(pathname: string, prefix: string) {
 function ActiveDot({ active }: { active: boolean }) {
   if (!active) return null;
   return (
-    <span className="absolute -bottom-0.5 left-1/2 size-1 -translate-x-1/2 rounded-full bg-primary" />
+    <span className="absolute -bottom-1 left-1/2 h-0.5 w-4 -translate-x-1/2 bg-primary" />
   );
 }
 
@@ -77,6 +77,8 @@ export function MainNav() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 380, damping: 40, restDelta: 0.001 });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -96,6 +98,11 @@ export function MainNav() {
 
   return (
     <>
+      <motion.div
+        aria-hidden
+        style={{ scaleX: progress }}
+        className="fixed inset-x-0 top-0 z-[101] h-0.5 origin-left bg-primary"
+      />
       <motion.header
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -128,7 +135,7 @@ export function MainNav() {
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
                     <div className="grid w-[400px] gap-px p-1">
                       {solutionLinks.map((s) => (
-                        <MotionNavigationMenuLink key={s.href} href={s.href} className={`flex items-center justify-between rounded-md px-3 py-2 ${pathname === s.href ? 'bg-primary/10 text-primary' : 'text-foreground'}`}>
+                        <MotionNavigationMenuLink key={s.href} href={s.href} className={`flex items-center justify-between px-3 py-2 ${pathname === s.href ? 'bg-primary/10 text-primary' : 'text-foreground'}`}>
                           <div className="flex flex-col gap-0.5">
                             <span className="text-sm font-semibold">{s.name}</span>
                             <span className="text-xs text-muted-foreground">{s.desc}</span>
@@ -147,7 +154,7 @@ export function MainNav() {
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
                     <div className="grid w-[360px] grid-cols-2 gap-px p-1">
                       {industryLinks.map((i) => (
-                        <MotionNavigationMenuLink key={i.href} href={i.href} className={`rounded-md px-2.5 py-2 text-sm ${pathname === i.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
+                        <MotionNavigationMenuLink key={i.href} href={i.href} className={`px-2.5 py-2 text-sm ${pathname === i.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
                           {i.name}
                         </MotionNavigationMenuLink>
                       ))}
@@ -163,7 +170,7 @@ export function MainNav() {
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
                     <div className="grid w-[380px] gap-px p-1">
                       {productLinks.map((p) => (
-                        <MotionNavigationMenuLink key={p.href} href={p.href} className={`flex items-center justify-between rounded-md px-3 py-2 ${pathname === p.href ? 'bg-primary/10 text-primary' : 'text-foreground'}`}>
+                        <MotionNavigationMenuLink key={p.href} href={p.href} className={`flex items-center justify-between px-3 py-2 ${pathname === p.href ? 'bg-primary/10 text-primary' : 'text-foreground'}`}>
                           <div className="flex flex-col gap-0.5">
                             <span className="text-sm font-semibold">{p.name}</span>
                             <span className="text-xs text-muted-foreground">{p.desc}</span>
@@ -182,7 +189,7 @@ export function MainNav() {
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
                     <div className="grid w-[200px] gap-px p-1">
                       {companyLinks.map((c) => (
-                        <MotionNavigationMenuLink key={c.href} href={c.href} className={`rounded-md px-3 py-2 text-sm ${pathname === c.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
+                        <MotionNavigationMenuLink key={c.href} href={c.href} className={`px-3 py-2 text-sm ${pathname === c.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
                           {c.name}
                         </MotionNavigationMenuLink>
                       ))}
@@ -198,7 +205,7 @@ export function MainNav() {
                   <MotionNavigationMenuContent highlightClassName={contentHl}>
                     <div className="grid w-[200px] gap-px p-1">
                       {resourceLinks.map((r) => (
-                        <MotionNavigationMenuLink key={r.href} href={r.href} className={`rounded-md px-3 py-2 text-sm ${pathname === r.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
+                        <MotionNavigationMenuLink key={r.href} href={r.href} className={`px-3 py-2 text-sm ${pathname === r.href ? 'bg-primary/10 text-primary font-semibold' : 'text-foreground'}`}>
                           {r.name}
                         </MotionNavigationMenuLink>
                       ))}
@@ -215,17 +222,17 @@ export function MainNav() {
             <ThemeToggle />
             <Link
               href="/contact"
-              className="inline-flex h-8 items-center gap-1.5 bg-foreground px-4 text-xs font-medium tracking-tight text-background transition-colors hover:bg-primary hover:text-primary-foreground"
+              className="group inline-flex h-9 items-center gap-1.5 bg-foreground px-4 text-xs font-medium tracking-tight text-background transition-colors hover:bg-primary hover:text-primary-foreground"
             >
               Request demo
-              <ArrowRight className="size-3.5" aria-hidden="true" />
+              <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
             </Link>
           </div>
 
           <button
             type="button"
             onClick={() => setMobileOpen((open) => !open)}
-            className="inline-flex size-8 items-center justify-center border border-border bg-surface text-foreground lg:hidden"
+            className="inline-flex size-9 items-center justify-center border border-border bg-surface text-foreground transition-colors hover:border-foreground lg:hidden"
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
           >
