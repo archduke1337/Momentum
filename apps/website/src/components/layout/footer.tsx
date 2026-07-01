@@ -40,14 +40,16 @@ const footerLinks = [
     title: 'Company',
     items: [
       { label: 'About', href: '/about' },
+      { label: 'Why Momentum', href: '/why-momentum' },
+      { label: 'Technology', href: '/technology' },
       { label: 'Careers', href: '/careers' },
       { label: 'Contact', href: '/contact' },
-      { label: 'Blog', href: '/blog' },
     ],
   },
   {
     title: 'Resources',
     items: [
+      { label: 'Blog', href: '/blog' },
       { label: 'Documentation', href: '/resources/documentation' },
       { label: 'Changelog', href: '/resources/changelog' },
       { label: 'News', href: '/news' },
