@@ -117,13 +117,15 @@ export default function HomePage() {
 
         <div className="mx-auto mt-16 max-w-7xl px-6 pb-24 md:pb-32">
           <div className="grid border-l border-t border-border sm:grid-cols-2 lg:grid-cols-4">
-            {bottleneck.map((b) => (
-              <div key={b.figure} className="border-b border-r border-border p-7">
-                <p className="stat-figure text-5xl text-foreground sm:text-6xl">{b.figure}</p>
-                <p className="mt-5 text-sm font-medium tracking-tight text-foreground">
-                  {b.label}
+            {bottleneck.map((b, i) => (
+              <div key={b.title} className="border-b border-r border-border p-7">
+                <span className="index-numeral text-sm text-muted-foreground">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <p className="mt-5 text-lg leading-snug tracking-tight text-foreground">
+                  {b.title}
                 </p>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{b.sub}</p>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{b.sub}</p>
               </div>
             ))}
           </div>
