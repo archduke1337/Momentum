@@ -97,7 +97,10 @@ export function Hero() {
         <div className="mx-auto max-w-7xl px-6">
           <dl className="grid grid-cols-2 border-l border-border sm:grid-cols-3 lg:grid-cols-5">
             {telemetry.map((t) => (
-              <div key={t.k} className="border-b border-r border-border px-5 py-5">
+              <div
+                key={t.k}
+                className="border-b border-r border-border px-5 py-5 last:col-span-2 lg:last:col-span-1"
+              >
                 <dt className="spec-key">{t.k}</dt>
                 <dd className="spec-value mt-1.5 text-[0.9375rem]">{t.v}</dd>
               </div>

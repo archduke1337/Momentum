@@ -10,10 +10,10 @@ const cyborg = products.find((product) => product.slug === 'cyborg');
 
 const productCards = [pixel, orbit, cyborg].filter(Boolean);
 
-const keySpec: Record<string, { payload: string; role: string }> = {
-  pixel: { payload: '300 kg', role: 'Education kit' },
-  orbit: { payload: '1000 kg', role: 'Research platform' },
-  cyborg: { payload: '150–1000 kg', role: 'Industrial · 4 variants' },
+const keySpec: Record<string, { payload: string; runtime: string; role: string }> = {
+  pixel: { payload: '300 kg', runtime: '8 h', role: 'Education kit' },
+  orbit: { payload: '1000 kg', runtime: '12 h', role: 'Research platform' },
+  cyborg: { payload: '150–1000 kg', runtime: 'up to 16 h', role: 'Industrial · 4 variants' },
 };
 
 export function ProductShowcase() {
@@ -35,12 +35,12 @@ export function ProductShowcase() {
 
   return (
     <section className="mx-auto max-w-7xl px-6 pb-24 pt-16">
-      <div className="grid border-t border-border md:grid-cols-3">
+      <div className="grid border-l border-t border-border md:grid-cols-3">
         {productCards.map((product) => (
           <Link
             key={product!.id}
             href={`/products/${product!.slug}`}
-            className="group flex flex-col border-b border-border p-8 transition-colors hover:bg-surface md:border-b-0 md:p-10 md:[&:not(:last-child)]:border-r"
+            className="group flex flex-col border-b border-r border-border p-8 transition-colors hover:bg-surface md:p-10"
           >
             <div className="relative aspect-[4/3] bg-surface-elevated">
               {product!.image ? (
@@ -61,9 +61,19 @@ export function ProductShowcase() {
                 <span className="label-mono">{keySpec[product!.slug]?.role}</span>
               </div>
               <p className="mt-2 flex-1 leading-relaxed text-muted">{product!.tagline}</p>
-              <div className="mt-5 flex items-baseline gap-2 border-t border-border pt-4">
-                <span className="spec-key">Payload</span>
-                <span className="spec-value text-sm text-foreground">{keySpec[product!.slug]?.payload}</span>
+              <div className="mt-5 grid grid-cols-2 gap-x-6 border-t border-border pt-4">
+                <div>
+                  <span className="spec-key">Payload</span>
+                  <div className="spec-value mt-1 text-sm text-foreground">
+                    {keySpec[product!.slug]?.payload}
+                  </div>
+                </div>
+                <div>
+                  <span className="spec-key">Runtime</span>
+                  <div className="spec-value mt-1 text-sm text-foreground">
+                    {keySpec[product!.slug]?.runtime}
+                  </div>
+                </div>
               </div>
               <span className="mt-5 inline-flex items-center gap-2 text-sm font-medium tracking-tight text-foreground group-hover:text-primary">
                 View platform

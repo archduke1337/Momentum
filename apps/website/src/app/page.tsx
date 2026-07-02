@@ -4,6 +4,7 @@ import { industries, solutions } from '@workspace/content';
 import type { Industry, Solution } from '@workspace/types';
 import { Hero } from '@/components/sections/hero';
 import { ProductShowcase } from '@/components/sections/product-showcase';
+import { Reveal } from '@/components/ui/reveal';
 
 const bottleneck = [
   {
@@ -64,20 +65,43 @@ const where = [
   { k: 'Platforms', v: 'Pixel · Orbit · Cyborg' },
 ];
 
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Momentum Robotics',
+  legalName: 'Momentum Robotics Pvt. Ltd.',
+  url: 'https://momentumrobotics.in',
+  logo: 'https://momentumrobotics.in/logo.png',
+  email: 'hello@momentumrobotics.in',
+  sameAs: ['https://www.linkedin.com/company/momentum-robotics/'],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'A-612 Park Plaza Business Center, Porwal Rd, Lohegaon',
+    addressLocality: 'Pune',
+    addressRegion: 'Maharashtra',
+    postalCode: '411047',
+    addressCountry: 'IN',
+  },
+};
+
 function SectionHeader({
+  index,
   label,
   title,
   lede,
 }: {
+  index: string;
   label: string;
   title: React.ReactNode;
   lede?: string;
 }) {
   return (
-    <div className="grid gap-y-6 lg:grid-cols-12 lg:gap-x-10">
+    <Reveal className="grid gap-y-6 lg:grid-cols-12 lg:gap-x-10">
       <div className="lg:col-span-7">
         <span className="eyebrow">
-          <span aria-hidden className="size-1.5 self-center bg-primary" />
+          <span aria-hidden className="index-numeral text-primary">
+            {index}
+          </span>
           {label}
         </span>
         <h2 className="display mt-5 text-4xl sm:text-5xl">{title}</h2>
@@ -87,7 +111,7 @@ function SectionHeader({
           {lede}
         </p>
       ) : null}
-    </div>
+    </Reveal>
   );
 }
 
@@ -96,24 +120,32 @@ export default function HomePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }}
+      />
       <Hero />
 
       {/* THE BOTTLENECK — real economics as data (full-bleed lead + stat band) */}
       <section className="border-b border-border">
         <div className="mx-auto max-w-7xl px-6 pt-24 md:pt-32">
-          <span className="eyebrow">
-            <span aria-hidden className="size-1.5 self-center bg-primary" />
-            The bottleneck
-          </span>
-          <h2 className="display mt-6 max-w-4xl text-4xl sm:text-6xl">
-            The stations got automated. The runs between them didn&apos;t.
-          </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-            Factories have spent decades automating welding, paint and assembly. The parts
-            still travel between those cells the way they always have: on a forklift, or
-            behind someone pushing a trolley. That gap is the least automated part of the
-            building.
-          </p>
+          <Reveal>
+            <span className="eyebrow">
+              <span aria-hidden className="index-numeral text-primary">
+                01
+              </span>
+              The bottleneck
+            </span>
+            <h2 className="display mt-6 max-w-4xl text-4xl sm:text-6xl">
+              The stations got automated. The runs between them didn&apos;t.
+            </h2>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+              Factories have spent decades automating welding, paint and assembly. The parts
+              still travel between those cells the way they always have: on a forklift, or
+              behind someone pushing a trolley. That gap is the least automated part of the
+              building.
+            </p>
+          </Reveal>
         </div>
 
         <div className="mx-auto mt-16 max-w-7xl px-6 pb-24 md:pb-32">
@@ -137,18 +169,22 @@ export default function HomePage() {
       <section className="border-b border-border">
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
           <SectionHeader
+            index="02"
             label="What we do"
             title="Five ways material moves. We automate all of them."
             lede="Line feeding, warehouse runs, pallet moves, fleet control and the odd custom job. However material moves on your floor, it lands in one of these five."
           />
           <div className="mt-16 grid border-l border-t border-border sm:grid-cols-2 lg:grid-cols-3">
-            {solutions.map((solution: Solution) => (
+            {solutions.map((solution: Solution, i) => (
               <Link
                 key={solution.id}
                 href={`/solutions/${solution.slug}`}
                 className="group flex min-h-64 flex-col border-b border-r border-border p-8 transition-colors hover:bg-surface"
               >
-                <h3 className="text-xl tracking-tight">{solution.name}</h3>
+                <span className="index-numeral text-sm transition-colors group-hover:text-primary">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <h3 className="mt-5 text-xl tracking-tight">{solution.name}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
                   {solution.description}
                 </p>
@@ -176,9 +212,10 @@ export default function HomePage() {
       <section className="border-b border-border bg-surface/30">
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
           <SectionHeader
+            index="03"
             label="Who we serve"
             title="The same manual step, sector by sector."
-            lede="A paint shop and a cleanroom look nothing alike. Walk either floor and you find the same thing: a person, a trolley, and parts that need to be somewhere else."
+            lede="A paint shop and an SMT line look nothing alike. Walk either floor and you find the same thing: a person, a trolley, and parts that need to be somewhere else."
           />
           <ul className="mt-16 border-t border-border">
             {featuredIndustries.map((ind: Industry, i) => (
@@ -187,13 +224,13 @@ export default function HomePage() {
                   href={`/industries/${ind.slug}`}
                   className="group grid items-baseline gap-y-2 border-b border-border py-8 transition-colors hover:bg-surface md:grid-cols-12 md:gap-x-8"
                 >
-                  <span className="index-numeral text-sm md:col-span-1">
+                  <span className="index-numeral text-sm transition-colors group-hover:text-primary md:col-span-1">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <h3 className="text-2xl tracking-tight md:col-span-4">{ind.name}</h3>
                   <p className="text-muted md:col-span-6">{ind.tagline}</p>
                   <ArrowUpRight
-                    className="size-5 text-muted transition-colors group-hover:text-foreground md:col-span-1 md:justify-self-end"
+                    className="hidden size-5 text-muted transition-colors group-hover:text-foreground md:col-span-1 md:block md:justify-self-end"
                     aria-hidden="true"
                   />
                 </Link>
@@ -216,6 +253,7 @@ export default function HomePage() {
       <section className="border-b border-border">
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
           <SectionHeader
+            index="04"
             label="Why Momentum"
             title="Open by default. Yours to keep."
             lede="Most AMRs are sold like subscriptions you can never cancel. We sell robots the way machine tools are sold: you buy one, you own it."
@@ -251,6 +289,7 @@ export default function HomePage() {
       <section className="border-b border-border bg-surface/30">
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
           <SectionHeader
+            index="05"
             label="Technology"
             title="Built on standards your team can audit."
             lede="Every Momentum robot runs the same open ROS 2 stack, with sensing chosen for dust, glare and forklift traffic."
@@ -282,6 +321,7 @@ export default function HomePage() {
       <section className="border-b border-border">
         <div className="mx-auto max-w-7xl px-6 pt-24 md:pt-32">
           <SectionHeader
+            index="06"
             label="Platforms"
             title="One stack. Three platforms."
             lede="Code written on a Pixel in the lab runs unchanged on a Cyborg on the line. One ROS 2 stack across all three platforms."
@@ -293,9 +333,11 @@ export default function HomePage() {
       {/* WHERE WE ARE — honest early-stage + partnership */}
       <section className="border-b border-border bg-surface/30">
         <div className="mx-auto grid max-w-7xl gap-y-12 px-6 py-24 md:py-32 lg:grid-cols-12 lg:gap-x-10">
-          <div className="lg:col-span-6">
+          <Reveal className="lg:col-span-6">
             <span className="eyebrow">
-              <span aria-hidden className="size-1.5 self-center bg-primary" />
+              <span aria-hidden className="index-numeral text-primary">
+                07
+              </span>
               Where we are
             </span>
             <h2 className="display mt-5 text-4xl sm:text-5xl">Early-stage, and straight about it.</h2>
@@ -306,7 +348,7 @@ export default function HomePage() {
               in Belgium. We&apos;d rather tell you that plainly than pretend to a fleet we
               haven&apos;t shipped.
             </p>
-          </div>
+          </Reveal>
           <div className="lg:col-span-5 lg:col-start-8 lg:self-center">
             <dl className="border-t border-border">
               {where.map((f) => (
@@ -326,27 +368,53 @@ export default function HomePage() {
       {/* FINAL CTA */}
       <section>
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
-          <span className="eyebrow">
-            <span aria-hidden className="size-1.5 self-center bg-primary" />
-            Get started
-          </span>
-          <h2 className="display mt-6 max-w-4xl text-4xl sm:text-6xl">
-            Show us the move you can&apos;t automate.
-          </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-            Send us your payloads, routes and floor conditions. If a Momentum robot fits
-            your operation, we&apos;ll tell you. If it doesn&apos;t yet, we&apos;ll tell you
-            that too.
-          </p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Link href="/contact" className="btn-primary group">
-              Book a consultation
-              <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
-            </Link>
-            <Link href="/solutions" className="btn-secondary">
-              Explore solutions
-            </Link>
-          </div>
+          <Reveal>
+            <span className="eyebrow">
+              <span aria-hidden className="index-numeral text-primary">
+                08
+              </span>
+              Get started
+            </span>
+            <h2 className="display mt-6 max-w-4xl text-4xl sm:text-6xl">
+              Show us the move you can&apos;t automate.
+            </h2>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
+              Send us your payloads, routes and floor conditions. If a Momentum robot fits
+              your operation, we&apos;ll tell you. If it doesn&apos;t yet, we&apos;ll tell you
+              that too.
+            </p>
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+              <Link href="/contact" className="btn-primary group">
+                Book a consultation
+                <ArrowRight className="ml-2 size-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+              </Link>
+              <Link href="/solutions" className="btn-secondary">
+                Explore solutions
+              </Link>
+            </div>
+          </Reveal>
+
+          <dl className="mt-16 grid gap-y-8 border-t border-border pt-8 sm:grid-cols-3">
+            <div>
+              <dt className="spec-key">Email</dt>
+              <dd className="mt-1.5">
+                <a
+                  href="mailto:hello@momentumrobotics.in"
+                  className="spec-value text-sm transition-colors hover:text-primary"
+                >
+                  hello@momentumrobotics.in
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt className="spec-key">Hours</dt>
+              <dd className="spec-value mt-1.5 text-sm">Mon–Fri · 09:00–18:00 IST</dd>
+            </div>
+            <div>
+              <dt className="spec-key">HQ</dt>
+              <dd className="spec-value mt-1.5 text-sm">Lohegaon, Pune, India</dd>
+            </div>
+          </dl>
         </div>
       </section>
     </>
