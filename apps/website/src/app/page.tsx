@@ -25,14 +25,14 @@ const bottleneck = [
 ];
 
 const usual = [
-  'Proprietary stack — sealed shut; every change is a vendor ticket',
+  'Proprietary stack, sealed shut. Every change is a vendor ticket',
   'Per-seat licences and annual maintenance that compounds your TCO',
   "One vendor's robots, locked to one vendor's fleet manager",
   'Tuned for clean, well-marked warehouse floors',
 ];
 
 const momentum = [
-  'Open ROS 2 (Humble · Nav2 · SLAM Toolbox) — read it, extend it, own it',
+  'Open ROS 2 stack (Humble · Nav2 · SLAM Toolbox) your own engineers can read and modify',
   'Buy the fleet once. No licences, no mandatory service contract',
   'VDA 5050 fleet control across a mixed, multi-vendor fleet',
   'LiDAR + 3D camera + IMU fusion tuned for dust, glare and reflective metal',
@@ -45,7 +45,7 @@ const tech = [
   },
   {
     k: 'Navigation',
-    v: 'ROS 2 Humble with Nav2 and SLAM Toolbox — proven across 100+ commercial deployments and tuned for dynamic factory floors.',
+    v: 'ROS 2 Humble with Nav2 and SLAM Toolbox, the same open navigation stack running in industrial fleets worldwide, tuned here for busy factory floors.',
   },
   {
     k: 'Fleet',
@@ -53,7 +53,7 @@ const tech = [
   },
   {
     k: 'Safety',
-    v: 'Safety-rated LiDAR fields, e-stops and bumpers — engineered for mixed human-robot aisles, not cooperative-only zones.',
+    v: 'Safety-rated LiDAR fields, e-stops and bumpers, specced for aisles where people and forklifts already share the space.',
   },
 ];
 
@@ -106,12 +106,13 @@ export default function HomePage() {
             The bottleneck
           </span>
           <h2 className="display mt-6 max-w-4xl text-4xl sm:text-6xl">
-            Production got automated. The moving between it didn&apos;t.
+            The stations got automated. The runs between them didn&apos;t.
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-            Factories poured investment into robotic welding, paint and assembly — then kept
-            pushing the parts between those cells by forklift and hand trolley. That gap is
-            where throughput, safety and cost quietly leak.
+            Factories have spent decades automating welding, paint and assembly. The parts
+            still travel between those cells the way they always have: on a forklift, or
+            behind someone pushing a trolley. That gap is the least automated part of the
+            building.
           </p>
         </div>
 
@@ -138,7 +139,7 @@ export default function HomePage() {
           <SectionHeader
             label="What we do"
             title="Five ways material moves. We automate all of them."
-            lede="However parts flow on your floor, it maps to one of these — from just-in-time line feeding to orchestrating a mixed fleet."
+            lede="Line feeding, warehouse runs, pallet moves, fleet control and the odd custom job. However material moves on your floor, it lands in one of these five."
           />
           <div className="mt-16 grid border-l border-t border-border sm:grid-cols-2 lg:grid-cols-3">
             {solutions.map((solution: Solution) => (
@@ -177,7 +178,7 @@ export default function HomePage() {
           <SectionHeader
             label="Who we serve"
             title="The same manual step, sector by sector."
-            lede="The bottleneck looks different in a paint shop than a cleanroom — but underneath, it's the same unautomated move."
+            lede="A paint shop and a cleanroom look nothing alike. Walk either floor and you find the same thing: a person, a trolley, and parts that need to be somewhere else."
           />
           <ul className="mt-16 border-t border-border">
             {featuredIndustries.map((ind: Industry, i) => (
@@ -217,7 +218,7 @@ export default function HomePage() {
           <SectionHeader
             label="Why Momentum"
             title="Open by default. Yours to keep."
-            lede="Most AMRs are sold like a subscription you can never leave. We build the opposite of that."
+            lede="Most AMRs are sold like subscriptions you can never cancel. We sell robots the way machine tools are sold: you buy one, you own it."
           />
           <div className="mt-16 grid border border-border md:grid-cols-2">
             <div className="border-b border-border p-8 md:border-b-0 md:border-r md:p-10">
@@ -251,8 +252,8 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
           <SectionHeader
             label="Technology"
-            title="Standards you can audit, not a black box."
-            lede="Every Momentum robot runs the same open ROS 2 stack, with sensing tuned for real factory conditions."
+            title="Built on standards your team can audit."
+            lede="Every Momentum robot runs the same open ROS 2 stack, with sensing chosen for dust, glare and forklift traffic."
           />
           <dl className="mt-16 border-t border-border">
             {tech.map((t) => (
@@ -283,7 +284,7 @@ export default function HomePage() {
           <SectionHeader
             label="Platforms"
             title="One stack. Three platforms."
-            lede="What a student writes on Pixel in the lab runs on a Cyborg on the line — same ROS 2 stack, no rewrite, no relearning."
+            lede="Code written on a Pixel in the lab runs unchanged on a Cyborg on the line. One ROS 2 stack across all three platforms."
           />
         </div>
         <ProductShowcase />
@@ -299,11 +300,11 @@ export default function HomePage() {
             </span>
             <h2 className="display mt-5 text-4xl sm:text-5xl">Early-stage, and straight about it.</h2>
             <p className="mt-6 max-w-md text-lg leading-relaxed text-muted">
-              We&apos;re not going to claim a fleet we haven&apos;t shipped. Momentum is in
-              selective deployment — running pilots with early customers in education,
-              automotive and logistics, and integrating deeply with a few operations rather
-              than chasing volume. Our European standards work runs through our partnership
-              with Gebroeders Doms BV in Belgium.
+              Momentum is in selective deployment: pilots with early customers in education,
+              automotive and logistics, each one integrated properly before we take on the
+              next. Our European standards work runs through our partner Gebroeders Doms BV
+              in Belgium. We&apos;d rather tell you that plainly than pretend to a fleet we
+              haven&apos;t shipped.
             </p>
           </div>
           <div className="lg:col-span-5 lg:col-start-8 lg:self-center">
@@ -333,9 +334,9 @@ export default function HomePage() {
             Show us the move you can&apos;t automate.
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted">
-            Send us your payloads, routes and floor conditions. We&apos;ll tell you honestly
-            whether a Momentum robot fits your operation today — and if it doesn&apos;t yet,
-            we&apos;ll say so.
+            Send us your payloads, routes and floor conditions. If a Momentum robot fits
+            your operation, we&apos;ll tell you. If it doesn&apos;t yet, we&apos;ll tell you
+            that too.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link href="/contact" className="btn-primary group">

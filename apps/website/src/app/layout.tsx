@@ -28,11 +28,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://momentumrobotics.in'),
   title: {
-    default: 'Momentum Robotics | Autonomous Mobile Robots & Industrial Automation',
+    default: 'Momentum Robotics | Open Autonomous Mobile Robots',
     template: '%s | Momentum Robotics',
   },
   description:
-    'Leading manufacturer of Autonomous Mobile Robots (AMRs), Automated Guided Vehicles (AGVs), and warehouse automation solutions in India.',
+    'Momentum Robotics builds autonomous mobile robots (AMRs) on an open ROS 2 stack for factories, warehouses and classrooms. Designed and manufactured in Pune, India.',
   icons: {
     icon: [
       { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },

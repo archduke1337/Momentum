@@ -56,9 +56,9 @@ export function Hero() {
         <div className="mt-12 grid gap-y-10 lg:grid-cols-12 lg:gap-x-10">
           <motion.div {...rise(0.1)} className="lg:col-span-5">
             <p className="max-w-md text-lg leading-relaxed text-muted">
-              Momentum builds open, ROS&nbsp;2-native mobile robots that carry parts
-              between stations, racks and storage — the moves still run by forklifts and
-              hand trolleys. Own the stack, extend it yourself, skip the vendor lock-in.
+              Most factories still feed automated lines by forklift and hand trolley.
+              Momentum builds open, ROS&nbsp;2-native mobile robots that take over those
+              runs. You own the stack outright: no per-seat licences, no sealed firmware.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link href="/contact" className="btn-primary group">

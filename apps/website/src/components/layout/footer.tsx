@@ -64,15 +64,20 @@ export function Footer() {
       <div className="border-b border-border">
         <div className="mx-auto flex max-w-7xl flex-col items-start gap-6 px-6 py-14 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h2 className="display text-3xl md:text-4xl">
-              Let&apos;s automate your floor.
+            <span className="eyebrow">
+              <span aria-hidden className="size-1.5 self-center bg-primary" />
+              Contact
+            </span>
+            <h2 className="display mt-4 text-3xl md:text-4xl">
+              Walk us through your floor.
             </h2>
             <p className="mt-3 max-w-xl leading-relaxed text-muted">
-              Tell us your payloads, routes, and floor conditions — we&apos;ll map the right solution for your operation.
+              A rough layout, your payloads, and where the parts need to go. That&apos;s
+              enough for a first conversation.
             </p>
           </div>
           <Link href="/contact" className="btn-primary shrink-0 gap-2">
-            Contact us
+            Talk to an engineer
             <ArrowRight className="size-4" aria-hidden="true" />
           </Link>
         </div>
@@ -80,14 +85,14 @@ export function Footer() {
 
       <div className="mx-auto max-w-7xl px-6">
         {/* Top row: brand + columns */}
-        <div className="grid gap-10 py-12 lg:grid-cols-[1.3fr_2.7fr]">
+        <div className="grid gap-10 py-14 lg:grid-cols-[1.3fr_2.7fr]">
           <div className="max-w-sm">
             <Link href="/" className="flex items-center">
               <Logo width={140} height={28} className="h-5 w-auto" />
             </Link>
             <p className="mt-4 text-sm leading-6 text-muted">
-              Open, standards-based autonomous mobile robots for industry and education.
-              Engineered in Pune, deployable worldwide.
+              Autonomous mobile robots on an open ROS&nbsp;2 stack, built for factories,
+              warehouses and classrooms. Designed and manufactured in Pune.
             </p>
             <div className="mt-6 space-y-2.5 text-sm text-muted">
               <a href="mailto:hello@momentumrobotics.in" className="flex items-center gap-2.5 transition-colors hover:text-foreground">
@@ -105,12 +110,12 @@ export function Footer() {
           </div>
 
           {/* Link columns */}
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:grid-cols-5">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
             {footerLinks.map((group) => (
               <div key={group.title}>
-                <h3 className="mb-4 text-xs font-semibold uppercase tracking-wider text-foreground">
+                <h3 className="label-mono mb-5 block">
                   {group.href ? (
-                    <Link href={group.href} className="transition-colors hover:text-primary">
+                    <Link href={group.href} className="transition-colors hover:text-foreground">
                       {group.title}
                     </Link>
                   ) : (
@@ -133,17 +138,29 @@ export function Footer() {
             ))}
           </div>
         </div>
+      </div>
 
-        {/* Bottom row: Copyright */}
-        <div className="py-6 border-t border-border flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-muted-foreground">
+      {/* Wordmark, half-sunk behind the meta rule */}
+      <div aria-hidden className="overflow-hidden border-t border-border">
+        <div className="mx-auto max-w-7xl px-6">
+          <span className="display block translate-y-[0.14em] whitespace-nowrap text-[clamp(3.5rem,13.5vw,11rem)] leading-none text-foreground/[0.05] select-none">
+            MOMENTUM
+          </span>
+        </div>
+      </div>
+
+      {/* Meta row */}
+      <div className="border-t border-border">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
+          <p className="label-mono">
             &copy; {new Date().getFullYear()} Momentum Robotics Pvt. Ltd.
           </p>
+          <span className="label-mono hidden md:block">Pune · 18.5204° N / 73.8567° E</span>
           <div className="flex gap-5">
-            <Link href="/privacy" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/privacy" className="label-mono transition-colors hover:text-foreground">
               Privacy
             </Link>
-            <Link href="/terms" className="text-xs text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/terms" className="label-mono transition-colors hover:text-foreground">
               Terms
             </Link>
           </div>
